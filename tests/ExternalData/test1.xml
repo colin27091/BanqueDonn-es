@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.7.0_151" class="java.beans.XMLDecoder">
+ <object class="ExternalData" id="ExternalData0">
+  <void class="ExternalData" method="getField">
+   <string>folderPath</string>
+   <void method="set">
+    <object idref="ExternalData0"/>
+    <string>/foo/bar/bleh</string>
+   </void>
+  </void>
+ </object>
+</java>
