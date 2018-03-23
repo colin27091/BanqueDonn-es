@@ -9,7 +9,7 @@ public class ImageTest {
 	
 	@Test
 	public void testFromFolder() throws Exception {
-		ArrayList<Image> imgs = Image.fromFolder(imagePath);
+		ArrayList<Pic> imgs = Pic.fromFolder(imagePath);
 		assertTrue(imgs.size() != 0);
 		System.out.println(imgs);
 		System.out.println(imgs.size());

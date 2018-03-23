@@ -21,8 +21,7 @@ public class Fenetre extends JFrame {
 
 	File[] images;
 	File repertoire;
-	JPanel
-	
+	JPanel panel1, panel2, panel3;
 
 	public Fenetre() {
 		this.setVisible(true);// construction de la frame
@@ -37,42 +36,37 @@ public class Fenetre extends JFrame {
 			}
 		});
 
-		JPanel panel1 = new JPanel(); // panel1 bandeau du haut
-		panel1.setBounds(0, 0, this.getWidth(), this.getHeight() / 15);
-		panel1.setBackground(Color.orange);
-		panel1.setLayout(null);
+		this.panel1 = new JPanel(); // panel1 bandeau du haut
+		this.panel1.setBounds(0, 0, this.getWidth(), this.getHeight() / 15);
+		this.panel1.setBackground(Color.orange);
+		this.panel1.setLayout(null);
 
-		JPanel panel2 = new JPanel(); // panel2 bandeau cote
-		panel2.setBounds(0, this.getHeight() / 15, this.getWidth() / 5, this.getHeight());
-		panel2.setBackground(Color.blue);
-		panel2.setLayout(null);
+		this.panel2 = new JPanel(); // panel2 bandeau cote
+		this.panel2.setBounds(0, this.getHeight() / 15, this.getWidth() / 5, this.getHeight());
+		this.panel2.setBackground(Color.blue);
+		this.panel2.setLayout(null);
 
-		JPanel panel3 = new JPanel(); // panel3 panel central (contenant les
-										// image)
-		panel3.setBounds(this.getWidth() / 5, this.getHeight() / 15, this.getWidth() - this.getWidth() / 5,
+		this.panel3 = new JPanel(); // panel3 panel central (contenant les
+									// image)
+		this.panel3.setBounds(this.getWidth() / 5, this.getHeight() / 15, this.getWidth() - this.getWidth() / 5,
 				this.getHeight() - this.getHeight() / 15);
-		panel3.setBackground(Color.gray);
-		panel3.setLayout(null);
+		this.panel3.setBackground(Color.gray);
+		this.panel3.setLayout(null);
 
 		this.repertoire = new File("/home/cregourd/Documents/projetjava/images");
 		images = repertoire.listFiles();
 
 		JLabel label1 = new JLabel(new ImageIcon(images[0].toString()));
 
-		panel3.add(label1);
+		this.panel3.add(label1);
 
-		/*
-		 * for( int i = 0; i < images.length; i++){ this.setIconImage(new
-		 * ImageIcon(""")); }
-		 */
-
-		/*
-		 * this.add(panel1); this.add(panel2); this.add(panel3);
-		 */
+		
+		 this.add(this.panel1); this.add(this.panel2); this.add(this.panel3);
+		 
 
 	}
 
-	public void paint(Graphics g) {
+	public void paint(Graphics g)  {
 
 		Image img1 = ImageIO.read(images[0]);
 		g.drawImage(img1, 50, 50, panel3);

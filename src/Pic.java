@@ -5,21 +5,21 @@ import java.util.ArrayList;
  * Classe qui représente une image que le programme peut
  * afficher, modifier, etc.
  */
-public class Image {
+public class Pic {
 	String name;
-	String folder;
+	String path;
 	String extension;
 	
-	Image(String name, String folder, String extension) {
+	Pic(String name, String folder, String extension) {
 		this.name = name;
-		this.folder = folder;
+		this.path = folder;
 		this.extension = extension;
 	}
 	
 	public String toString() {
-		return String.format("{name: '%s', folder: '%s', extension: '%s'}",
+		return String.format("{name: '%s', path: '%s', extension: '%s'}",
 				this.name,
-				this.folder,
+				this.path,
 				this.extension);
 	}
 	
@@ -30,22 +30,22 @@ public class Image {
 
 	// récupère une liste d'Image à partir d'un dossier contenant
 	// des images
-	static ArrayList<Image> fromFolder(String path) throws Exception {
+	static ArrayList<Pic> fromFolder(String path) throws Exception {
 		File folder = new File(path);
 		File[] files = folder.listFiles();
 		if (files == null) {
 			throw new Exception("Folder given does not exit");
 		}
 		
-		ArrayList<Image> images = new ArrayList<Image>();
+		ArrayList<Pic> images = new ArrayList<Pic>();
 		for (File file : files) {
 			if (!file.isDirectory()) {
 				String name = file.getName();
 				String[] bits = name.split("\\.");
 				if (bits.length >= 2) {
 					String extension = bits[bits.length - 1];
-					if (extension.matches(Image.formats)){
-						images.add(new Image(name, path, extension));
+					if (extension.matches(Pic.formats)){
+						images.add(new Pic(name, file.getAbsolutePath(), extension));
 					}
 				}
 			}
