@@ -28,6 +28,8 @@ public class Image {
 	// liste temporaire
 	
 
+	// récupère une liste d'Image à partir d'un dossier contenant
+	// des images
 	static ArrayList<Image> fromFolder(String path) throws Exception {
 		File folder = new File(path);
 		File[] files = folder.listFiles();
