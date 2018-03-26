@@ -29,3 +29,13 @@ Application
 			
 			
 Nathanael j'ai vu que tu as ouvert le truc de JUnit mais il faut les faire les test unitaire ou pas 
+
+------------
+Nath: Qu'est-ce que tu entends par "ouvrir le truc de JUnit"? En tous les cas, les tests unitaires ont l'air de faire partie du barème. En général c'est bien d'en faire (lorsque c'est possible, que cela paraît utile, et que cela a un sens). C'est un bon moyen de vérifier que des changements quelconques n'ont pas cassé ce qui fonctionnait précédemment.
+
+Sinon j'ai vu que tu avais retiré le fichier main.java et que tu avais mis la fonction main dans Application. Je pense qu'à court terme ça ne pose pas de problème, d'ailleurs pour des raisons pratiques, tant qu'on n'a pas une version stable qui rassemble toutes les parties du programme, il vaut mieux avoir plusieurs fonctions main qui permettent de lancer les diverses parties du programme de manière séparée (en fait j'aurais préféré que tu ne supprime pas le fichier main.java qui contenait le code qui permettait de tester le modèle et le controlleur. Rien n'interdit d'avoir plus d'une fonction main dans un même projet).
+
+A long terme, je pense qu'il vaut mieux avoir un point de départ "réel/officiel" du programme indépendant de toute autre classe/fichier, même si par ailleurs on continue à utiliser d'autres fonctions main "pour nous" pour tester des sous-parties du programme que l'on développe. En l'état la fonction main qui reste est dans une classe exclusivement dédiée à la partie "vue", à mon sens cela fait double emploi et risque d'empirer les problèmes de conflits au niveau de GIT (sauf si elle est considérée comme une fonction main "pour nous" auquel cas il n'y avait pas besoin de supprimer la classe main précédente).
+
+Qu'en pensez-vous ?
+------------
