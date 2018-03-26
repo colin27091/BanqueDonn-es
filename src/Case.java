@@ -3,21 +3,20 @@ import java.awt.Graphics;
 public class Case {
 	
 	int x,y,largeur,longueur;
-	Image img;
+	Pic img;
 	
-	Grille(int x, int y, int largeur, int longueur){
+	Case(int x, int y, int largeur, int longueur){
 		this.x = x;
 		this.y = y;
 		this.largeur = largeur;
 		this.longueur = longueur;
 	}
 	
-	public void setImage(Image img){
+	public void setImage(Pic img){
 		this.img = img; 
 	}
 	
 	public void paint(Graphics g)  {
-		g.drawImage(img, arg1, arg2, arg3);
 	}
 	
 	

@@ -1,1 +1,31 @@
-Quentin .........
+Colin:
+
+Etat actuel de la frame:
+
+
+Application
+	|
+	|__VUE_BandeauHaut
+	|	|
+	|	|__parameter button
+	|	|
+	|	|__logo
+	|	|
+	|	|__button AJOUTER
+	|
+	|__VUE_BandeauLateral
+	|	|
+	|	|__filter
+	|	|
+	|	|__search
+	|	|
+	|	|__get path
+	|
+	|__VUE_BandeauCentral
+		|
+		|__use Case class
+			|
+			|__use Pic class	
+			
+			
+Nathanael j'ai vu que tu as ouvert le truc de JUnit mais il faut les faire les test unitaire ou pas 
