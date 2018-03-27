@@ -1,0 +1,3 @@
+Idées pour les versions suivantes:
+- en cas d'erreur, afficher une petite fenêtre d'erreur pour informer
+  l'utilisateur
