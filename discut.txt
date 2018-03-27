@@ -39,3 +39,13 @@ A long terme, je pense qu'il vaut mieux avoir un point de départ "réel/officie
 
 Qu'en pensez-vous ?
 ------------
+Nath: La fonction model.refresh() sera celle à appeler depuis le controlleur lorsque le bouton de rafraichissement sera cliqué par l'utilisateur.
+Je me suis fait deux fonction main temporaires dans Model.java pour tester le lien modèle-controlleur, et tester que la fenêtre se ferme bien lorsqu'on appuie sur la croix après avoir relié Application et Control avec addWindowListener.
+J'ai créé un fichier versions-suivantes.txt pour mettre toutes les idées d'améliorations que l'on pourra avoir pour les versions d'après celle qu'on sera en train de développer.
+J'ai créé une fonction statique dans Tools qui est un alias de System.out.println pour deux raisons:
+* le nom d'origine est beaucoup trop long
+* il est utile de faire passer les logs par cette fonction, ainsi si l'on veut cacher cet affichage on n'a qu'à commenter une ligne dans Tools.java au lieu de chercher tous les endroits où on aura utilisé System.out.println
+Je pense que c'est une bonne idée de limiter son usage au cas d'information sur le programme pour nous-même dans le cadre de son fonctionnement normal (eg: afficher "fin du programme" avant la fin du programme).
+Au contraire, par exemple, d'utiliser System.out.println pour des raisons de débuggage: afficher une variable pour savoir ce qui se passe dans le programme, durant le développement.
+On pourra en parler plus Vendredi :)
+------------- 

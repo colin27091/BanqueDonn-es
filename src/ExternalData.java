@@ -39,16 +39,15 @@ public class ExternalData implements Serializable {
 		FileInputStream fis = null;
 		BufferedInputStream bis = null;
 		XMLDecoder decoder = null;
-		try {
-			fis = new FileInputStream(file);
-			bis = new BufferedInputStream(fis);
-			decoder = new XMLDecoder(bis);
-			extdata = (ExternalData)decoder.readObject();
-		} finally {
-			decoder.close();
-			bis.close();
-			fis.close();
-		}
+		
+		fis = new FileInputStream(file);
+		bis = new BufferedInputStream(fis);
+		decoder = new XMLDecoder(bis);
+		extdata = (ExternalData)decoder.readObject();
+		decoder.close();
+		bis.close();
+		fis.close();
+		
 		return extdata;
 	}
 	
@@ -57,20 +56,17 @@ public class ExternalData implements Serializable {
 		FileOutputStream fos = null;
 		BufferedOutputStream bos = null;
 		XMLEncoder encoder = null;
-		try {
-			fos = new FileOutputStream(file);
-			bos = new BufferedOutputStream(fos);
-			encoder = new XMLEncoder(bos);
-			
-			encoder.writeObject(this);
-		} catch (IOException ioe) {
-			ioe.printStackTrace();
-		} finally {
-			encoder.flush();
-			encoder.close();
-			bos.close();
-			fos.close();
-		}
+
+		fos = new FileOutputStream(file);
+		bos = new BufferedOutputStream(fos);
+		encoder = new XMLEncoder(bos);
+		
+		encoder.writeObject(this);
+		
+		encoder.flush();
+		encoder.close();
+		bos.close();
+		fos.close();
 	}
 
 }
