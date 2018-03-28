@@ -36,12 +36,15 @@ public class Control implements WindowListener {
 
 	@Override
 	public void windowClosing(WindowEvent arg0) {
+		Tools.log("tentative sauvegarde données externes:");
 		try {
 			this.saveExternalData();
+			Tools.log("- succès!");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		Tools.log("fin du programme");
 		System.exit(0);
 	}
 

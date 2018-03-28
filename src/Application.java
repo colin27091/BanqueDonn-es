@@ -32,11 +32,6 @@ public class Application extends JFrame {
 	public static void main(String[] args) {
 		Application app = new Application();
 		System.out.println(app.getSize());
-		//System.out.println("projet java");
-		//String configFile = "config.xml";
-		//Control control = new Control(configFile);
-		//Model model = new Model(control);
-
 	}
 
 }

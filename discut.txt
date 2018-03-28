@@ -29,3 +29,23 @@ Application
 			
 			
 Nathanael j'ai vu que tu as ouvert le truc de JUnit mais il faut les faire les test unitaire ou pas 
+
+------------
+Nath: Qu'est-ce que tu entends par "ouvrir le truc de JUnit"? En tous les cas, les tests unitaires ont l'air de faire partie du barème. En général c'est bien d'en faire (lorsque c'est possible, que cela paraît utile, et que cela a un sens). C'est un bon moyen de vérifier que des changements quelconques n'ont pas cassé ce qui fonctionnait précédemment.
+
+Sinon j'ai vu que tu avais retiré le fichier main.java et que tu avais mis la fonction main dans Application. Je pense qu'à court terme ça ne pose pas de problème, d'ailleurs pour des raisons pratiques, tant qu'on n'a pas une version stable qui rassemble toutes les parties du programme, il vaut mieux avoir plusieurs fonctions main qui permettent de lancer les diverses parties du programme de manière séparée (en fait j'aurais préféré que tu ne supprime pas le fichier main.java qui contenait le code qui permettait de tester le modèle et le controlleur. Rien n'interdit d'avoir plus d'une fonction main dans un même projet).
+
+A long terme, je pense qu'il vaut mieux avoir un point de départ "réel/officiel" du programme indépendant de toute autre classe/fichier, même si par ailleurs on continue à utiliser d'autres fonctions main "pour nous" pour tester des sous-parties du programme que l'on développe. En l'état la fonction main qui reste est dans une classe exclusivement dédiée à la partie "vue", à mon sens cela fait double emploi et risque d'empirer les problèmes de conflits au niveau de GIT (sauf si elle est considérée comme une fonction main "pour nous" auquel cas il n'y avait pas besoin de supprimer la classe main précédente).
+
+Qu'en pensez-vous ?
+------------
+Nath: La fonction model.refresh() sera celle à appeler depuis le controlleur lorsque le bouton de rafraichissement sera cliqué par l'utilisateur.
+Je me suis fait deux fonction main temporaires dans Model.java pour tester le lien modèle-controlleur, et tester que la fenêtre se ferme bien lorsqu'on appuie sur la croix après avoir relié Application et Control avec addWindowListener.
+J'ai créé un fichier versions-suivantes.txt pour mettre toutes les idées d'améliorations que l'on pourra avoir pour les versions d'après celle qu'on sera en train de développer.
+J'ai créé une fonction statique dans Tools qui est un alias de System.out.println pour deux raisons:
+* le nom d'origine est beaucoup trop long
+* il est utile de faire passer les logs par cette fonction, ainsi si l'on veut cacher cet affichage on n'a qu'à commenter une ligne dans Tools.java au lieu de chercher tous les endroits où on aura utilisé System.out.println
+Je pense que c'est une bonne idée de limiter son usage au cas d'information sur le programme pour nous-même dans le cadre de son fonctionnement normal (eg: afficher "fin du programme" avant la fin du programme).
+Au contraire, par exemple, d'utiliser System.out.println pour des raisons de débuggage: afficher une variable pour savoir ce qui se passe dans le programme, durant le développement.
+On pourra en parler plus Vendredi :)
+------------- 

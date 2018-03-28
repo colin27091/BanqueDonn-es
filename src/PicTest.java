@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
-public class ImageTest {
+public class PicTest {
 	String imagePath = "images/";
 	
 	@Test

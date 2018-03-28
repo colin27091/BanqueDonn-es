@@ -2,4 +2,4 @@
 - fichier de configuration contenant le chemin
 - affichage
 - rafraichir
-- l'application peut quitter+
+- l'application peut quitter
