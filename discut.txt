@@ -48,4 +48,5 @@ J'ai créé une fonction statique dans Tools qui est un alias de System.out.prin
 Je pense que c'est une bonne idée de limiter son usage au cas d'information sur le programme pour nous-même dans le cadre de son fonctionnement normal (eg: afficher "fin du programme" avant la fin du programme).
 Au contraire, par exemple, d'utiliser System.out.println pour des raisons de débuggage: afficher une variable pour savoir ce qui se passe dans le programme, durant le développement.
 On pourra en parler plus Vendredi :)
+
 ------------- 

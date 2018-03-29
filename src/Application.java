@@ -31,10 +31,12 @@ public class Application extends JFrame {
 		this.setVisible(true);
 		this.setTitle("Application");
 		this.setLayout(new BorderLayout());
-	
+		
 		this.add(new VUE_BandeauHaut(), BorderLayout.NORTH);
 		this.add(new VUE_BandeauLateral(), BorderLayout.WEST);
 		this.add(new VUE_BandeauCentral());
+		
+		
 		this.pack();
 		
 	}
