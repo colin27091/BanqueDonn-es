@@ -48,5 +48,11 @@ J'ai créé une fonction statique dans Tools qui est un alias de System.out.prin
 Je pense que c'est une bonne idée de limiter son usage au cas d'information sur le programme pour nous-même dans le cadre de son fonctionnement normal (eg: afficher "fin du programme" avant la fin du programme).
 Au contraire, par exemple, d'utiliser System.out.println pour des raisons de débuggage: afficher une variable pour savoir ce qui se passe dans le programme, durant le développement.
 On pourra en parler plus Vendredi :)
-
-------------- 
+-------------
+Nath: Je ne pense pas que ce soit une bonne idée de dessiner du texte avec les fonctions g.drawString et de placer tous les éléments du panneau latéral à des tailles fixes. La manière plus souple (et plus simple) en général est de créer des éléments Label (il doit y avoir une classe de widgets pour afficher du texte), et de gérer la position de tous les éléments du Panel à l'aide d'un layout qui gère la position des éléments de manière automatique.
+Un inconvénient immédiat de préciser la position absolue de chaque élément (en plus du fait que c'est dix fois plus dur) c'est que si l'utilisateur redimentionne la fenêtre, le panel n'en tient pas compte et très vite on n'y voit plus rien.
+Egalement apparemment colin tu as eu des problèmes avec GIT qui ont provoqués la création de commits "merge". Est-ce que c'est parce que tu faisais des commits avant de récupérer ce qui avait été fait auparavant? Il faudrait qu'on en parle (de vive voix), c'est un peu gênant. En tous les cas, pensez vraiment à récupérer tout ce qui peut avoir été fait par les autres *avant* de faire des commits (même en local, càd même avant de pusher). L'idéal c'est de ne commencer à travailler qu'après avoir récupéré ce que les autres ont fait.
+Sinon, apparemment vous n'êtes pas là (en "cours" le vendredi aprèm). Ce serait bien que vous me préveniez en général, pour que je sache si ça vaut le coup de moi venir.
+Qui plus est, si vous n'êtes pas là et que vous ne participez pas à la discussion dans ce fichier, on va avoir du mal à travailler ensemble... Dans l'idéal ça serait vraiment bien qu'on puisse se parler de vive voix chaque semaine : écrire tout ce que je pourrais vouloir vous dire c'est assez chiant.
+Tenez-moi au courant pour la suite.
+------------

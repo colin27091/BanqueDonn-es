@@ -6,21 +6,37 @@ import java.util.ArrayList;
  * afficher, modifier, etc.
  */
 public class Pic {
+	Integer id;
 	String name;
-	String path;
+	File file;
 	String extension;
 	
-	Pic(String name, String folder, String extension) {
+	Pic(Integer id, String name, File file, String extension) {
+		this.id = id;
 		this.name = name;
-		this.path = folder;
+		this.file = file;
 		this.extension = extension;
 	}
 	
 	public String toString() {
-		return String.format("{name: '%s', path: '%s', extension: '%s'}",
+		return String.format("{id: '%s', name: '%s', path: '%s', extension: '%s'}",
+				this.id,
 				this.name,
-				this.path,
+				this.file.getAbsolutePath(),
 				this.extension);
+	}
+	
+	// gotta check the values given to that function to forbid several characters
+	public boolean rename(String newName) {
+		boolean ans = this.file.renameTo(
+				new File(this.file.getParentFile().getAbsolutePath() + "/" + newName));
+		// $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+		return ans;
+	}
+	
+	public boolean delete() {
+		boolean ans = this.file.delete();
+		return ans;
 	}
 	
 	static String formats = "png|jpeg|jpg|bmp|gif|tiff";
@@ -38,6 +54,7 @@ public class Pic {
 		}
 		
 		ArrayList<Pic> images = new ArrayList<Pic>();
+		Integer id = 0;
 		for (File file : files) {
 			if (!file.isDirectory()) {
 				String name = file.getName();
@@ -45,13 +62,12 @@ public class Pic {
 				if (bits.length >= 2) {
 					String extension = bits[bits.length - 1];
 					if (extension.matches(Pic.formats)){
-						images.add(new Pic(name, file.getAbsolutePath(), extension));
+						id++;
+						images.add(new Pic(id, name, file, extension));
 					}
 				}
 			}
 		}
 		return images;
 	}
-	
-
 }
