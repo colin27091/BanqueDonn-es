@@ -56,3 +56,6 @@ Sinon, apparemment vous n'êtes pas là (en "cours" le vendredi aprèm). Ce sera
 Qui plus est, si vous n'êtes pas là et que vous ne participez pas à la discussion dans ce fichier, on va avoir du mal à travailler ensemble... Dans l'idéal ça serait vraiment bien qu'on puisse se parler de vive voix chaque semaine : écrire tout ce que je pourrais vouloir vous dire c'est assez chiant.
 Tenez-moi au courant pour la suite.
 ------------
+Colin:Oué desolé de pas t'avoir prevenu plus tôt, normalement ça arrivera plus tkt.J'ai regardé ce que tu avais fait et j'aimerais juste savoir a quoi sert la classe Bag et je ferais passer à quentin le message a propos de la Frame et des Panels 
+
+
