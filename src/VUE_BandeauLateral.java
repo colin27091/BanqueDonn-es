@@ -6,6 +6,7 @@ import java.util.Observable;
 import java.util.Observer;
 
 import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
@@ -14,9 +15,13 @@ public class VUE_BandeauLateral extends JPanel implements Observer{
 	String[] couleurs= {"rouge", "bleu", "vert", "noir" , "blanc" };
 	String[] tailles = {"petite image", "image moyenne" , " grande image"};
 	String[] themes = {"..."};
+	
 	VUE_BandeauLateral(){
 		super();
-		JButton AddImage = new JButton("Ajouter une image");
+		ImageIcon back = new ImageIcon("projetjava/AjouterImage_Background.gif");
+		JButton AddImage = new JButton("Ajouter une image", back);
+		AddImage.setBackground(new Color(51,204,255));
+		AddImage.setForeground(Color.WHITE);
 		JComboBox liste_couleurs = new JComboBox(couleurs);
 		JComboBox liste_tailles = new JComboBox(tailles);
 		JComboBox liste_themes = new JComboBox(themes);
@@ -29,7 +34,6 @@ public class VUE_BandeauLateral extends JPanel implements Observer{
 		this.add(liste_couleurs);
 		this.add(liste_tailles);
 		this.add(liste_themes);
-		
 		
 		liste_couleurs.setPreferredSize(new Dimension(100, 20));
 		liste_tailles.setPreferredSize(new Dimension(100, 20));
