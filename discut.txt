@@ -58,4 +58,6 @@ Tenez-moi au courant pour la suite.
 ------------
 Colin:Oué desolé de pas t'avoir prevenu plus tôt, normalement ça arrivera plus tkt.J'ai regardé ce que tu avais fait et j'aimerais juste savoir a quoi sert la classe Bag et je ferais passer à quentin le message a propos de la Frame et des Panels 
 
+----------------------------
+Quentin : POur l'intercface graphique je vais essayé de l'améliorer oui et de rendre tout ça plus propre. J'essayé surtout de voir ce qu'on pouvait faire avec Swing. Je pensais aussi ajouter une boite de dialogue qui s'affiche apres l'ajout d'une image par exemple . Qu'est ce que vous en pensez  ?
 
