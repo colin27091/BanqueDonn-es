@@ -63,3 +63,9 @@ Quentin : POur l'intercface graphique je vais essayé de l'améliorer oui et de 
 
 ---------------------------------- 
 Colin : Pour le choix du path faut se servir de JFileChooser et ressortir les chemins saisi, pareil pour les fchiers a selectionner pour AJOUT FICHIER, on peut filtrer les saisi et les formats possibles
+
+----------------------
+Nath: Je ne suis pas sûr de vous suivre, pourriez vous être plus explicites sur les boîtes de dialogues et le filtrage des saisies ? Sinon, on en parlera de vive voix.
+En tous les cas, la classe Bag (qui signifie "sac" en anglais, surtout pour le jeu de mot) c'est comme un Tag mais sans nom, anonyme: l'idée ce serait de l'utiliser pour contenir les résultats de recherche/tri : si l'utilisateur sélectionne plusieurs tags, et veut voir les images qui sont contenus dans tous ces tags (une intersection des différents ensembles de photos), ça pourrait être la classe qui contiendrait le résultat. Comme vous avez pu le voir, la classe Tag hérite de la classe Bag, parce qu'après tout, un tag n'est rien d'autre qu'un groupe d'image avec un nom ("label"). Mais il faudra qu'on en parle plus pour décider de comment on gèrera tout ça, ça n'était qu'une esquisse pour essayer une idée.
+
+Cela dit pour l'instant je pense qu'il faudrait d'abord terminer la V1... J'ai avancé là dessus vendredi parce qu'on n'a pas pu discuter et parce que je ne peux pas faire grand chose de plus pour la V1, mais ça serait bien qu'on prévoit la suite, et pour cela je pense qu'il serait bien que l'on ait fini la v1 d'abord, avant de prévoir les panels et l'ajout d'images etc...
