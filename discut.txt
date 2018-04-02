@@ -61,3 +61,5 @@ Colin:Oué desolé de pas t'avoir prevenu plus tôt, normalement ça arrivera pl
 ----------------------------
 Quentin : POur l'intercface graphique je vais essayé de l'améliorer oui et de rendre tout ça plus propre. J'essayé surtout de voir ce qu'on pouvait faire avec Swing. Je pensais aussi ajouter une boite de dialogue qui s'affiche apres l'ajout d'une image par exemple . Qu'est ce que vous en pensez  ?
 
+---------------------------------- 
+Colin : Pour le choix du path faut se servir de JFileChooser et ressortir les chemins saisi, pareil pour les fchiers a selectionner pour AJOUT FICHIER, on peut filtrer les saisi et les formats possibles
