@@ -1,20 +1,16 @@
 import java.awt.Graphics;
 
-public class Case {
+import javax.swing.JComponent;
+
+public class Case extends JComponent{
 	
-	int x,y,largeur,longueur;
-	Pic img;
+	Pic picture;
 	
-	Case(int x, int y, int largeur, int longueur){
-		this.x = x;
-		this.y = y;
-		this.largeur = largeur;
-		this.longueur = longueur;
+	
+	Case(Pic picture){
+		this.picture = picture;
 	}
 	
-	public void setImage(Pic img){
-		this.img = img; 
-	}
 	
 	public void paint(Graphics g)  {
 	}
