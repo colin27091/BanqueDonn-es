@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Iterator;
 
 public class Tag extends HashSet<Pic> {
 	String name;
@@ -10,14 +11,18 @@ public class Tag extends HashSet<Pic> {
 	
 	Tag() {
 		super();
-		this.anonymous = true;
+		this.setName(null);
 	}
 	
 	Tag(String name, TagType type) {
 		super();
-		this.anonymous = false;
-		this.name = name;
+		this.setName(name);
 		this.type = type;
+	}
+	
+	void setName(String name) {
+		this.name = name;
+		this.anonymous = (name == null);
 	}
 
 	static Tag smallest(ArrayList<Tag> tags) {
@@ -51,7 +56,11 @@ public class Tag extends HashSet<Pic> {
 	}
 
 	private static Tag copy(Tag tag) {
-		// TODO Auto-generated method stub
-		return null;
+		Tag r = new Tag();
+		Iterator<Pic> it = tag.iterator();
+		while (it.hasNext()) {
+			r.add(it.next());
+		}
+		return r;
 	}
 }

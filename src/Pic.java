@@ -70,4 +70,11 @@ public class Pic {
 		}
 		return images;
 	}
+	
+	public Tag toNegativeTag() {
+		Tag r = new Tag();
+		r.add(this);
+		r.negative = true;
+		return r;
+	}
 }

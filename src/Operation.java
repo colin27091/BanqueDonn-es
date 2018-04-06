@@ -13,20 +13,20 @@ public class Operation {
 	}
 	
 	@SuppressWarnings("unchecked")
-	Tag result() {
-		ArrayList<Tag> positiveBags = (ArrayList<Tag>)this.positive.clone();
-		ArrayList<Tag> negativeBags = (ArrayList<Tag>)this.negative.clone();
-		Tag inter = Tag.smallest(positiveBags);
-		positiveBags.remove(inter);
-		while (!positiveBags.isEmpty()) {
-			Tag other = Tag.smallest(positiveBags);
+	Tag compute() {
+		ArrayList<Tag> positiveTags = (ArrayList<Tag>)this.positive.clone();
+		ArrayList<Tag> negativeTags = (ArrayList<Tag>)this.negative.clone();
+		Tag inter = Tag.smallest(positiveTags);
+		positiveTags.remove(inter);
+		while (!positiveTags.isEmpty()) {
+			Tag other = Tag.smallest(positiveTags);
 			inter.retainAll(other);
-			positiveBags.remove(other);
+			positiveTags.remove(other);
 		}
-		while (!negativeBags.isEmpty()) {
-			Tag other = Tag.biggest(negativeBags);
+		while (!negativeTags.isEmpty()) {
+			Tag other = Tag.biggest(negativeTags);
 			inter.removeAll(other);
-			negativeBags.remove(other);
+			negativeTags.remove(other);
 		}
 		return inter;
 	}

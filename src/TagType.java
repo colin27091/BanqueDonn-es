@@ -11,13 +11,16 @@ public class TagType extends HashMap<String, Tag> {
 		//this.unicity = unicity;
 	}
 	
-	// Retoure true si l'ajout est possible et effectué,
-	// càd si il n'y a pas déjà de tags de ce nom pour ce TagType.
+	// Retourne true si l'ajout est possible et donc réalisé,
+	// càd si il n'y a pas déjà de tags de ce nom dans ce TagType.
 	boolean addTag(Tag newTag, String name) {
+		if (name == null) {
+			return false;
+		}
 		if (this.containsKey(name)) {
 			return false;
 		}
-		newTag.name = name;
+		newTag.setName(name);
 		this.put(name, newTag);
 		return true;
 	}
