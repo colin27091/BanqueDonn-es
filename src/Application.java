@@ -75,7 +75,12 @@ public class Application extends JFrame {
 
 class BandeauCentral extends JPanel{
 	public BandeauCentral() {
-		this.add(new JLabel(new ImageIcon("images/3d_file.png")));
+		File images = new File("images");
+		String[] taille_repertoire = images.list();
+		for(int i=0; i<taille_repertoire.length; i++) {
+			this.add(new JLabel(new ImageIcon("images/"+taille_repertoire[i])));
+			System.out.println(taille_repertoire[i]);
+		}
 	}
 	
 }
@@ -117,8 +122,6 @@ class BandeauLateral extends JPanel{
 		/*Contient les bouton de recherche*/
 		
 		
-		
-		this.add(new JLabel(new ImageIcon("images/3d_file.png")));
 	}
 
 	
