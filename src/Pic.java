@@ -8,41 +8,49 @@ import javax.swing.ImageIcon;
  * afficher, modifier, etc.
  */
 public class Pic {
-	ImageIcon image;
+	Integer id;
 	String name;
 	File file;
 	String extension;
-
-	Pic(File file) {
-
+	
+	Pic(Integer id, String name, File file, String extension) {
+		this.id = id;
+		this.name = name;
 		this.file = file;
-		this.name = this.file.getName().split("\\.")[0];
-		this.extension = this.file.getName().split("\\.")[1];
-		this.image = new ImageIcon(this.file.getName());
+		this.extension = extension;
 	}
-
+	
+	public String toString() {
+		return String.format("{id: '%s', name: '%s', path: '%s', extension: '%s'}",
+				this.id,
+				this.name,
+				this.file.getAbsolutePath(),
+				this.extension);
+	}
+	
+	// gotta check the values given to that function to forbid several characters
+	public boolean rename(String newName) {
+		boolean ans = this.file.renameTo(
+				new File(this.file.getParentFile().getAbsolutePath() + "/" + newName));
+		// $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+		return ans;
+	}
+	
+	public boolean delete() {
+		boolean ans = this.file.delete();
+		return ans;
+	}
+	
+	static String formats = "png|jpeg|jpg|bmp|gif|tiff";
+	// ^ formats que le programme reconnaît
+	// liste temporaire
+	
 	String getName() {
 		return this.name;
 	}
 
 	String getExtension() {
 		return this.extension;
-	}
-
-	public String toString() {
-		return String.format("{id: '%s', name: '%s', path: '%s', extension: '%s'}", this.name,
-				this.file.getAbsolutePath(), this.extension);
-	}
-
-	// gotta check the values given to that function to forbid several characters
-	public boolean rename(String newName) {
-		boolean ans = this.file.renameTo(new File(this.file.getParentFile().getAbsolutePath() + "/" + newName));
-		return ans;
-	}
-
-	public boolean delete() {
-		boolean ans = this.file.delete();
-		return ans;
 	}
 
 	// récupère une liste d'Image à partir d'un dossier contenant
