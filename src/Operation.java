@@ -1,30 +1,30 @@
 import java.util.ArrayList;
 
 public class Operation {
-	ArrayList<Bag> positive;
-	ArrayList<Bag> negative;
-	Bag universe;
+	ArrayList<Tag> positive;
+	ArrayList<Tag> negative;
+	Tag universe;
 	
-	Operation(Bag universe) {
+	Operation(Tag universe) {
 		this.universe = universe;
-		this.positive = new ArrayList<Bag>();
+		this.positive = new ArrayList<Tag>();
 		this.positive.add(universe);
-		this.negative = new ArrayList<Bag>();
+		this.negative = new ArrayList<Tag>();
 	}
 	
 	@SuppressWarnings("unchecked")
-	Bag result() {
-		ArrayList<Bag> positiveBags = (ArrayList<Bag>)this.positive.clone();
-		ArrayList<Bag> negativeBags = (ArrayList<Bag>)this.negative.clone();
-		Bag inter = Bag.smallest(positiveBags);
+	Tag result() {
+		ArrayList<Tag> positiveBags = (ArrayList<Tag>)this.positive.clone();
+		ArrayList<Tag> negativeBags = (ArrayList<Tag>)this.negative.clone();
+		Tag inter = Tag.smallest(positiveBags);
 		positiveBags.remove(inter);
 		while (!positiveBags.isEmpty()) {
-			Bag other = Bag.smallest(positiveBags);
+			Tag other = Tag.smallest(positiveBags);
 			inter.retainAll(other);
 			positiveBags.remove(other);
 		}
 		while (!negativeBags.isEmpty()) {
-			Bag other = Bag.biggest(negativeBags);
+			Tag other = Tag.biggest(negativeBags);
 			inter.removeAll(other);
 			negativeBags.remove(other);
 		}
