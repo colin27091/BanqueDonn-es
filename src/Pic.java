@@ -12,12 +12,15 @@ public class Pic {
 	String name;
 	File file;
 	String extension;
+	ImageIcon image;
+	
 	
 	Pic(Integer id, String name, File file, String extension) {
 		this.id = id;
 		this.name = name;
 		this.file = file;
 		this.extension = extension;
+		this.image = new ImageIcon(this.name);
 	}
 	
 	public String toString() {
