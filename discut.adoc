@@ -1,8 +1,9 @@
-Colin:
+= Discussion du Projet
 
+== Colin
 Etat actuel de la frame:
 
-
+....
 Application
 	|
 	|__VUE_BandeauHaut
@@ -25,49 +26,80 @@ Application
 		|
 		|__use Case class
 			|
-			|__use Pic class	
-			
-			
-Nathanael j'ai vu que tu as ouvert le truc de JUnit mais il faut les faire les test unitaire ou pas 
+			|__use Pic class
+....
+Nathanael j'ai vu que tu as ouvert le truc de JUnit mais il faut les faire les test unitaire ou pas
 
-------------
-Nath: Qu'est-ce que tu entends par "ouvrir le truc de JUnit"? En tous les cas, les tests unitaires ont l'air de faire partie du barème. En général c'est bien d'en faire (lorsque c'est possible, que cela paraît utile, et que cela a un sens). C'est un bon moyen de vérifier que des changements quelconques n'ont pas cassé ce qui fonctionnait précédemment.
+= Nath
+
+Qu'est-ce que tu entends par "ouvrir le truc de JUnit"? En tous les cas, les tests unitaires ont l'air de faire partie du barème. En général c'est bien d'en faire (lorsque c'est possible, que cela paraît utile, et que cela a un sens). C'est un bon moyen de vérifier que des changements quelconques n'ont pas cassé ce qui fonctionnait précédemment.
 
 Sinon j'ai vu que tu avais retiré le fichier main.java et que tu avais mis la fonction main dans Application. Je pense qu'à court terme ça ne pose pas de problème, d'ailleurs pour des raisons pratiques, tant qu'on n'a pas une version stable qui rassemble toutes les parties du programme, il vaut mieux avoir plusieurs fonctions main qui permettent de lancer les diverses parties du programme de manière séparée (en fait j'aurais préféré que tu ne supprime pas le fichier main.java qui contenait le code qui permettait de tester le modèle et le controlleur. Rien n'interdit d'avoir plus d'une fonction main dans un même projet).
 
 A long terme, je pense qu'il vaut mieux avoir un point de départ "réel/officiel" du programme indépendant de toute autre classe/fichier, même si par ailleurs on continue à utiliser d'autres fonctions main "pour nous" pour tester des sous-parties du programme que l'on développe. En l'état la fonction main qui reste est dans une classe exclusivement dédiée à la partie "vue", à mon sens cela fait double emploi et risque d'empirer les problèmes de conflits au niveau de GIT (sauf si elle est considérée comme une fonction main "pour nous" auquel cas il n'y avait pas besoin de supprimer la classe main précédente).
 
 Qu'en pensez-vous ?
-------------
-Nath: La fonction model.refresh() sera celle à appeler depuis le controlleur lorsque le bouton de rafraichissement sera cliqué par l'utilisateur.
+
+== Nath
+
+La fonction model.refresh() sera celle à appeler depuis le controlleur lorsque le bouton de rafraichissement sera cliqué par l'utilisateur.
+
 Je me suis fait deux fonction main temporaires dans Model.java pour tester le lien modèle-controlleur, et tester que la fenêtre se ferme bien lorsqu'on appuie sur la croix après avoir relié Application et Control avec addWindowListener.
+
 J'ai créé un fichier versions-suivantes.txt pour mettre toutes les idées d'améliorations que l'on pourra avoir pour les versions d'après celle qu'on sera en train de développer.
+
 J'ai créé une fonction statique dans Tools qui est un alias de System.out.println pour deux raisons:
+
 * le nom d'origine est beaucoup trop long
 * il est utile de faire passer les logs par cette fonction, ainsi si l'on veut cacher cet affichage on n'a qu'à commenter une ligne dans Tools.java au lieu de chercher tous les endroits où on aura utilisé System.out.println
+*
 Je pense que c'est une bonne idée de limiter son usage au cas d'information sur le programme pour nous-même dans le cadre de son fonctionnement normal (eg: afficher "fin du programme" avant la fin du programme).
+
 Au contraire, par exemple, d'utiliser System.out.println pour des raisons de débuggage: afficher une variable pour savoir ce qui se passe dans le programme, durant le développement.
+
 On pourra en parler plus Vendredi :)
--------------
-Nath: Je ne pense pas que ce soit une bonne idée de dessiner du texte avec les fonctions g.drawString et de placer tous les éléments du panneau latéral à des tailles fixes. La manière plus souple (et plus simple) en général est de créer des éléments Label (il doit y avoir une classe de widgets pour afficher du texte), et de gérer la position de tous les éléments du Panel à l'aide d'un layout qui gère la position des éléments de manière automatique.
+
+== Nath
+
+Je ne pense pas que ce soit une bonne idée de dessiner du texte avec les fonctions g.drawString et de placer tous les éléments du panneau latéral à des tailles fixes. La manière plus souple (et plus simple) en général est de créer des éléments Label (il doit y avoir une classe de widgets pour afficher du texte), et de gérer la position de tous les éléments du Panel à l'aide d'un layout qui gère la position des éléments de manière automatique.
+
 Un inconvénient immédiat de préciser la position absolue de chaque élément (en plus du fait que c'est dix fois plus dur) c'est que si l'utilisateur redimentionne la fenêtre, le panel n'en tient pas compte et très vite on n'y voit plus rien.
+
 Egalement apparemment colin tu as eu des problèmes avec GIT qui ont provoqués la création de commits "merge". Est-ce que c'est parce que tu faisais des commits avant de récupérer ce qui avait été fait auparavant? Il faudrait qu'on en parle (de vive voix), c'est un peu gênant. En tous les cas, pensez vraiment à récupérer tout ce qui peut avoir été fait par les autres *avant* de faire des commits (même en local, càd même avant de pusher). L'idéal c'est de ne commencer à travailler qu'après avoir récupéré ce que les autres ont fait.
 Sinon, apparemment vous n'êtes pas là (en "cours" le vendredi aprèm). Ce serait bien que vous me préveniez en général, pour que je sache si ça vaut le coup de moi venir.
+
 Qui plus est, si vous n'êtes pas là et que vous ne participez pas à la discussion dans ce fichier, on va avoir du mal à travailler ensemble... Dans l'idéal ça serait vraiment bien qu'on puisse se parler de vive voix chaque semaine : écrire tout ce que je pourrais vouloir vous dire c'est assez chiant.
 Tenez-moi au courant pour la suite.
-------------
-Colin:Oué desolé de pas t'avoir prevenu plus tôt, normalement ça arrivera plus tkt.J'ai regardé ce que tu avais fait et j'aimerais juste savoir a quoi sert la classe Bag et je ferais passer à quentin le message a propos de la Frame et des Panels 
 
-----------------------------
-Quentin : POur l'intercface graphique je vais essayé de l'améliorer oui et de rendre tout ça plus propre. J'essayé surtout de voir ce qu'on pouvait faire avec Swing. Je pensais aussi ajouter une boite de dialogue qui s'affiche apres l'ajout d'une image par exemple . Qu'est ce que vous en pensez  ?
+== Colin
 
----------------------------------- 
-Colin : Pour le choix du path faut se servir de JFileChooser et ressortir les chemins saisi, pareil pour les fchiers a selectionner pour AJOUT FICHIER, on peut filtrer les saisi et les formats possibles
+Oué desolé de pas t'avoir prevenu plus tôt, normalement ça arrivera plus tkt.J'ai regardé ce que tu avais fait et j'aimerais juste savoir a quoi sert la classe Bag et je ferais passer à quentin le message a propos de la Frame et des Panels
 
-----------------------
-Nath: Je ne suis pas sûr de vous suivre, pourriez vous être plus explicites sur les boîtes de dialogues et le filtrage des saisies ? Sinon, on en parlera de vive voix.
-En tous les cas, la classe Bag (qui signifie "sac" en anglais, surtout pour le jeu de mot) c'est comme un Tag mais sans nom, anonyme: l'idée ce serait de l'utiliser pour contenir les résultats de recherche/tri : si l'utilisateur sélectionne plusieurs tags, et veut voir les images qui sont contenus dans tous ces tags (une intersection des différents ensembles de photos), ça pourrait être la classe qui contiendrait le résultat. Comme vous avez pu le voir, la classe Tag hérite de la classe Bag, parce qu'après tout, un tag n'est rien d'autre qu'un groupe d'image avec un nom ("label"). Mais il faudra qu'on en parle plus pour décider de comment on gèrera tout ça, ça n'était qu'une esquisse pour essayer une idée.
+== Quentin
+
+POur l'intercface graphique je vais essayé de l'améliorer oui et de rendre tout ça plus propre. J'essayé surtout de voir ce qu'on pouvait faire avec Swing. Je pensais aussi ajouter une boite de dialogue qui s'affiche apres l'ajout d'une image par exemple . Qu'est ce que vous en pensez  ?
+
+== Colin
+
+Pour le choix du path faut se servir de JFileChooser et ressortir les chemins saisi, pareil pour les fchiers a selectionner pour AJOUT FICHIER, on peut filtrer les saisi et les formats possibles
+
+
+== Nath
+
+Je ne suis pas sûr de vous suivre, pourriez vous être plus explicites sur les boîtes de dialogues et le filtrage des saisies ? Sinon, on en parlera de vive voix.
+
+En tous les cas, la classe Bag (qui signifie "sac" en anglais, surtout pour le jeu de mot) c'est comme un Tag mais sans nom, anonyme: l'idée ce serait de l'utiliser pour contenir les résultats de recherche/tri : si l'utilisateur sélectionne plusieurs tags, et veut voir les images qui sont contenus dans tous ces tags (une intersection des différents ensembles de photos), ça pourrait être la classe qui contiendrait le résultat.
+
+Comme vous avez pu le voir, la classe Tag hérite de la classe Bag, parce qu'après tout, un tag n'est rien d'autre qu'un groupe d'image avec un nom ("label"). Mais il faudra qu'on en parle plus pour décider de comment on gèrera tout ça, ça n'était qu'une esquisse pour essayer une idée.
 
 Cela dit pour l'instant je pense qu'il faudrait d'abord terminer la V1... J'ai avancé là dessus vendredi parce qu'on n'a pas pu discuter et parce que je ne peux pas faire grand chose de plus pour la V1, mais ça serait bien qu'on prévoit la suite, et pour cela je pense qu'il serait bien que l'on ait fini la v1 d'abord, avant de prévoir les panels et l'ajout d'images etc...
 
 PS: pourquoi avez-vous rajouté un fichier pour le logo de l'université ? Qu'est-ce que vous comptez en faire ?
+
+== Nath
+
+Je viens de modifier le format de ce fichier pour le rendre plus lisible. Normalement il devrait s'afficher avec une structure automatique dans github. Vous pouvez toujours le modifier comme n'importe quel fichier, il suffit de mettre == avant votre nom pour créer un titre.
+
+J'ai ajouté un fichier IdéesProjet.adoc pour proposer un certain nombre d'idées. (Le format de fichier est similaire à Markdown que vous connaissez peut-être; en théorie il devrait s'afficher de manière sympathique.) Il faudrait qu'on décide de manière définitive et précise ce que l'on fait, puisque dans deux semaines (à la fin des vacances) il faudrait avoir tout ou quasiment tout fini...
+
+@Colin: je ne comprends pas bien la fonction chooseFolder, qui est statique et ne concerne pas tellement le Controlleur (elle n'y fait pas référence du tout), et qui contient un copié-collé de la fonction Pic.fromFolder, avec basiquement le même résultat de sortie...
