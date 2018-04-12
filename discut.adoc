@@ -30,7 +30,7 @@ Application
 ....
 Nathanael j'ai vu que tu as ouvert le truc de JUnit mais il faut les faire les test unitaire ou pas
 
-= Nath
+== Nath
 
 Qu'est-ce que tu entends par "ouvrir le truc de JUnit"? En tous les cas, les tests unitaires ont l'air de faire partie du barème. En général c'est bien d'en faire (lorsque c'est possible, que cela paraît utile, et que cela a un sens). C'est un bon moyen de vérifier que des changements quelconques n'ont pas cassé ce qui fonctionnait précédemment.
 
