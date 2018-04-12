@@ -1,0 +1,79 @@
+= Projet Banque d'Images: Idée de Plan
+
+== Terminologie et Définitions Générales
+
+Juste pour qu'on parle tous de la même chose. :)
+
+- Tag: ensemble d'images, avec une valeur. Exemple: "Grande Taille", "01/01/2017", "Tortue", "12". Deux tags peuvent contenir la même image, une image peut donc être dans plusieurs tags.
+- TagType: liste de tags. Exemple: "Taille", "Sujet", "Date de création", "Etoiles" (rating). Un seul TagType par tag : deux tags de même valeur sont donc différentiés par leur TagType. Exemple : deux tags "3", l'un dans "Etoiles", l'autre dans "Taille".
+- Images *filtrées* : les images résultant du filtrage fait par l'utilisateur, qui répondent aux critères d'appartenance à divers tags.
+- Images *affichées* : images visibles à un instant donné. Exemple, en mode diaporama, une seule Image affichée.
+
+== Interface Utilisateur (description générale)
+
+Quatre zones principales : au Nord, Sud, au Centre et à Gauche.
+
+=== Zone Nord
+
+- Menu principal : ou bien un simple bouton qui ouvre une liste déroulante, ou bien une barre de menu plus classique.
+- Liste des filtres : càd la liste des tags qui sont communs à toutes les images *filtrées*. Clic droit pour options sur les tags, icone pour retirer un tag de la liste des filtres. Bouton pour vider la liste des filtres d'un coup.
+- Options d'affichage : Mode Icone/Diaporama/Liste/Détails, Zooming
+- Options de Tri : liste des tags utilisés pour le tri : le premier tag sépare et ordonne les images *filtrées* en différents groupes, le second tag ordonne les images dans chacun de ces groupes, et ainsi de suite. Possibilité de réorganiser l'ordre de la liste de tri par glisser-déposer.
+
+=== Zone Gauche
+
+Contient la liste des tags, groupés par TagType, permet de rajouter des filtres, etc.
+
+- Champ de recherche : permet de filtrer la liste des tags/tagtypes qui se trouve en dessous (filtre autant la valeur des TagTypes que la valeur des Tags). Recherche automatique (ne nécessite pas de bouton "rechercher" pour l'utilisateur), bouton pour effacer le champ de recherche (et ainsi retirer tout filtrage, ce qui permet à l'utilisateur de retrouver la liste complète des tags).
+- Liste des TagType avec expansion en sous-listes de Tags pour chacun d'entre eux. Nombre d'éléments en commun avec la liste d'images *filtrées*. Double clic pour ajouter à la liste des filtres. Clic droit pour plus d'options : filtrer en mode négatif (càd retirer de l'affichage toutes les images qui sont dans ce tag) supprimer tag, renommer tag, déplacer tag dans un autre TagType, ajouter tag à toutes les images *filtrées*, etc.
+
+=== Zone Centrale
+
+Là où sont affichées les images. Différents modes d'affichages (cf Zone Nord), avec plus ou moins d'infos visibles selon les cas.
+
+- Clic droit sur image pour liste d'actions (renommer, supprimer, éditer la liste des tags de cette image, etc)
+- Bouton pour filtrer une image (la retirer de la liste des images visibles).
+- Double clic --> mode diaporama (une seule image *affichée* en taille maximale)
+
+=== Zone Sud
+
+Cette zone pourrait être au Nord... A voir
+
+- Deux flèches-boutons, à gauche et à droite, pour afficher la page précédente/suivante des images.
+- Nombre d'images totales, Nombre d'images filtrées (dans le résultat du filtrage).
+- En mode Diaporama : liste horizontales (par mini-vignettes) des images avant et après celle *affichée* (avec scrolling peut-être).
+
+
+== Menu Général
+
+Actions que l'on pourrait proposer :
+
+- Ajouter un dossier dans la liste des répertoires explorés, retirer un dossier de cette liste.
+- Sauvegarder la config
+- Sauvegarder la config dans un fichier externe
+- Relancer l'app avec une nouvelle config à partir d'un fichier
+- Liste des fichiers de config récemment utilisés ?
+- Synchroniser avec l'état réel des répertoires
+
+== Tags
+
+Actions que l'on pourrait proposer :
+
+- Création d'un tag (ajout dans la config/le model)
+- Suppression d'un tag (ne supprime aucune image)
+- Renommage d'un tag
+
+- Fonction pour créer le lien pic-tag pour chaque tag automatique (tag de dimensions (taille en px) d'images, de nom, date de modification, taille en octets, etc). A appeler sur toutes les images à chaque fois qu'une syncronisation est effectuée.
+- Filtrage : prends une liste de tags, retourne la liste des images *filtrées* qui remplissent les conditions d'appartenance de la liste.
+- Triage : prends une liste de tags et une liste d'images (celles *filtrées*), retourne la liste triée selon l'appartenance aux tags. Ordre de tri (cas croissant): "alphabétique", sauf lorsque les valeurs sont clairement numériques, auxquelles cas, ordre croissant de valeurs numériques (qui ne correspond pas du tout à l'ordre alphabétique, pour lequel 100 < 9 puisque 1 < 9).
+- Tag "Corbeille" ?
+
+== Pics
+
+Actions que l'on pourrait proposer pour chaque image :
+
+- Affichage isolé (en grand) (probablement double emploi avec le mode Diaporama)
+- Renommer/Supprimer ("pour de vrai")
+- Modifier les métadonnées (celles enregistrés à l'intérieur du fichier) ?
+- Ajouter/Supprimer un tag à l'image: peut-être cela mérite-t-il une fenêtre à part entière càd une fenêtre d'édition des tags d'une image.
+- (Re)Syncroniser les tags automatiquement générés (pour une seule image)
