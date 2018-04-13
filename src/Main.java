@@ -5,7 +5,7 @@ public class Main {
 
 	public static void main(String[] args) throws IOException{
 		Application app = new Application();
-		Model model = new Model();
+		//Model model = new Model();
 		
 		
 	}
