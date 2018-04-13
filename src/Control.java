@@ -119,5 +119,12 @@ public class Control implements WindowListener {
 		this.folderPath = folder;
 		this.model.refresh();
 	}
+	
+	public static void main(String[] args) throws Exception {
+		Control control = new Control("./tests/Control/config.xml");
+		Model model = new Model(control);
+		control.chooseFolder();
+		System.out.println(model.images.toString());
+	}
 
 }
