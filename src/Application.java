@@ -10,6 +10,7 @@ import java.awt.event.MouseListener;
 import java.io.File;
 import java.io.IOException;
 import java.util.Observable;
+import java.util.Observer;
 
 import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
@@ -23,7 +24,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
 import javax.swing.border.EmptyBorder;
 
-public class Application extends JFrame {
+public class Application extends JFrame implements Observer {
 
 	File[] images;
 	File repertoire;
@@ -80,6 +81,13 @@ public class Application extends JFrame {
 	
 	public static void main(String[] args) {
 		Application app = new Application();
+	}
+
+
+	@Override
+	public void update(Observable arg0, Object arg1) {
+		//rafraichir la fenetre d'affichage
+		
 	}
 
 }

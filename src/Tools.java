@@ -10,11 +10,4 @@ public class Tools {
 		System.out.println(s);
 	}
 
-	static Hashtable triDateRecent(/*Dico dans modele*/) {
-		
-		return null; /*Nouveau Dico (tri de l'ancien) a mettre dans le modele*/
-	}
-	
-	/*Tous les tri seront dans tools*/
-
 }

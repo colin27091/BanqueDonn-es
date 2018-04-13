@@ -116,7 +116,7 @@ public class Control implements WindowListener {
 
 		File folder = homechooser.getSelectedFile();
 		// TODO: gérer le cas où le folder n'existe pas (bien qu'improbable il faut le gérer)
-		this.folderPath = folder;
+		this.model.folderPath = folder;
 		this.model.refresh();
 	}
 

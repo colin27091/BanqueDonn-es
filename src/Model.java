@@ -5,6 +5,7 @@ import java.util.Observable;
 public class Model extends Observable{ 
 	ArrayList<Pic> images;
 	Control control;
+	File folderPath;
 	
 	Model(Control control) {
 		this.control = control;
@@ -12,7 +13,7 @@ public class Model extends Observable{
 	}
 	
 	void refresh() {
-		File[] files = this.control.folderPath.listFiles();
+		File[] files = this.folderPath.listFiles();
 		if (files == null) {
 			return;
 			// TODO: gérer le cas où le rafraichissement échoue car
