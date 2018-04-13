@@ -7,11 +7,13 @@ public class Model extends Observable{
 	Control control;
 	File folderPath;
 	
-	Model(Control control) {
-		this.control = control;
-		this.control.model = this;
-	}
 	
+	
+	public Model() {
+		// TODO Auto-generated constructor stub
+	}
+
+
 	void refresh() {
 		File[] files = this.folderPath.listFiles();
 		if (files == null) {
@@ -32,7 +34,7 @@ public class Model extends Observable{
 		ed.saveData(configFile);
 		// return;
 		Control control = new Control(configFile);
-		Model model = new Model(control);
+		Model model = new Model();
 		model.refresh();
 		System.out.println(model.images.size());
 	}
