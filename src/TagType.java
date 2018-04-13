@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 
 public class TagType extends HashMap<String, Tag> {
 	String name;
@@ -23,6 +24,20 @@ public class TagType extends HashMap<String, Tag> {
 		newTag.setName(name);
 		this.put(name, newTag);
 		return true;
+	}
+	
+	ArrayList<Pic> group(Tag pics) {
+		ArrayList<Pic> r = new ArrayList<Pic>();
+		//Collections.sort ...
+		Iterator<String> keysIter = this.keySet().iterator();
+		while (keysIter.hasNext()) {
+			Tag tag = this.get(keysIter.next());
+			Tag intersection = pics.inter(tag);
+			if (intersection.size() != 0) {
+				
+			}
+		}
+		return r;
 	}
 	
 	public static void main(String[] args) {
