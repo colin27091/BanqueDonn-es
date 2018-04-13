@@ -1,3 +1,4 @@
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Observable;
 
@@ -11,16 +12,14 @@ public class Model extends Observable{
 	}
 	
 	void refresh() {
-		try {
-			this.images = Pic.fromFolder(this.control.folderPath);
-			this.notifyObservers();
-		} catch (Exception e) {
-			// TODO créer une fenêtre pour informer
-			// l'utilisateur que refresh() a échoué
-			// (et pour un certain nombre d'autres problèmes
-			// du même genre)
-			e.printStackTrace();
+		File[] files = this.control.folderPath.listFiles();
+		if (files == null) {
+			return;
+			// TODO: gérer le cas où le rafraichissement échoue car
+			// le dossier n'est pas/plus accessible
 		}
+		this.images = Pic.fromFiles(files);
+		this.notifyObservers();
 	}
 	
 	// pour vérifier le lien modèle-controlleur

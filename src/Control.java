@@ -8,7 +8,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.filechooser.FileSystemView;
 
 public class Control implements WindowListener {
-	String folderPath;
+	File folderPath;
 	String configFile;
 	Model model;
 	Application app;
@@ -25,13 +25,13 @@ public class Control implements WindowListener {
 
 	void saveExternalData() throws Exception {
 		ExternalData ed = new ExternalData();
-		ed.folderPath = this.folderPath;
+		ed.folderPath = this.folderPath.getAbsolutePath();
 		ed.saveData(this.configFile);
 	}
 
 	void loadExternalData() throws Exception {
 		ExternalData ed = ExternalData.loadData(this.configFile);
-		this.folderPath = ed.folderPath;
+		this.folderPath = new File(ed.folderPath);
 	}
 
 	@Override
@@ -106,7 +106,7 @@ public class Control implements WindowListener {
 
 	}*/
 
-	static ArrayList<Pic> chooseFolder() {
+	void chooseFolder() {
 		FileSystemView vuesysteme = FileSystemView.getFileSystemView();
 		File home = vuesysteme.getHomeDirectory();
 		JFileChooser homechooser = new JFileChooser(home);
@@ -114,25 +114,10 @@ public class Control implements WindowListener {
 		homechooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
 		homechooser.showOpenDialog(null);
 
-		File[] files = homechooser.getSelectedFile().listFiles();/* Liste des fichiers dans le dossier selectionné */
-
-		ArrayList<Pic> images = new ArrayList<Pic>();
-		Integer id = 0;
-		for (File file : files) {
-			if (!file.isDirectory()) {
-				String name = file.getName();
-				String[] bits = name.split("\\.");
-				if (bits.length >= 2) {
-					String extension = bits[bits.length - 1];
-					if (extension.matches(Pic.formats)) {
-						id++;
-						images.add(new Pic(id, name, file, extension));
-					}
-				}
-			}
-		}
-		return images;
-
+		File folder = homechooser.getSelectedFile();
+		// TODO: gérer le cas où le folder n'existe pas (bien qu'improbable il faut le gérer)
+		this.folderPath = folder;
+		this.model.refresh();
 	}
 
 }

@@ -8,15 +8,13 @@ import javax.swing.ImageIcon;
  * afficher, modifier, etc.
  */
 public class Pic {
-	Integer id;
 	String name;
 	File file;
 	String extension;
 	ImageIcon image;
 	
 	
-	Pic(Integer id, String name, File file, String extension) {
-		this.id = id;
+	Pic(String name, File file, String extension) {
 		this.name = name;
 		this.file = file;
 		this.extension = extension;
@@ -24,8 +22,7 @@ public class Pic {
 	}
 	
 	public String toString() {
-		return String.format("{id: '%s', name: '%s', path: '%s', extension: '%s'}",
-				this.id,
+		return String.format("{name: '%s', path: '%s', extension: '%s'}",
 				this.name,
 				this.file.getAbsolutePath(),
 				this.extension);
@@ -56,17 +53,9 @@ public class Pic {
 		return this.extension;
 	}
 
-	// récupère une liste d'Image à partir d'un dossier contenant
-	// des images
-	static ArrayList<Pic> fromFolder(String path) throws Exception {
-		File folder = new File(path);
-		File[] files = folder.listFiles();
-		if (files == null) {
-			throw new Exception("Folder given does not exit");
-		}
-		
+	// récupère une liste d'Image à partir d'une liste de File[]
+	static ArrayList<Pic> fromFiles(File[] files) {
 		ArrayList<Pic> images = new ArrayList<Pic>();
-		Integer id = 0;
 		for (File file : files) {
 			if (!file.isDirectory()) {
 				String name = file.getName();
@@ -74,8 +63,7 @@ public class Pic {
 				if (bits.length >= 2) {
 					String extension = bits[bits.length - 1];
 					if (extension.matches(Pic.formats)){
-						id++;
-						images.add(new Pic(id, name, file, extension));
+						images.add(new Pic(name, file, extension));
 					}
 				}
 			}
