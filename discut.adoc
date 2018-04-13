@@ -103,3 +103,7 @@ Je viens de modifier le format de ce fichier pour le rendre plus lisible. Normal
 J'ai ajouté un fichier IdéesProjet.adoc pour proposer un certain nombre d'idées. (Le format de fichier est similaire à Markdown que vous connaissez peut-être; en théorie il devrait s'afficher de manière sympathique.) Il faudrait qu'on décide de manière définitive et précise ce que l'on fait, puisque dans deux semaines (à la fin des vacances) il faudrait avoir tout ou quasiment tout fini...
 
 @Colin: je ne comprends pas bien la fonction chooseFolder, qui est statique et ne concerne pas tellement le Controlleur (elle n'y fait pas référence du tout), et qui contient un copié-collé de la fonction Pic.fromFolder, avec basiquement le même résultat de sortie...
+
+== Nath
+
+J'ai créé une nouvelle branche "nath" pour simplifier le travail collaboratif. Si vous le sentez vous pouvez aussi créer une branche, ou plusieurs, selon vos besoin, ou bien vous pouvez rester dans la branche _master_.
