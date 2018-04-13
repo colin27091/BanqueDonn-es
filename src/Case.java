@@ -6,20 +6,22 @@ import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class Case extends JComponent {
+import javafx.stage.Stage;
+
+public class Case extends Application {
 
 	Pic picture;
 
 	Case(Pic picture) {
 		this.picture = picture;
 	}
+	
+	public static void main(String[] appfx) {
+		launch(appfx);
 
-	public void paint(Graphics g) {
 	}
-
-	public static void main(String[] args) {
-		new CanvasTest();
-
+	
+	public void start(Stage stage) {
 	}
 
 }
