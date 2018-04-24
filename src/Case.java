@@ -17,7 +17,7 @@ public class Case extends Application {
 	}
 	
 	public static void main(String[] appfx) {
-		launch(appfx);
+	
 
 	}
 	
