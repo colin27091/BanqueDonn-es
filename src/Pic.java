@@ -14,11 +14,11 @@ public class Pic {
 	ImageIcon image;
 	
 	
-	Pic(String name, File file, String extension) {
+	Pic(String name, File file, String extension, ImageIcon image) {
 		this.name = name;
 		this.file = file;
 		this.extension = extension;
-		this.image = new ImageIcon(this.name);
+		this.image = image;
 	}
 	
 	public String toString() {
@@ -54,22 +54,23 @@ public class Pic {
 	}
 
 	// récupère une liste d'Image à partir d'une liste de File[]
-	static ArrayList<Pic> fromFiles(File[] files) {
-		ArrayList<Pic> images = new ArrayList<Pic>();
-		for (File file : files) {
-			if (!file.isDirectory()) {
-				String name = file.getName();
-				String[] bits = name.split("\\.");
-				if (bits.length >= 2) {
-					String extension = bits[bits.length - 1];
-					if (extension.matches(Pic.formats)){
-						images.add(new Pic(name, file, extension));
+		static ArrayList<Pic> fromFiles(File[] files) {
+			ArrayList<Pic> images = new ArrayList<Pic>();
+			for (File file : files) {
+				if (!file.isDirectory()) {
+					String name = file.getName();
+					ImageIcon image = new ImageIcon(file.toString());
+					String[] bits = name.split("\\.");
+					if (bits.length >= 2) {
+						String extension = bits[bits.length - 1];
+						if (extension.matches(Pic.formats)){
+							images.add(new Pic(name, file, extension, image));
+						}
 					}
 				}
 			}
+			return images;
 		}
-		return images;
-	}
 	
 	public Tag toNegativeTag() {
 		Tag r = new Tag();

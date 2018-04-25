@@ -1,48 +1,33 @@
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Graphics;
 import java.io.File;
+import java.util.ArrayList;
 
+import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JComponent;
-import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 
-import javafx.stage.Stage;
+public class Case extends JPanel {
 
-public class Case extends Vue {
+	private static final long serialVersionUID = 1L;
 
-	Pic picture;
+	Case(Pic pic) {
+		super();
 
-	Case(Pic picture) {
-		this.picture = picture;
-	}
-	
-	public static void main(String[] appfx) {
-	
-
-	}
-	
-	public void start(Stage stage) {
-	}
-
-}
-
-class CanvasTest extends JFrame {
-
-	CanvasTest() {
-		this.setPreferredSize(java.awt.Toolkit.getDefaultToolkit().getScreenSize());
-		this.setLocationRelativeTo(null);
-		this.setVisible(true);
-		this.setTitle("Application");
 		this.setLayout(new BorderLayout());
-		JPanel jp = new JPanel();
-		//jp.add(new Case(new Pic(new File("logo.png"))));
-		
-		
-		this.add(jp);
-		
-		
-		
-		this.pack();
+		this.setBorder(BorderFactory.createLineBorder(Color.orange));
+
+		this.add(new JLabel(pic.image), BorderLayout.NORTH);
+		this.add(new JLabel(pic.name, SwingConstants.CENTER), BorderLayout.SOUTH);
+	}
+
+	protected void paintComponent(Graphics g) {
+		super.paintComponent(g);
+
 	}
 
 }
