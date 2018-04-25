@@ -8,7 +8,7 @@ import javax.swing.JPanel;
 
 import javafx.stage.Stage;
 
-public class Case extends Application {
+public class Case extends Vue {
 
 	Pic picture;
 

@@ -9,8 +9,7 @@ public class Model extends Observable{
 	
 	
 	
-	public Model() {
-		// TODO Auto-generated constructor stub
+	Model() {
 	}
 
 
@@ -49,7 +48,7 @@ public class Model extends Observable{
 		ed.saveData(configFile);
 		// return;
 		Control control = new Control(configFile);
-		Application app = new Application();
+		Vue app = new Vue();
 		app.addWindowListener(control); // lien évènements de fermeture
 	}
 }
