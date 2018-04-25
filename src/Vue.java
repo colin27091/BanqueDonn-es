@@ -41,7 +41,7 @@ public class Vue extends JFrame implements Observer {
 	JPanel panelCentral, panel1, panel2, panel3;
 
 	public Vue() {
-		this.setTitle("Swing Test");
+		this.setTitle("Banque de données");
 		this.setVisible(true);
 		this.setPreferredSize(java.awt.Toolkit.getDefaultToolkit().getScreenSize());
 		this.setLocationRelativeTo(null);

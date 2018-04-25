@@ -19,7 +19,9 @@ public class Case extends JPanel {
 		super();
 
 		this.setLayout(new BorderLayout());
-		this.setBorder(BorderFactory.createLineBorder(Color.orange));
+		this.setBorder(BorderFactory.createLineBorder(new Color(255, 166, 77)));
+		this.setBackground(Color.white);
+
 
 		this.add(new JLabel(pic.image), BorderLayout.NORTH);
 		this.add(new JLabel(pic.name, SwingConstants.CENTER), BorderLayout.SOUTH);

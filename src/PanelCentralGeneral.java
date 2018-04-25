@@ -24,7 +24,8 @@ public class PanelCentralGeneral extends JPanel {
 		
 		this.setLayout(new GridBagLayout());
 		
-		
+		this.setBackground(Color.white);
+
 		this.setBorder(BorderFactory.createLineBorder(Color.black));
 		
 		for(int i = 0; i < images.size(); i++) {

@@ -21,7 +21,7 @@ public class PanelHaut extends JPanel {
 	private static final long serialVersionUID = 1L;
 
 	PanelHaut() {
-		this.setBackground(Color.lightGray);
+		this.setBackground(new Color(255, 166, 77));
 		this.setLayout(new BorderLayout());
 
 		/* Creation boutton setting */
@@ -37,11 +37,15 @@ public class PanelHaut extends JPanel {
 		this.add(setting_bt, BorderLayout.EAST);
 		
 		
+		
+		
 		JButton refresh = new JButton("");
 		refresh.setIcon(new ImageIcon("refresh.png"));
-		refresh.setPreferredSize(new Dimension(40, 40));
+		refresh.setPreferredSize(new Dimension(100, 100));
 		refresh.setBounds(1870, 5, 40, 40);
+		refresh.setBackground(new Color(255, 223, 183));
 		this.add(refresh, BorderLayout.EAST);
+		
 
 		JButton setting_button = new JButton( /* Icon icon ... */);
 		/*
@@ -60,15 +64,14 @@ public class PanelHaut extends JPanel {
 	}
 
 	public void paintComponent(Graphics g) {
+		super.paintComponent(g);
 		try {
 			Image img = ImageIO.read(new File("logo.png"));
 
 			/* Le logo est trop grand pour être afficher , je changerait ça ce week-end */
 			g.drawImage(img, 0, 0, this);
-			Font font = new Font("Arial", Font.ITALIC, 18);
-			g.setFont(font);
-			g.setColor(Color.blue);
-			g.drawString("Projet Java", getWidth() / 2, 30);
+
+
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

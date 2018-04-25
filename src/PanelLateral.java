@@ -39,7 +39,7 @@ public class PanelLateral extends JPanel {
 
 		/* Creation du boutton pour ajouter un tag */
 		JButton AddImage = new JButton("Ajouter un tag");
-		AddImage.setBorder(BorderFactory.createBevelBorder(BevelBorder.LOWERED, Color.orange, Color.white));
+		AddImage.setBorder(BorderFactory.createBevelBorder(BevelBorder.LOWERED, new Color(255, 166, 77), Color.white));
 		AddImage.setBackground(Color.lightGray);
 		AddImage.setForeground(Color.WHITE);
 
@@ -47,7 +47,7 @@ public class PanelLateral extends JPanel {
 			JCheckBox liste_couleurs = new JCheckBox(couleurs[i]);
 			liste_couleurs.setBounds(85, 300 + 20 * i, 100, 25);
 			this.add(liste_couleurs);
-			liste_couleurs.setBackground(new Color(255, 235, 204));
+			liste_couleurs.setBackground(new Color(255, 223, 183));
 
 		}
 
@@ -55,7 +55,7 @@ public class PanelLateral extends JPanel {
 			JCheckBox liste_tailles = new JCheckBox(tailles[i]);
 			liste_tailles.setBounds(85, 500 + 20 * i, 100, 25);
 			this.add(liste_tailles);
-			liste_tailles.setBackground(new Color(255, 235, 204));
+			liste_tailles.setBackground(new Color(255, 223, 183));
 
 		}
 
@@ -63,7 +63,7 @@ public class PanelLateral extends JPanel {
 			JCheckBox liste_themes = new JCheckBox(themes[i]);
 			liste_themes.setBounds(85, 700 + 20 * i, 100, 25);
 			this.add(liste_themes);
-			liste_themes.setBackground(new Color(255, 235, 204));
+			liste_themes.setBackground(new Color(255, 223, 183));
 
 		}
 		JComboBox liste_tailles = new JComboBox(tailles);
@@ -79,7 +79,7 @@ public class PanelLateral extends JPanel {
 		JTextField text = new JTextField(10);
 		this.add(tag_search);
 		this.add(text);
-		this.setBackground(new Color(255, 235, 204));
+		this.setBackground(new Color(255, 223, 183));
 		this.setBorder(BorderFactory.createLineBorder(Color.black));
 		this.setPreferredSize(new Dimension(300, 0));
 		this.setLayout(null);
