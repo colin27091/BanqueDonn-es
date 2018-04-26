@@ -66,7 +66,7 @@ public class PanelHaut extends JPanel {
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		try {
-			Image img = ImageIO.read(new File("logo.png"));
+			Image img = ImageIO.read(new File("logobis.png"));
 
 			/* Le logo est trop grand pour être afficher , je changerait ça ce week-end */
 			g.drawImage(img, 0, 0, this);

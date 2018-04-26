@@ -99,22 +99,23 @@ public class PanelLateral extends JPanel {
 		// liste_couleurs.setBounds(85,300,100,25);
 		/* Contient les bouton de recherche */
 		
-		/*public void paintComponent(Graphics g) {
+	}
+	
+		public void paintComponent(Graphics g) {
 			super.paintComponent(g);
 
 			Font font_couleur = new Font("Arial", Font.BOLD, 14);
 			g.setFont(font_couleur);
-			g.drawString("Choisir une couleur", 60, 280);
+			g.drawString("Choisir une couleur", 60, 290);
 
 			Font font_taille = new Font("Arial", Font.BOLD, 14);
 			g.setFont(font_taille);
-			g.drawString("Choisir une taille", 60, 480);
+			g.drawString("Choisir une taille", 60, 490);
 
 			Font font_theme = new Font("Arial", Font.BOLD, 14);
 			g.setFont(font_theme);
-			g.drawString("Choisir un theme", 60, 680);
-		}*/
+			g.drawString("Choisir un theme", 60, 690);
+		}
 
-	}
 
 }
