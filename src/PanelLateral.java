@@ -5,10 +5,14 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.Image;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -47,7 +51,7 @@ public class PanelLateral extends JPanel {
 			JCheckBox liste_couleurs = new JCheckBox(couleurs[i]);
 			liste_couleurs.setBounds(85, 300 + 20 * i, 100, 25);
 			this.add(liste_couleurs);
-			liste_couleurs.setBackground(new Color(255, 223, 183));
+			liste_couleurs.setBackground(new Color(236, 193,119));
 
 		}
 
@@ -55,7 +59,7 @@ public class PanelLateral extends JPanel {
 			JCheckBox liste_tailles = new JCheckBox(tailles[i]);
 			liste_tailles.setBounds(85, 500 + 20 * i, 100, 25);
 			this.add(liste_tailles);
-			liste_tailles.setBackground(new Color(255, 223, 183));
+			liste_tailles.setBackground(new Color(236, 193,119));
 
 		}
 
@@ -63,7 +67,7 @@ public class PanelLateral extends JPanel {
 			JCheckBox liste_themes = new JCheckBox(themes[i]);
 			liste_themes.setBounds(85, 700 + 20 * i, 100, 25);
 			this.add(liste_themes);
-			liste_themes.setBackground(new Color(255, 223, 183));
+			liste_themes.setBackground(new Color(236, 193,119));
 
 		}
 		JComboBox liste_tailles = new JComboBox(tailles);
@@ -79,7 +83,7 @@ public class PanelLateral extends JPanel {
 		JTextField text = new JTextField(10);
 		this.add(tag_search);
 		this.add(text);
-		this.setBackground(new Color(255, 223, 183));
+		this.setBackground(new Color(236, 193,119));
 		this.setBorder(BorderFactory.createLineBorder(Color.black));
 		this.setPreferredSize(new Dimension(300, 0));
 		this.setLayout(null);
@@ -103,6 +107,17 @@ public class PanelLateral extends JPanel {
 	
 		public void paintComponent(Graphics g) {
 			super.paintComponent(g);
+			
+			Image img;
+			try {
+				img = ImageIO.read(new File("testbandeau.png"));
+				g.drawImage(img, 0, 0, this);
+
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
 
 			Font font_couleur = new Font("Arial", Font.BOLD, 14);
 			g.setFont(font_couleur);

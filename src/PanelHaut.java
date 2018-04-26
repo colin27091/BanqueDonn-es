@@ -43,7 +43,7 @@ public class PanelHaut extends JPanel {
 		refresh.setIcon(new ImageIcon("refresh.png"));
 		refresh.setPreferredSize(new Dimension(100, 100));
 		refresh.setBounds(1870, 5, 40, 40);
-		refresh.setBackground(new Color(255, 223, 183));
+		refresh.setBackground(new Color(236, 193,119));
 		this.add(refresh, BorderLayout.EAST);
 		
 
