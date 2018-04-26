@@ -1,3 +1,5 @@
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.io.File;
@@ -7,7 +9,7 @@ import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.filechooser.FileSystemView;
 
-public class Control implements WindowListener {
+public class Control implements WindowListener, MouseListener {
 	File folderPath;
 	String configFile;
 	Model model;
@@ -20,18 +22,6 @@ public class Control implements WindowListener {
 
 	Control(String configFile) throws Exception {
 		this.configFile = configFile;
-		this.loadExternalData();
-	}
-
-	void saveExternalData() throws Exception {
-		ExternalData ed = new ExternalData();
-		ed.folderPath = this.folderPath.getAbsolutePath();
-		ed.saveData(this.configFile);
-	}
-
-	void loadExternalData() throws Exception {
-		ExternalData ed = ExternalData.loadData(this.configFile);
-		this.folderPath = new File(ed.folderPath);
 	}
 
 	@Override
@@ -50,7 +40,6 @@ public class Control implements WindowListener {
 	public void windowClosing(WindowEvent arg0) {
 		Tools.log("tentative sauvegarde données externes:");
 		try {
-			this.saveExternalData();
 			Tools.log("- succès!");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -116,9 +105,39 @@ public class Control implements WindowListener {
 
 		File folder = homechooser.getSelectedFile();
 		// TODO: gérer le cas où le folder n'existe pas (bien qu'improbable il faut le gérer)
-		this.model.folderPath = folder;
+		//this.model.folderPath = folder;
 		
-		this.model.refresh();
+		//this.model.refresh();
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

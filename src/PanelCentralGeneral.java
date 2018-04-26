@@ -12,15 +12,15 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class PanelCentralGeneral extends JPanel {
-	
-	ArrayList<Pic> images;
+
+        ArrayList<Case> cases;
 
 	private static final long serialVersionUID = 1L;
 
 	PanelCentralGeneral() {
 		super();
-		
-		this.images = Pic.fromFiles(new File("images/").listFiles());
+	
+                this.cases = Case.fromPics(Pic.fromFiles(new File("images/").listFiles()));
 		
 		this.setLayout(new GridBagLayout());
 		
@@ -28,14 +28,14 @@ public class PanelCentralGeneral extends JPanel {
 
 		this.setBorder(BorderFactory.createLineBorder(Color.black));
 		
-		for(int i = 0; i < images.size(); i++) {
+		for(int i = 0; i < cases.size(); i++) {
 		
 			GridBagConstraints c = new GridBagConstraints();
 			c.gridx = i%5;
 			c.gridy = i/5;
 			c.insets = new Insets(10,10,10,10);
 			
-			this.add(new Case(images.get(i)), c);
+			this.add(cases.get(i), c);
 			
 		}
 

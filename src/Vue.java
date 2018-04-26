@@ -41,7 +41,7 @@ public class Vue extends JFrame implements Observer {
 	JPanel panelCentral, panel1, panel2, panel3;
 
 	public Vue() {
-		this.setTitle("Banque de données");
+		this.setTitle("Banque de donnÃ©es");
 		this.setVisible(true);
 		this.setPreferredSize(java.awt.Toolkit.getDefaultToolkit().getScreenSize());
 		this.setLocationRelativeTo(null);
@@ -52,7 +52,7 @@ public class Vue extends JFrame implements Observer {
 		this.add(new PanelHaut(), BorderLayout.NORTH);
 		// this.add(new PanelLateral(), BorderLayout.WEST);
 		// this.add(new PanelCentral());
-		this.add(new JSplitPane(1, new PanelLateral(), new PanelCentral()));
+		this.add(new JSplitPane(1, new PanelLateralBis(), new PanelCentral()));
 
 		this.pack();
 

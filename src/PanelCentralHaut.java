@@ -4,6 +4,7 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.GridLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -22,19 +23,28 @@ import javax.swing.SwingConstants;
 
 public class PanelCentralHaut extends JPanel implements ActionListener {
 	
-	String[] affichages = {"Petites icones", "Grande icones", "Mosaïque"};
+	String[] affichages = {"Petites icones", "Grande icones", "Mosaï¿½que"};
 
 	private ArrayList<Pic> images = null;
 
+	String[] tri = {"Date", "Taille", "Extension", "Nom"};
+	String[] crois = {"Croissant", "Decroissant"};
+	
 	private static final long serialVersionUID = 1L;
 
 	PanelCentralHaut(){
 		super();
 		
-		this.setLayout(new BorderLayout());
+		this.setBackground(new Color(255, 223, 183));
+		this.setLayout(new GridBagLayout());
+		
+		GridBagConstraints c = new GridBagConstraints();
+		c.insets = new Insets(10,10,10,10);
 		
 		
-		JLabel AffichePar = new JLabel("Afficher par :");
+		JButton fromfolder = new JButton("Charger un dossier");
+		
+		this.add(fromfolder, c);
 		
 		JButton zoomIn = new JButton("");
 		JButton zoomOut = new JButton("");
@@ -46,16 +56,18 @@ public class PanelCentralHaut extends JPanel implements ActionListener {
 		zoomOut.setBounds(1120,0,30,26);
 		zoomIn.setBackground(new Color(236, 193,119));
 		zoomOut.setBackground(new Color(236, 193,119));
+		c.gridy ++ ;
 		
-		AffichePar.setBounds(1180,0,100,28);
-		JComboBox<String> aff = new JComboBox<String>(affichages);
+		JLabel TrierPar = new JLabel("Afficher par :");
+		
+		JComboBox<String> aff = new JComboBox<String>(tri);
 		aff.setSelectedIndex(0);
 		aff.setBackground(new Color(236, 193,119));
 		this.setBackground(new Color(236, 193,119));
-		this.add(AffichePar,BorderLayout.EAST);
-		this.add(zoomIn, BorderLayout.EAST);
-		this.add(zoomOut, BorderLayout.EAST);
-		this.add(aff, BorderLayout.EAST);
+		//this.add(AffichePar,BorderLayout.EAST);
+		//this.add(zoomIn, BorderLayout.EAST);
+		//this.add(zoomOut, BorderLayout.EAST);
+		//this.add(aff, BorderLayout.EAST);
 		/*zoomIn.addActionListener(new ZoomInListener());*/
 	}
 		
@@ -81,7 +93,18 @@ public class PanelCentralHaut extends JPanel implements ActionListener {
 				pan.add(new Case(images.get(i)), c);
 					
 				}
-
+				
+		aff.setBackground(null);
+		
+		JComboBox<String> croissant = new JComboBox<String>(crois);
+		
+		
+		JButton trier = new JButton("Trier");
+		
+		this.add(TrierPar, c);
+		this.add(aff, c);
+		this.add(croissant,c);
+		this.add(trier, c);
 		
 	}
 

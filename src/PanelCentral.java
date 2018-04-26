@@ -39,9 +39,5 @@ public class PanelCentral extends JPanel {
 		
 		
 	}
-	
-	void refresh() {
-		
-	}
 
 }
