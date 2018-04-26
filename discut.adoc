@@ -107,3 +107,9 @@ J'ai ajouté un fichier IdéesProjet.adoc pour proposer un certain nombre d'idé
 == Nath
 
 J'ai créé une nouvelle branche "nath" pour simplifier le travail collaboratif. Si vous le sentez vous pouvez aussi créer une branche, ou plusieurs, selon vos besoin, ou bien vous pouvez rester dans la branche _master_.
+
+== Nath
+
+Je suis extrêmement en retard pour le projet d'algorithmique, et dans mes révisions pour les autres matières, en particulier pour les contrôles de math (ceux que je prends en formation ouverte). Je ne vais donc pas pouvoir continuer plus que ça sur ce projet java, quitte à miser sur la session 2. J'ai tout de même avancé un peu sur le système de session, si vous voulez aller voir il se trouve sur la branche "nath" (je n'ai pas voulu fusionner, mais si vous voulez vous pouvez, il faudra gérer les conflits évidemment).
+Bonne chance pour la suite !
+PS: très classe le bandeau que tu as fait Quentin !
