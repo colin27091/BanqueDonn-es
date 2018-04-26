@@ -26,19 +26,19 @@ public class TagType extends HashMap<String, Tag> {
 		return true;
 	}
 	
-	ArrayList<Pic> group(Tag pics) {
-		ArrayList<Pic> r = new ArrayList<Pic>();
-		//Collections.sort ...
-		Iterator<String> keysIter = this.keySet().iterator();
-		while (keysIter.hasNext()) {
-			Tag tag = this.get(keysIter.next());
-			Tag intersection = pics.inter(tag);
-			if (intersection.size() != 0) {
-				
-			}
-		}
-		return r;
-	}
+//	ArrayList<Pic> group(Tag pics) {
+//		ArrayList<Pic> r = new ArrayList<Pic>();
+//		//Collections.sort ...
+//		Iterator<String> keysIter = this.keySet().iterator();
+//		while (keysIter.hasNext()) {
+//			Tag tag = this.get(keysIter.next());
+//			Tag intersection = pics.inter(tag);
+//			if (intersection.size() != 0) {
+//				
+//			}
+//		}
+//		return r;
+//	}
 	
 	public static void main(String[] args) {
 		TagType ty = new TagType("Color");

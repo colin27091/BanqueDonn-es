@@ -1,0 +1,19 @@
+= Gestion des Sessions
+
+== Une session
+
+- nom: string
+- liste de paths pour les dossiers d'images
+- liste de tagtypes, contenant tags
+- liste de pics, contenant liste de tags
+- state: filtrage, triage
+
+
+== Etats du programme
+
+- Aucune session ouverte: currentSession = null => afficher menu des sessions
+- Création d'une session
+- Ouverture d'une session
+- Session Ouverte
+- Fermeture d'une session
+- Fermeture de l'application

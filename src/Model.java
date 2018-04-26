@@ -4,21 +4,13 @@ import java.util.Observable;
 
 public class Model extends Observable{ 
 	ArrayList<Pic> images;
-	Control control;
+	public Session session;
 	
-	Model(Control control) {
-		this.control = control;
-		this.control.model = this;
+	Model() {
 	}
 	
 	void refresh() {
-		File[] files = this.control.folderPath.listFiles();
-		if (files == null) {
-			return;
-			// TODO: gérer le cas où le rafraichissement échoue car
-			// le dossier n'est pas/plus accessible
-		}
-		this.images = Pic.fromFiles(files);
+		this.session.refresh();
 		this.notifyObservers();
 	}
 	
@@ -30,23 +22,28 @@ public class Model extends Observable{
 		String configFile = "./tests/Control/config.xml";
 		ed.saveData(configFile);
 		// return;
-		Control control = new Control(configFile);
-		Model model = new Model(control);
+		Model model = new Model();
+		Control control = new Control(model, configFile);
 		model.refresh();
 		System.out.println(model.images.size());
 	}
-	
-	// pour vérifier que l'appli se ferme bien quand on clique sur
-	// le bouton de fermeture, et que le fichier de conf est bien
-	// enregistré
-	public static void main(String[] args) throws Exception {
-		ExternalData ed = new ExternalData();
-		ed.folderPath = "./images";
-		String configFile = "./tests/Control/config.xml";
-		ed.saveData(configFile);
-		// return;
-		Control control = new Control(configFile);
-		Application app = new Application();
-		app.addWindowListener(control); // lien évènements de fermeture
+
+	public void loadSession(Session newSession) {
+		this.session = newSession;
+		this.refresh();
 	}
+	
+//	// pour vérifier que l'appli se ferme bien quand on clique sur
+//	// le bouton de fermeture, et que le fichier de conf est bien
+//	// enregistré
+//	public static void main(String[] args) throws Exception {
+//		ExternalData ed = new ExternalData();
+//		ed.folderPath = "./images";
+//		String configFile = "./tests/Control/config.xml";
+//		ed.saveData(configFile);
+//		// return;
+//		Control control = new Control(configFile);
+//		Application app = new Application();
+//		app.addWindowListener(control); // lien évènements de fermeture
+//	}
 }

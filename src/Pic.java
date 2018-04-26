@@ -29,17 +29,17 @@ public class Pic {
 	}
 	
 	// gotta check the values given to that function to forbid several characters
-	public boolean rename(String newName) {
-		boolean ans = this.file.renameTo(
-				new File(this.file.getParentFile().getAbsolutePath() + "/" + newName));
-		// $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-		return ans;
-	}
-	
-	public boolean delete() {
-		boolean ans = this.file.delete();
-		return ans;
-	}
+//	public boolean rename(String newName) {
+//		boolean ans = this.file.renameTo(
+//				new File(this.file.getParentFile().getAbsolutePath() + "/" + newName));
+//		// $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+//		return ans;
+//	}
+//	
+//	public boolean delete() {
+//		boolean ans = this.file.delete();
+//		return ans;
+//	}
 	
 	static String formats = "png|jpeg|jpg|bmp|gif|tiff";
 	// ^ formats que le programme reconnaît
@@ -51,6 +51,13 @@ public class Pic {
 
 	String getExtension() {
 		return this.extension;
+	}
+	
+	public Tag toNegativeTag() {
+		Tag r = new Tag();
+		r.add(this);
+		r.negative = true;
+		return r;
 	}
 
 	// récupère une liste d'Image à partir d'une liste de File[]
@@ -71,10 +78,19 @@ public class Pic {
 		return images;
 	}
 	
-	public Tag toNegativeTag() {
-		Tag r = new Tag();
-		r.add(this);
-		r.negative = true;
-		return r;
+	static void addFromFiles(ArrayList<Pic> pics, File[] files) {
+		for (File file : files) {
+			if (!file.isDirectory()) {
+				String name = file.getName();
+				String[] bits = name.split("\\.");
+				if (bits.length >= 2) {
+					String extension = bits[bits.length - 1];
+					if (extension.matches(Pic.formats)){
+						pics.add(new Pic(name, file, extension));
+					}
+				}
+			}
+		}
 	}
+
 }

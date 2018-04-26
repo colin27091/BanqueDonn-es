@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.8.0_162" class="java.beans.XMLDecoder">
+ <object class="SessionData" id="SessionData0"/>
+<void class="SessionData" id="Field0" method="getField">
+ <string>picFolders</string>
+ <void id="ArrayList0" method="get">
+  <object idref="SessionData0"/>
+  <void method="add">
+   <string>/home/nash/hq/sem4/projetjava/foo</string>
+  </void>
+  <void method="add">
+   <string>/home/nash/hq/sem4/projetjava/images</string>
+  </void>
+ </void>
+</void>
+<void idref="ArrayList0"/>
+</java>
