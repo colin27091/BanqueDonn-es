@@ -30,7 +30,7 @@ public class PanelCentral extends JPanel {
 		this.add(new LabelCentralHaut(), BorderLayout.NORTH);
 		this.add(new ScrollPane());*/
 		
-		this.add(new PanelCentralHaut(), BorderLayout.NORTH);
+		this.add(new PanelCentralHautBis(), BorderLayout.NORTH);
 		JScrollPane scroll = new JScrollPane(new PanelCentralGeneral());
 		this.add(scroll);
 		scroll.getVerticalScrollBar().setUnitIncrement(15);

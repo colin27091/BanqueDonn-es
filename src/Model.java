@@ -6,18 +6,18 @@ import java.util.Observable;
 public class Model extends Observable{ 
 	
 	
-	Hashtable<Integer, Pic> data;
-	Hashtable<Integer, Pic> filter;
+	ArrayList<Pic> data;
+	ArrayList<Pic> filter;
 	
 	Model() {
 		
-		data = new Hashtable<Integer, Pic>();
-		data = new Hashtable<Integer, Pic>();
+		data = new ArrayList<Pic>();
+		data = new ArrayList<Pic>();
 
 		
 	}
 	
-	void setData(Hashtable<Integer, Pic> newfilter) {
+	void setData(ArrayList<Pic> newfilter) {
 		if( ! newfilter.equals(this.data)) {
 			this.filter = newfilter;
 		}
