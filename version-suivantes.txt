@@ -1,3 +1,12 @@
-Idées pour les versions suivantes:
-- en cas d'erreur, afficher une petite fenêtre d'erreur pour informer
-  l'utilisateur
+Suite:
+
+
+taille fixe pour image (modifier la classe Case)
+faire le filtrage, finir le tri
+lier sur le controleur tout les bouton
+ajoutertag
+suprimer
+renommer
+tout selectionner
+tout deselectionner
+filtrer en negatif

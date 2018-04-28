@@ -14,25 +14,10 @@ public class Main {
 
 	public static void main(String[] args) throws IOException {
             
-		//Vue app = new Vue();
+		Vue app = new Vue();
 		//Model m = new Model();
 		//new Control(app, m);
 		//m.addObserver(app);
-		
-		ArrayList<Pic> pics = Pic.fromFiles(new File("images"));
-		for(Pic pic : pics) {
-			System.out.println(pic.date.toString());
-		}
-		
-		System.out.println();
-		
-	
-		System.out.println();
-		
-		ArrayList<Pic> dated = Tri.dateD(pics);
-		for(Pic pic:dated) {
-			System.out.println(pic.date.toString());
-		}
 		
 		
 

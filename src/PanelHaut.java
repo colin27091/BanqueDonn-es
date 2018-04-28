@@ -23,34 +23,9 @@ public class PanelHaut extends JPanel {
 	PanelHaut() {
 		this.setBackground(new Color(255, 166, 77));
 		this.setLayout(new BorderLayout());
-
-		/* Creation boutton setting */
-		JButton setting_bt = new JButton();
-		try {
-			setting_bt.setIcon(new ImageIcon("Button/setting_bt.png"));
-		} catch (Exception e) {
-			System.out.println(e);
-		}
-		setting_bt.setBackground(Color.lightGray);
-		setting_bt.setBorder(null);
-		setting_bt.setMargin(new Insets(10,10,10,10));
-		this.add(setting_bt, BorderLayout.EAST);
 		
 		
-		
-		
-		JButton refresh = new JButton("");
-		refresh.setIcon(new ImageIcon("refresh.png"));
-		refresh.setPreferredSize(new Dimension(100, 100));
-		refresh.setBounds(1870, 5, 40, 40);
-		refresh.setBackground(new Color(236, 193,119));
-		this.add(refresh, BorderLayout.EAST);
-		
-
-		JButton setting_button = new JButton( /* Icon icon ... */);
-		/*
-		 * partie courespoondante au bouton parametre addActionListener
-		 */
+		this.add(new JLabel(new ImageIcon("logobis.png")));
 
 		JButton logo = new JButton(/* Icon icon ... */);
 		/*
@@ -65,16 +40,7 @@ public class PanelHaut extends JPanel {
 
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		try {
-			Image img = ImageIO.read(new File("logobis.png"));
-
-			/* Le logo est trop grand pour être afficher , je changerait ça ce week-end */
-			g.drawImage(img, 0, 0, this);
-
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		
 	}
 
 }

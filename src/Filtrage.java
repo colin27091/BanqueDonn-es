@@ -9,6 +9,8 @@ public class Filtrage {
 		return newfilter;
 	}
 	
+	
+	
 	/*Filtrage pour un nom recherche*/
 	static ArrayList<Pic> searchField(ArrayList<Pic> oldfilter) {
 		ArrayList<Pic> newfilter = new ArrayList<Pic>();
