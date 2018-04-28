@@ -7,6 +7,8 @@ import java.nio.file.attribute.FileAttribute;
 import java.util.ArrayList;
 import java.util.Hashtable;
 
+import org.w3c.dom.Document;
+
 /*
  * classe possiblement temporaire. Contiendra des fonctions indépendantes
  * ne nécessitant pas d'état interne.
@@ -57,4 +59,16 @@ public class Tools {
 			}
 		}
 	}
+	
+	static void createXML(File file) {
+		
+		Document doc = new Document();
+		
+		
+	}
+	
+	static void readXML(File file) {
+		
+	}
+	
 }

@@ -7,6 +7,18 @@ public class Tri {
 	/*Tri Date Croissante (plus recent au plus vieux)*/
 	static ArrayList<Pic> dateC(ArrayList<Pic> oldfilter) {
 		ArrayList<Pic> newfilter = new ArrayList<Pic>();
+		while(oldfilter.size() != 1) {
+			int max = 0; /*index du max */
+			for(int i = 1; i<oldfilter.size(); i++) {
+				if(oldfilter.get(i).date.compareTo(oldfilter.get(max).date) == 1) {
+					max = i;
+				}
+			}
+			newfilter.add(oldfilter.get(max));
+			oldfilter.remove(max);
+		}
+		newfilter.add(oldfilter.get(0));
+
 		return newfilter;
 	}
 
