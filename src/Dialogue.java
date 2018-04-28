@@ -15,7 +15,7 @@ public class Dialogue extends JDialog {
 	public Dialogue(JFrame parent, String title, boolean modal) {
 		super(parent, title, modal);
 		JPanel pan = new JPanel();
-		JLabel b = new JLabel("Le tag � ajouter est :");
+		JLabel b = new JLabel("Le tag a ajouter est :");
 		text.setPreferredSize(new Dimension(100, 25));
 		pan.add(b);
 		pan.add(text);
