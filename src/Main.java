@@ -26,11 +26,13 @@ public class Main {
 		
 		System.out.println();
 		
-		ArrayList<Pic> datec = Tri.dateC(pics);
-		for(Pic pic:datec) {
+	
+		System.out.println();
+		
+		ArrayList<Pic> dated = Tri.dateD(pics);
+		for(Pic pic:dated) {
 			System.out.println(pic.date.toString());
 		}
-		
 		
 		
 
