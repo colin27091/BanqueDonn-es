@@ -4,6 +4,7 @@ import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Hashtable;
 
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -14,6 +15,9 @@ public class Control implements WindowListener, MouseListener {
 	String configFile;
 	Model model;
 	Vue app;
+	
+	Hashtable<Case, Boolean> check;
+	
 	
 	Control(Vue app, Model model){
 		this.model = model;
