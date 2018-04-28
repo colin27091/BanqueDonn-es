@@ -48,7 +48,7 @@ public class Pic {
 		this.file = file;
 		this.extension = extension;
 		this.image = image;
-		this.dimensionus = new Dimension(image.getIconHeight(), image.getIconWidth());
+		this.dimension = new Dimension(image.getIconHeight(), image.getIconWidth());
 		this.date = new Date(file.lastModified());
 
 	}

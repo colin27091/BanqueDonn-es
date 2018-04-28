@@ -43,6 +43,7 @@ public class Tri {
 	/*Tri Nom Croissant (ordre alphabetique) */
 	static ArrayList<Pic> nomC(ArrayList<Pic> oldfilter) {
 		ArrayList<Pic> newfilter = new ArrayList<Pic>();
+		
 		return newfilter;
 	}
 	
