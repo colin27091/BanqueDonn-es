@@ -22,16 +22,23 @@ public class Pic {
 	ImageIcon image;
 	Dimension taille;
 	Date date;
-	ArrayList<String> tags;
+	Hashtable<String/*Type de tag*/, ArrayList<String>/*tag preci*/> tags;
 
-	Pic(String name, File file, String extension, ImageIcon image, ArrayList<String> tags) {
+	Pic(String name, File file, String extension, ImageIcon image, Hashtable<String, String> tags) {
 		this.name = name;
 		this.file = file;
 		this.extension = extension;
 		this.image = image;
-		this.tags = tags;
 		this.taille = new Dimension(image.getIconHeight(), image.getIconWidth());
 		this.date = new Date(file.lastModified());
+		Hashtable<String, ArrayList<String>> htag = new Hashtable<String,ArrayList<String>>();
+		htag.put("Animaux", new ArrayList<String>());
+		htag.put("Objet", new ArrayList<String>());
+		htag.put("Personnes", new ArrayList<String>());
+		htag.put("Autres", new ArrayList<String>());
+		htag.put("Lieu", new ArrayList<String>());
+
+
 
 	}
 
@@ -66,21 +73,8 @@ public class Pic {
 	String getExtension() {
 		return this.extension;
 	}
-
-	static Pic fromFile(File file) {
-		if (!file.isDirectory()) {
-			String name = file.getName();
-			ImageIcon image = new ImageIcon(file.toString());
-			String[] bits = name.split("\\.");
-			if (bits.length >= 2) {
-				String extension = bits[bits.length - 1];
-				if (extension.matches(Pic.formats)) {
-					return new Pic(name, file, extension, image);
-				}
-			}
-		}
-		return null;
-	}
+	
+	
 	//recupere un boolean disant si oui ou non le file peut devenir un Pic
 	static boolean canBePic(File file) {
 		if (!file.isDirectory()) {
