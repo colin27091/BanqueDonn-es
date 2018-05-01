@@ -1,3 +1,5 @@
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -15,12 +17,9 @@ public class Main {
 	public static void main(String[] args) throws IOException {
             
 		Vue app = new Vue();
-		//Model m = new Model();
-		//new Control(app, m);
-		//m.addObserver(app);
-		
-		
-
+		Model m = new Model();
+		new Control(app, m);
+		m.addObserver(app);
 		
 		
 	}

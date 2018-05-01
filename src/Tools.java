@@ -1,3 +1,5 @@
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -71,4 +73,16 @@ public class Tools {
 		
 	}
 	
+   /* ActionListener aljComboBox1 = new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			ArrayList<Pic> tri= new ArrayList<Pic>();
+			Pic p;
+			String selec = (String) jComboBox1.getSelectedItem();
+			switch(selec) {
+			case "Nom":
+				Tri.nomC(tri);
+			}
+			
+		}*/
 }

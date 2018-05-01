@@ -22,6 +22,7 @@ public class Pic {
 	ImageIcon image;
 	Dimension dimension;
 	/*poids du pic octet*/
+	
 	Date date;
 	Hashtable<String/*Type de tag*/, ArrayList<String>/*tag preci*/> tags;
 
@@ -50,6 +51,7 @@ public class Pic {
 		this.image = image;
 		this.dimension = new Dimension(image.getIconHeight(), image.getIconWidth());
 		this.date = new Date(file.lastModified());
+		
 
 	}
 
