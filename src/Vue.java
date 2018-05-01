@@ -34,7 +34,7 @@ import javax.swing.border.BevelBorder;
 import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 
-public class Vue extends JFrame implements Observer {
+public class Vue extends JFrame{
 
 	File[] images;
 	File repertoire;
@@ -64,12 +64,6 @@ public class Vue extends JFrame implements Observer {
 
 	public static void main(String[] args) {
 		Vue app = new Vue();
-	}
-
-	@Override
-	public void update(Observable arg0, Object arg1) {
-		// rafraichir la fenetre d'affichage
-
 	}
 
 }
