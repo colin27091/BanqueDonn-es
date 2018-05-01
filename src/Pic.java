@@ -1,6 +1,8 @@
 import java.awt.Dimension;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -20,13 +22,14 @@ public class Pic {
 	File file;
 	String extension;
 	ImageIcon image;
+
 	Dimension dimension;
 	/*poids du pic octet*/
 	
 	Date date;
 	Hashtable<String/*Type de tag*/, ArrayList<String>/*tag preci*/> tags;
 
-	Pic(String name, File file, String extension, ImageIcon image, Hashtable<String, String> tags) {
+	Pic(String name, File file, String extension, ImageIcon image, Hashtable<String,ArrayList<String>> tags ) {
 		this.name = name;
 		this.file = file;
 		this.extension = extension;
@@ -39,10 +42,12 @@ public class Pic {
 		htag.put("Personnes", new ArrayList<String>());
 		htag.put("Autres", new ArrayList<String>());
 		htag.put("Lieu", new ArrayList<String>());
+		
 
 
 
 	}
+
 
 	Pic(String name, File file, String extension, ImageIcon image) {
 		this.name = name;
@@ -51,7 +56,6 @@ public class Pic {
 		this.image = image;
 		this.dimension = new Dimension(image.getIconHeight(), image.getIconWidth());
 		this.date = new Date(file.lastModified());
-		
 
 	}
 
@@ -95,11 +99,27 @@ public class Pic {
 	
 	
 
+	static Pic fromFile(File file) {
+		if (!file.isDirectory()) {
+			String name = file.getName();
+			ImageIcon image = new ImageIcon(file.toString());
+			String[] bits = name.split("\\.");
+			if (bits.length >= 2) {
+				String extension = bits[bits.length - 1];
+				if (extension.matches(Pic.formats)) {
+					return new Pic(name, file, extension, image);
+				}
+			}
+		}
+		return null;
+	}
+	
 	// récupère une liste d'Image à partir d'une liste de File[]
 	static ArrayList<Pic> fromFiles(File folder) {
 
 		File[] files = folder.listFiles();
 		ArrayList<Pic> data = new ArrayList<Pic>();
+
 		for (File file : files) {
 			if (!file.isDirectory()) {
 				String name = file.getName();
@@ -115,10 +135,12 @@ public class Pic {
 							Tools.createPictag(folder);
 						}
 						data.add(new Pic(name, file, extension, image));
+
 					}
 				}
 			}
 		}
 		return data;
+
 	}
 }

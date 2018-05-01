@@ -16,8 +16,9 @@ public class Model extends Observable{
 
 		
 	}
-	
+
 	void setData(ArrayList<Pic> newfilter) {
+
 		if( ! newfilter.equals(this.data)) {
 			this.filter = newfilter;
 		}
