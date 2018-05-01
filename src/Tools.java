@@ -20,6 +20,11 @@ public class Tools {
 	static void log(String s) {
 		System.out.println(s);
 	}
+	
+	
+	
+	static Hashtable<String, ArrayList<String>> extractTags(File folder)
+	
 
 	static ArrayList<String> searchTags(File folder, String nom) {
 		ArrayList<String> tags = new ArrayList<String>();
@@ -31,7 +36,7 @@ public class Tools {
 			try {
 				String line = br.readLine();
 				while (line != null) {
-					String[] split = line.split(":");
+					String[] split = line.split("/");
 					if (split[0].compareTo(nom) == 0) {
 						for (int i = 1; i < split.length; i++) {
 							tags.add(split[i]);
@@ -64,7 +69,7 @@ public class Tools {
 	
 	static void createXML(File file) {
 		
-		Document doc = new Document();
+		//Document doc = new Document();
 		
 		
 	}

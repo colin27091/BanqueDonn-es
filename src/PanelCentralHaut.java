@@ -23,6 +23,7 @@ import javax.swing.SwingConstants;
 
 public class PanelCentralHaut extends JPanel implements ActionListener {
 	
+
 	String[] affichages = {"Petites icones", "Grande icones", "Mosa�que"};
 
 	private ArrayList<Pic> images = null;
@@ -40,10 +41,8 @@ public class PanelCentralHaut extends JPanel implements ActionListener {
 		
 		GridBagConstraints c = new GridBagConstraints();
 		c.insets = new Insets(10,10,10,10);
-		
-		
 		JButton fromfolder = new JButton("Charger un dossier");
-		
+				
 		this.add(fromfolder, c);
 		
 		JButton zoomIn = new JButton("");
@@ -94,6 +93,16 @@ public class PanelCentralHaut extends JPanel implements ActionListener {
 					
 				}
 				
+=======
+		this.add(fromfolder, c);
+		
+		c.gridy ++ ;
+		
+		JLabel TrierPar = new JLabel("Afficher par :");
+		
+		JComboBox<String> aff = new JComboBox<String>(tri);
+		aff.setSelectedIndex(0);
+>>>>>>> Stashed changes
 		aff.setBackground(null);
 		
 		JComboBox<String> croissant = new JComboBox<String>(crois);

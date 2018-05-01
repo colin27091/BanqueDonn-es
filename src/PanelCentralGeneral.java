@@ -12,9 +12,11 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+
 public class PanelCentralGeneral extends JPanel  {
 
 	ArrayList<Case> cases;
+
 
 	private static final long serialVersionUID = 1L;
 
@@ -23,10 +25,10 @@ public class PanelCentralGeneral extends JPanel  {
 
 		this.cases = Case.fromPics(Pic.fromFiles(new File("images/")));
 
+
 		this.setLayout(new GridBagLayout());
 
-		this.setBackground(new Color(226, 134, 90));
-
+		this.setBackground(Color.white);
 
 		this.setBorder(BorderFactory.createLineBorder(Color.black));
 
