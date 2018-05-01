@@ -43,6 +43,17 @@ public class Tri {
 	/*Tri Nom Croissant (ordre alphabetique) */
 	static ArrayList<Pic> nomC(ArrayList<Pic> oldfilter) {
 		ArrayList<Pic> newfilter = new ArrayList<Pic>();
+		while(oldfilter.size() != 1) {
+			int max = 0; /*index du max */
+			for(int i = 1; i<oldfilter.size(); i++) {
+				if(oldfilter.get(i).name.compareTo(oldfilter.get(max).name) == 1) {
+					max = i;
+				}
+			}
+			newfilter.add(oldfilter.get(max));
+			oldfilter.remove(max);
+		}
+		newfilter.add(oldfilter.get(0));
 		
 		return newfilter;
 	}
@@ -50,6 +61,17 @@ public class Tri {
 	/*Tri Nom Decroissant (inverse alphabetique)*/
 	static ArrayList<Pic> nomD(ArrayList<Pic> oldfilter) {
 		ArrayList<Pic> newfilter = new ArrayList<Pic>();
+		while(oldfilter.size() != 1) {
+			int min = 0; /*index du min */
+			for(int i = 1; i<oldfilter.size(); i++) {
+				if(oldfilter.get(i).name.compareTo(oldfilter.get(min).name) == -1) {
+					min = i;
+				}
+			}
+			newfilter.add(oldfilter.get(min));
+			oldfilter.remove(min);
+		}
+		newfilter.add(oldfilter.get(0));
 		return newfilter;
 	}
 	
