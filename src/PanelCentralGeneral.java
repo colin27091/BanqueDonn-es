@@ -25,7 +25,8 @@ public class PanelCentralGeneral extends JPanel  {
 
 		this.setLayout(new GridBagLayout());
 
-		this.setBackground(Color.white);
+		this.setBackground(new Color(226, 134, 90));
+
 
 		this.setBorder(BorderFactory.createLineBorder(Color.black));
 
