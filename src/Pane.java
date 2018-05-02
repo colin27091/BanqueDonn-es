@@ -62,7 +62,7 @@ public class Pane extends javax.swing.JPanel {
 		Add_Tag = new javax.swing.JButton();
 		Supp = new javax.swing.JButton();
 		All_select = new javax.swing.JButton();
-		jButton8 = new javax.swing.JButton();
+		All_deselect = new javax.swing.JButton();
 		Add_folder = new javax.swing.JButton();
 		Add_file = new javax.swing.JButton();
 		SplitCentral = new javax.swing.JSplitPane();
@@ -90,7 +90,7 @@ public class Pane extends javax.swing.JPanel {
 		Aplliquer.setBackground(new Color(215, 213, 212));
 		Remove_choice.setBackground(new Color(215, 213, 212));
 		Add_Tag.setBackground(new Color(215, 213, 212));
-		jButton8.setBackground(new Color(215, 213, 212));
+		All_deselect.setBackground(new Color(215, 213, 212));
 		setPreferredSize(java.awt.Toolkit.getDefaultToolkit().getScreenSize());
 		setLayout(new java.awt.BorderLayout());
 
@@ -121,7 +121,7 @@ public class Pane extends javax.swing.JPanel {
 
 		All_select.setText("Tout selectionner");
 
-		jButton8.setText("Tout deselectionner");
+		All_deselect.setText("Tout deselectionner");
 
 		Add_folder.setText("Ajouter Dossier");
 
@@ -142,7 +142,7 @@ public class Pane extends javax.swing.JPanel {
 						.addComponent(All_select, javax.swing.GroupLayout.PREFERRED_SIZE, 173,
 								javax.swing.GroupLayout.PREFERRED_SIZE)
 						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-						.addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 183,
+						.addComponent(All_deselect, javax.swing.GroupLayout.PREFERRED_SIZE, 183,
 								javax.swing.GroupLayout.PREFERRED_SIZE)
 						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 736, Short.MAX_VALUE)
 						.addComponent(Add_folder).addComponent(Add_file).addContainerGap()));
@@ -152,7 +152,7 @@ public class Pane extends javax.swing.JPanel {
 						.addContainerGap(13, Short.MAX_VALUE)
 						.addGroup(PanelHaut2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 								.addComponent(Add_Tag).addComponent(Supp).addComponent(All_select)
-								.addComponent(jButton8).addComponent(Add_folder).addComponent(Add_file))
+								.addComponent(All_deselect).addComponent(Add_folder).addComponent(Add_file))
 						.addContainerGap()));
 
 		PanelCentral.add(PanelHaut2, java.awt.BorderLayout.NORTH);
@@ -276,7 +276,7 @@ public class Pane extends javax.swing.JPanel {
 	public javax.swing.JButton Supp;
 	public javax.swing.JPanel Tri;
 	public javax.swing.JComboBox<String> TriPar;
-	public javax.swing.JButton jButton8;
+	public javax.swing.JButton All_deselect;
 	public javax.swing.JPanel jPanel1;
 	public javax.swing.JScrollPane jScrollPane1;
 	public javax.swing.JButton nom;
