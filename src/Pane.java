@@ -1,14 +1,11 @@
 
-import java.awt.Color;
 import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
 import java.awt.Insets;
-import java.io.File;
 import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 
-import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 /*
@@ -34,8 +31,8 @@ public class Pane extends javax.swing.JPanel {
 		for (int i = 0; i < cases.size(); i++) {
 
 			GridBagConstraints c = new GridBagConstraints();
-			c.gridx = i % 5;
-			c.gridy = i / 5;
+			c.gridx = i % 4;
+			c.gridy = i / 4;
 			c.insets = new Insets(10, 10, 10, 10);
 
 			this.PanelGeneral.add(cases.get(i), c);
@@ -56,6 +53,7 @@ public class Pane extends javax.swing.JPanel {
         All_select = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
         Add_folder = new javax.swing.JButton();
+        Add_file = new javax.swing.JButton();
         SplitCentral = new javax.swing.JSplitPane();
         PanelLateral = new javax.swing.JPanel();
         recherche = new javax.swing.JTextField();
@@ -69,15 +67,16 @@ public class Pane extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         Aplliquer = new javax.swing.JButton();
         Remove_choice = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
         PanelGeneral = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
 
         setPreferredSize(java.awt.Toolkit.getDefaultToolkit().getScreenSize());
         setLayout(new java.awt.BorderLayout());
 
         PanelHaut.setBackground(new java.awt.Color(226, 134, 90));
 
-        javax.swing.GroupLayout PanelHautLayout = new javax.swing.GroupLayout(PanelHaut);
+        PanelHaut.add(new JLabel(new ImageIcon("logobis.png")));
+        /*javax.swing.GroupLayout PanelHautLayout = new javax.swing.GroupLayout(PanelHaut);
         PanelHaut.setLayout(PanelHautLayout);
         PanelHautLayout.setHorizontalGroup(
             PanelHautLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -86,7 +85,7 @@ public class Pane extends javax.swing.JPanel {
         PanelHautLayout.setVerticalGroup(
             PanelHautLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 43, Short.MAX_VALUE)
-        );
+        );*/
 
         add(PanelHaut, java.awt.BorderLayout.NORTH);
 
@@ -94,16 +93,26 @@ public class Pane extends javax.swing.JPanel {
         PanelCentral.setLayout(new java.awt.BorderLayout());
 
         Add_Tag.setText("Ajouter un Tag");
-        
+        Add_Tag.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Add_TagActionPerformed(evt);
+            }
+        });
 
         Supp.setText("Supprimer");
-        
+        Supp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SuppActionPerformed(evt);
+            }
+        });
 
         All_select.setText("Tout selectionner");
 
         jButton8.setText("Tout deselectionner");
 
         Add_folder.setText("Ajouter Dossier");
+        
+        Add_file.setText("Ajouter Image");
 
         javax.swing.GroupLayout PanelHaut2Layout = new javax.swing.GroupLayout(PanelHaut2);
         PanelHaut2.setLayout(PanelHaut2Layout);
@@ -120,6 +129,7 @@ public class Pane extends javax.swing.JPanel {
                 .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 736, Short.MAX_VALUE)
                 .addComponent(Add_folder)
+                .addComponent(Add_file)
                 .addContainerGap())
         );
         PanelHaut2Layout.setVerticalGroup(
@@ -131,7 +141,8 @@ public class Pane extends javax.swing.JPanel {
                     .addComponent(Supp)
                     .addComponent(All_select)
                     .addComponent(jButton8)
-                    .addComponent(Add_folder))
+                    .addComponent(Add_folder)
+                    .addComponent(Add_file))
                 .addContainerGap())
         );
 
@@ -197,6 +208,11 @@ public class Pane extends javax.swing.JPanel {
         Aplliquer.setText("Appliquer");
 
         Remove_choice.setText("Annuler");
+        Remove_choice.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Remove_choiceActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout PanelLateralLayout = new javax.swing.GroupLayout(PanelLateral);
         PanelLateral.setLayout(PanelLateralLayout);
@@ -237,20 +253,33 @@ public class Pane extends javax.swing.JPanel {
         SplitCentral.setLeftComponent(PanelLateral);
 
         PanelGeneral.setBackground(new java.awt.Color(226, 134, 90));
+        PanelGeneral.setLayout(new java.awt.GridBagLayout());
+        jScrollPane1.setViewportView(PanelGeneral);
 
-        PanelGeneral.setLayout(new GridBagLayout());
-
-        SplitCentral.setRightComponent(PanelGeneral);
+        SplitCentral.setRightComponent(jScrollPane1);
 
         PanelCentral.add(SplitCentral, java.awt.BorderLayout.CENTER);
 
         add(PanelCentral, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void Add_TagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Add_TagActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Add_TagActionPerformed
+
+    private void SuppActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SuppActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SuppActionPerformed
+
+    private void Remove_choiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Remove_choiceActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Remove_choiceActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton Add_Tag;
     public javax.swing.JButton Add_folder;
+    public javax.swing.JButton Add_file;
     public javax.swing.JButton All_select;
     public javax.swing.JButton Aplliquer;
     public javax.swing.JComboBox<String> Croisant_dec;
@@ -268,7 +297,7 @@ public class Pane extends javax.swing.JPanel {
     public javax.swing.JComboBox<String> TriPar;
     public javax.swing.JButton jButton8;
     public javax.swing.JPanel jPanel1;
-    public javax.swing.JTextField jTextField1;
+    public javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JButton nom;
     public javax.swing.JTextField recherche;
     public javax.swing.JButton tag;
