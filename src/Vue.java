@@ -35,7 +35,7 @@ import javax.swing.border.BevelBorder;
 import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 
-public class Vue extends JFrame{
+public class Vue extends JFrame implements Observer{
 
 	File[] images;
 	File repertoire;
@@ -70,6 +70,11 @@ public class Vue extends JFrame{
 
 	public static void main(String[] args) {
 		Vue app = new Vue();
+	}
+
+	@Override
+	public void update(Observable obs, Object obj) {
+		this.pane.setPics(Case.fromPics((ArrayList<Pic>) obj));
 	}
 
 }
