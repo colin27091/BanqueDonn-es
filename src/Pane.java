@@ -122,12 +122,18 @@ public class Pane extends javax.swing.JPanel {
 		
 
 		All_select.setText("Tout selectionner");
+		All_select.addActionListener(this.ctr);
+		All_select.setActionCommand("All_select");
 
 		All_deselect.setText("Tout deselectionner");
 
 		Add_folder.setText("Ajouter Dossier");
 
 		Add_file.setText("Ajouter Image");
+		Add_file.addActionListener(this.ctr);
+		Add_file.setActionCommand("Add_file");
+
+
 
 		javax.swing.GroupLayout PanelHaut2Layout = new javax.swing.GroupLayout(PanelHaut2);
 		PanelHaut2.setBackground(new Color(134, 129, 128));
@@ -213,7 +219,8 @@ public class Pane extends javax.swing.JPanel {
 		Appliquer.addActionListener(this.ctr);
 		Appliquer.setActionCommand("Appliquer");
 		
-
+		Add_folder.addActionListener(this.ctr);
+		Add_folder.setActionCommand("Add_folder");
 		Remove_choice.setText("Annuler");
 
 		javax.swing.GroupLayout PanelLateralLayout = new javax.swing.GroupLayout(PanelLateral);

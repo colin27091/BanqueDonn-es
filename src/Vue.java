@@ -41,6 +41,7 @@ public class Vue extends JFrame implements Observer{
 	File repertoire;
 	ArrayList<Pic> pics;
 	Pane pane;
+	Control ctr;
 
 
 	public Vue(Control ctr) {
@@ -51,6 +52,7 @@ public class Vue extends JFrame implements Observer{
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLayout(new BorderLayout());
 
+		this.ctr = ctr;
 		this.pane = new Pane(ctr);
 		
 		this.pics = Pic.fromFiles(new File("images/"));

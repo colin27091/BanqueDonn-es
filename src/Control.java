@@ -7,7 +7,9 @@ import java.awt.event.WindowListener;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Hashtable;
+import java.util.List;
 
+import javax.swing.JCheckBox;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.filechooser.FileSystemView;
@@ -161,6 +163,23 @@ public class Control implements WindowListener, MouseListener, ActionListener {
 		if(e.getActionCommand() == "Appliquer") {
 			System.out.println("Appliquer appuyé");
 		}
-	}
+		if(e.getActionCommand()== "Add_folder") {
+			JFileChooser choix = new JFileChooser();
+			choix.setApproveButtonText("Ajouter dossier");
+			choix.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);	
+			if ( choix.showOpenDialog(null) == JFileChooser.APPROVE_OPTION)
+				choix.getSelectedFile().getAbsolutePath();
+			
+			}
+		if(e.getActionCommand() == "Add_file") {
+			JFileChooser choix = new JFileChooser();
+			choix.setApproveButtonText("Ajouter images");
+			choix.setFileSelectionMode(JFileChooser.FILES_ONLY);	
+			if ( choix.showOpenDialog(null) == JFileChooser.APPROVE_OPTION)
+				choix.getSelectedFile().getAbsolutePath();
+		}
+		if(e.getActionCommand()== "All_select") {
+		}
+			}
 
 }

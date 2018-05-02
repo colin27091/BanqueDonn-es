@@ -3,6 +3,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.BorderFactory;
 import javax.swing.GroupLayout;
@@ -36,10 +37,8 @@ public class Case extends JPanel {
                 nom = new JLabel(pic.name);
                 
                 
-                
                 selection = new JCheckBox();
                 selection.setBackground(null);
-                
                 
                 this.add(selection, BorderLayout.NORTH);
 		this.add(image);
