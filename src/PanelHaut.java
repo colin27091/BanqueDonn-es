@@ -21,7 +21,7 @@ public class PanelHaut extends JPanel {
 	private static final long serialVersionUID = 1L;
 
 	PanelHaut() {
-		this.setBackground(new Color(226, 134, 90));
+		this.setBackground(new Color(219, 109, 45));
 		this.setLayout(new BorderLayout());
 		
 		
