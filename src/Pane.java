@@ -2,39 +2,69 @@
 import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JSplitPane;
+import javax.swing.JTabbedPane;
+import javax.swing.JTextField;
 
-
-
-
-public class Pane extends javax.swing.JPanel {
+public class Pane extends javax.swing.JPanel implements ActionListener {
 
 	ArrayList<Case> cases;
 	ArrayList<String> filtrage;
 	ArrayList<String> tri;
 	Control ctr;
 
+	JButton Add_Tag;
+	JButton Add_folder;
+	JButton Add_file;
+	JButton All_select;
+	JButton Appliquer;
+	JComboBox<String> Croisant_dec;
+	JScrollPane Filtrage;
+	JTabbedPane Filtre_tri;
+	JPanel PanelCentral;
+	JPanel PanelGeneral;
+	JPanel PanelHaut;
+	JPanel PanelHaut2;
+	JPanel PanelLateral;
+	JButton Remove_choice;
+	JSplitPane SplitCentral;
+	JButton Supp;
+	JPanel Tri;
+	JComboBox<String> TriPar;
+	JButton All_deselect;
+	JPanel jPanel1;
+	JScrollPane jScrollPane1;
+	JButton nom;
+	JTextField recherche;
+	JButton tag;
+
 	public Pane(Control ctr) {
 		this.ctr = ctr;
 		initComponents();
 	}
 
-	public void setPics(ArrayList<Pic> pics){
-    	
-    	this.cases = Case.fromPics(pics);
-    	
-    	this.PanelGeneral.removeAll();
+	public void setPics(ArrayList<Pic> pics) {
+
+		this.cases = Case.fromPics(pics);
+
+		this.PanelGeneral.removeAll();
 
 		if (cases.isEmpty()) {
 			this.PanelGeneral.add(Add_folder);
 		} else {
 			for (int i = 0; i < cases.size(); i++) {
-
 				GridBagConstraints c = new GridBagConstraints();
 				c.gridx = i % 4;
 				c.gridy = i / 4;
@@ -44,13 +74,9 @@ public class Pane extends javax.swing.JPanel {
 
 			}
 		}
-
-
+		this.PanelGeneral.repaint();
 	}
 
-	@SuppressWarnings("unchecked")
-	// <editor-fold defaultstate="collapsed" desc="Generated
-	// Code">//GEN-BEGIN:initComponents
 	private void initComponents() {
 
 		PanelHaut = new javax.swing.JPanel();
@@ -111,24 +137,22 @@ public class Pane extends javax.swing.JPanel {
 		PanelCentral.setLayout(new java.awt.BorderLayout());
 
 		Add_Tag.setText("Ajouter un Tag");
-		
 
 		Supp.setText("Supprimer");
-		
 
 		All_select.setText("Tout selectionner");
-		All_select.addActionListener(this.ctr);
+		All_select.addActionListener(this);
 		All_select.setActionCommand("All_select");
 
 		All_deselect.setText("Tout deselectionner");
+		All_deselect.addActionListener(this);
+		All_deselect.setActionCommand("All_deselect");
 
 		Add_folder.setText("Ajouter Dossier");
 
 		Add_file.setText("Ajouter Image");
 		Add_file.addActionListener(this.ctr);
 		Add_file.setActionCommand("Add_file");
-
-
 
 		javax.swing.GroupLayout PanelHaut2Layout = new javax.swing.GroupLayout(PanelHaut2);
 		PanelHaut2.setBackground(new Color(134, 129, 128));
@@ -173,8 +197,7 @@ public class Pane extends javax.swing.JPanel {
 
 		TriPar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Date", "Nom" }));
 
-		Croisant_dec.setModel(
-				new javax.swing.DefaultComboBoxModel<>(new String[] { "Croissant", "Decroissant" }));
+		Croisant_dec.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Croissant", "Decroissant" }));
 
 		javax.swing.GroupLayout TriLayout = new javax.swing.GroupLayout(Tri);
 		Tri.setLayout(TriLayout);
@@ -213,7 +236,7 @@ public class Pane extends javax.swing.JPanel {
 		Appliquer.setText("Appliquer");
 		Appliquer.addActionListener(this.ctr);
 		Appliquer.setActionCommand("Appliquer");
-		
+
 		Add_folder.addActionListener(this.ctr);
 		Add_folder.setActionCommand("Add_folder");
 		Remove_choice.setText("Annuler");
@@ -263,33 +286,37 @@ public class Pane extends javax.swing.JPanel {
 		add(PanelCentral, java.awt.BorderLayout.CENTER);
 	}// </editor-fold>//GEN-END:initComponents
 
-	
-	// Variables declaration - do not modify//GEN-BEGIN:variables
-	public javax.swing.JButton Add_Tag;
-	public javax.swing.JButton Add_folder;
-	public javax.swing.JButton Add_file;
-	public javax.swing.JButton All_select;
-	public javax.swing.JButton Appliquer;
-	public javax.swing.JComboBox<String> Croisant_dec;
-	public javax.swing.JScrollPane Filtrage;
-	public javax.swing.JTabbedPane Filtre_tri;
-	public javax.swing.JPanel PanelCentral;
-	public javax.swing.JPanel PanelGeneral;
-	public javax.swing.JPanel PanelHaut;
-	public javax.swing.JPanel PanelHaut2;
-	public javax.swing.JPanel PanelLateral;
-	public javax.swing.JButton Remove_choice;
-	public javax.swing.JSplitPane SplitCentral;
-	public javax.swing.JButton Supp;
-	public javax.swing.JPanel Tri;
-	public javax.swing.JComboBox<String> TriPar;
-	public javax.swing.JButton All_deselect;
-	public javax.swing.JPanel jPanel1;
-	public javax.swing.JScrollPane jScrollPane1;
-	public javax.swing.JButton nom;
-	public javax.swing.JTextField recherche;
-	public javax.swing.JButton tag;
-	// End of variables declaration//GEN-END:variables
-	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if (e.getActionCommand() == "All_select") {
+			for (int i = 0; i < cases.size(); i++) {
+				this.PanelGeneral.remove(cases.get(i));
+				cases.get(i).selection.setSelected(true);
+				GridBagConstraints c = new GridBagConstraints();
+				c.gridx = i % 4;
+				c.gridy = i / 4;
+				c.insets = new Insets(10, 10, 10, 10);
+
+				this.PanelGeneral.add(cases.get(i), c);
+
+			}
+			repaint();
+		}
+		if (e.getActionCommand() == "All_deselect") {
+			for (int i = 0; i < cases.size(); i++) {
+				this.PanelGeneral.remove(cases.get(i));
+				cases.get(i).selection.setSelected(false);
+				GridBagConstraints c = new GridBagConstraints();
+				c.gridx = i % 4;
+				c.gridy = i / 4;
+				c.insets = new Insets(10, 10, 10, 10);
+
+				this.PanelGeneral.add(cases.get(i), c);
+
+			}
+			repaint();
+		}
+
+	}
 
 }

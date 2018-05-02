@@ -15,22 +15,12 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.filechooser.FileSystemView;
 
 public class Control implements WindowListener, MouseListener, ActionListener {
-	File folderPath;
-	String configFile;
+
 	Model model;
-	Vue app;
-
-	Hashtable<Case, Boolean> check;
-
 	
-	
+
 	Control(Model mdl) {
 		this.model = mdl;
-	}
-
-
-	Control(String configFile) throws Exception {
-		this.configFile = configFile;
 	}
 
 	@Override
@@ -148,32 +138,46 @@ public class Control implements WindowListener, MouseListener, ActionListener {
 
 	@Override
 	public void mouseReleased(MouseEvent arg0) {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if(e.getActionCommand() == "Appliquer") {
-			this.model.setData(Tri.dateC(this.model.data));
+		if (e.getActionCommand() == "Appliquer") {
+			this.model.setData(Pic.fromFiles(new File("/home/colin/Documents/Licence Info/S4/projetjava/images")));
 		}
-		if(e.getActionCommand()== "Add_folder") {
+
+		if (e.getActionCommand() == "Add_folder") {
 			JFileChooser choix = new JFileChooser();
 			choix.setApproveButtonText("Ajouter dossier");
-			choix.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);	
-			if ( choix.showOpenDialog(null) == JFileChooser.APPROVE_OPTION)
-				choix.getSelectedFile().getAbsolutePath();
-			
+			choix.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+			// System.out.println(choix.getSelectedFile());
+			if (choix.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
+				this.model.setData(Pic.fromFiles(new File(choix.getSelectedFile().getAbsolutePath().toString())));
+
+				System.out.println(choix.getSelectedFile().getAbsolutePath().toString());
+			} else {
+				System.out.println("fail");
 			}
-		if(e.getActionCommand() == "Add_file") {
+			//this.model.setData(Pic.fromFiles(new File(
+			/*if (choix.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
+				System.out.println(choix.getSelectedFile().getAbsolutePath());
+			}*/
+		}
+
+		if (e.getActionCommand() == "Add_file") {
 			JFileChooser choix = new JFileChooser();
 			choix.setApproveButtonText("Ajouter images");
-			choix.setFileSelectionMode(JFileChooser.FILES_ONLY);	
-			if ( choix.showOpenDialog(null) == JFileChooser.APPROVE_OPTION)
-				choix.getSelectedFile().getAbsolutePath();
+			choix.setFileSelectionMode(JFileChooser.FILES_ONLY);
+			
+			/*
+			 * if ( choix.showOpenDialog(null) == JFileChooser.APPROVE_OPTION)
+			 * this.model.setData(Pic.fromFiles(new
+			 * File(choix.getSelectedFile().getAbsolutePath().toString())));
+			 */
 		}
-		if(e.getActionCommand()== "All_select") {
-		}
-			}
+
+		
+	}
 
 }

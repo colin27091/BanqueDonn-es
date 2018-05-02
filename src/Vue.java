@@ -58,26 +58,16 @@ public class Vue extends JFrame implements Observer{
 		this.pics = new ArrayList<Pic>();
 		//= Pic.fromFiles(new File("images/"));
 		
-		
-		
-		this.pane.setPics(this.pics);
-		
 		this.add(pane);
 
 		this.pack();
 
 	}
 
-	void refresh() {
-
-	}
-
 	@Override
 	public void update(Observable obs, Object obj) {
 		System.out.println(obj);
-		this.pane.PanelGeneral.removeAll();
-		System.out.println(this.pane.PanelGeneral.countComponents());
-		//this.pane.setPics((ArrayList<Pic>) obj);
+		this.pane.setPics((ArrayList<Pic>) obj);
 	}
 
 }

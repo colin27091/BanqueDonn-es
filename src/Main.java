@@ -19,11 +19,13 @@ public class Main {
 		// Création du contrôleur
 		Model mdl = new Model();
 
-		Control controler = new Control(mdl);
+		Control ctr = new Control(mdl);
 
 		// Création de notre fenêtre avec le contrôleur en paramètre
 
-		Vue vue = new Vue(controler);
+		Vue vue = new Vue(ctr);
+		
+		mdl.addObserver(vue);
 
 
 	}

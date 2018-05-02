@@ -7,23 +7,19 @@ public class Model extends Observable{
 	
 	
 	ArrayList<Pic> data;
-	ArrayList<Pic> filter;
+	Hashtable<String, ArrayList<Pic>> tags;
+	
 	
 	Model() {
-		
-		data = new ArrayList<Pic>();
-		this.data = Pic.fromFiles(new File("images/"));
-
-		
 	}
 
 	void setData(ArrayList<Pic> newfilter) {
 
-		/*if( ! newfilter.equals(this.data)) {
-			this.filter = newfilter;
+		if( ! newfilter.equals(this.data)) {
+			this.data = newfilter;
+			this.setChanged();
 			this.notifyObservers(newfilter);
-		}*/
-		System.out.println(newfilter.toString());
+		}
 	}
 	
 	
