@@ -55,11 +55,12 @@ public class Vue extends JFrame implements Observer{
 		this.ctr = ctr;
 		this.pane = new Pane(ctr);
 		
-		this.pics = Pic.fromFiles(new File("images/"));
+		this.pics = new ArrayList<Pic>();
+		//= Pic.fromFiles(new File("images/"));
 		
 		
 		
-		this.pane.setPics(Case.fromPics(pics));
+		this.pane.setPics(this.pics);
 		
 		this.add(pane);
 
@@ -73,7 +74,10 @@ public class Vue extends JFrame implements Observer{
 
 	@Override
 	public void update(Observable obs, Object obj) {
-		this.pane.setPics(Case.fromPics((ArrayList<Pic>) obj));
+		System.out.println(obj);
+		this.pane.PanelGeneral.removeAll();
+		System.out.println(this.pane.PanelGeneral.countComponents());
+		//this.pane.setPics((ArrayList<Pic>) obj);
 	}
 
 }

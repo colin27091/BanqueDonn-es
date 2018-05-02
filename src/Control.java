@@ -23,17 +23,11 @@ public class Control implements WindowListener, MouseListener, ActionListener {
 	Hashtable<Case, Boolean> check;
 
 	
-	Control(){
-		
-	}
 	
-	Control(Model model) {
+	Control(Model mdl) {
+		this.model = mdl;
 	}
 
-	Control(Vue app, Model model) {
-		this.model = model;
-		this.app = app;
-	}
 
 	Control(String configFile) throws Exception {
 		this.configFile = configFile;
@@ -161,7 +155,7 @@ public class Control implements WindowListener, MouseListener, ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getActionCommand() == "Appliquer") {
-			System.out.println("Appliquer appuyé");
+			this.model.setData(Tri.dateC(this.model.data));
 		}
 		if(e.getActionCommand()== "Add_folder") {
 			JFileChooser choix = new JFileChooser();

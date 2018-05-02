@@ -17,8 +17,9 @@ public class Main {
 	public static void main(String[] args) {
 
 		// Création du contrôleur
+		Model mdl = new Model();
 
-		Control controler = new Control();
+		Control controler = new Control(mdl);
 
 		// Création de notre fenêtre avec le contrôleur en paramètre
 

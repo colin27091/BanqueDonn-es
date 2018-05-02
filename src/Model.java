@@ -12,17 +12,18 @@ public class Model extends Observable{
 	Model() {
 		
 		data = new ArrayList<Pic>();
-		data = new ArrayList<Pic>();
+		this.data = Pic.fromFiles(new File("images/"));
 
 		
 	}
 
 	void setData(ArrayList<Pic> newfilter) {
 
-		if( ! newfilter.equals(this.data)) {
+		/*if( ! newfilter.equals(this.data)) {
 			this.filter = newfilter;
-		}
-		this.notifyObservers(this.filter);
+			this.notifyObservers(newfilter);
+		}*/
+		System.out.println(newfilter.toString());
 	}
 	
 	

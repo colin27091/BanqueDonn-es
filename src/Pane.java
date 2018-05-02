@@ -9,19 +9,14 @@ import java.util.Observer;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
-/**
- *
- * @author colin
- */
+
+
 public class Pane extends javax.swing.JPanel {
 
 	ArrayList<Case> cases;
+	ArrayList<String> filtrage;
+	ArrayList<String> tri;
 	Control ctr;
 
 	public Pane(Control ctr) {
@@ -29,9 +24,9 @@ public class Pane extends javax.swing.JPanel {
 		initComponents();
 	}
 
-	public void setPics(ArrayList<Case> cases){
+	public void setPics(ArrayList<Pic> pics){
     	
-    	this.cases = cases;
+    	this.cases = Case.fromPics(pics);
     	
     	this.PanelGeneral.removeAll();
 
