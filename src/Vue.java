@@ -42,7 +42,8 @@ public class Vue extends JFrame implements Observer{
 	ArrayList<Pic> pics;
 	Pane pane;
 
-	public Vue() {
+
+	public Vue(Control ctr) {
 		this.setTitle("Banque de données");
 		this.setVisible(true);
 		this.setPreferredSize(java.awt.Toolkit.getDefaultToolkit().getScreenSize());
@@ -50,7 +51,7 @@ public class Vue extends JFrame implements Observer{
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLayout(new BorderLayout());
 
-		this.pane = new Pane();
+		this.pane = new Pane(ctr);
 		
 		this.pics = Pic.fromFiles(new File("images/"));
 		
@@ -66,10 +67,6 @@ public class Vue extends JFrame implements Observer{
 
 	void refresh() {
 
-	}
-
-	public static void main(String[] args) {
-		Vue app = new Vue();
 	}
 
 	@Override

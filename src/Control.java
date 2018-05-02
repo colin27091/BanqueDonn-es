@@ -1,3 +1,5 @@
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.WindowEvent;
@@ -10,16 +12,23 @@ import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.filechooser.FileSystemView;
 
-public class Control implements WindowListener, MouseListener {
+public class Control implements WindowListener, MouseListener, ActionListener {
 	File folderPath;
 	String configFile;
 	Model model;
 	Vue app;
-	
+
 	Hashtable<Case, Boolean> check;
+
 	
+	Control(){
+		
+	}
 	
-	Control(Vue app, Model model){
+	Control(Model model) {
+	}
+
+	Control(Vue app, Model model) {
 		this.model = model;
 		this.app = app;
 	}
@@ -77,27 +86,29 @@ public class Control implements WindowListener, MouseListener {
 
 	}
 
-	/*static ArrayList<Pic> addFile(ArrayList<Pic> pics /*Celle presente dans le modele) {
-		FileSystemView vuesysteme = FileSystemView.getFileSystemView();
-		File home = vuesysteme.getHomeDirectory();
-		JFileChooser homechooser = new JFileChooser(home);
-		homechooser.setDialogTitle("Choisissez un dossier  :");
-		homechooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
-
-		homechooser.addChoosableFileFilter(new FileNameExtensionFilter("*.pdf", "pdf"));
-		homechooser.addChoosableFileFilter(new FileNameExtensionFilter("*.png", "png"));
-		homechooser.addChoosableFileFilter(new FileNameExtensionFilter("*.jpg", "jpg"));
-		homechooser.addChoosableFileFilter(new FileNameExtensionFilter("*.bmp", "bmp"));
-		homechooser.addChoosableFileFilter(new FileNameExtensionFilter("*.psd", "psd"));
-		homechooser.addChoosableFileFilter(new FileNameExtensionFilter("*.jpeg", "jpeg"));
-		homechooser.setAcceptAllFileFilterUsed(false);
-
-		homechooser.showOpenDialog(null);
-		File file = homechooser.getSelectedFile();
-		String name = file.getName();
-		String
-
-	}*/
+	/*
+	 * static ArrayList<Pic> addFile(ArrayList<Pic> pics /*Celle presente dans le
+	 * modele) { FileSystemView vuesysteme = FileSystemView.getFileSystemView();
+	 * File home = vuesysteme.getHomeDirectory(); JFileChooser homechooser = new
+	 * JFileChooser(home); homechooser.setDialogTitle("Choisissez un dossier  :");
+	 * homechooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+	 * 
+	 * homechooser.addChoosableFileFilter(new FileNameExtensionFilter("*.pdf",
+	 * "pdf")); homechooser.addChoosableFileFilter(new
+	 * FileNameExtensionFilter("*.png", "png"));
+	 * homechooser.addChoosableFileFilter(new FileNameExtensionFilter("*.jpg",
+	 * "jpg")); homechooser.addChoosableFileFilter(new
+	 * FileNameExtensionFilter("*.bmp", "bmp"));
+	 * homechooser.addChoosableFileFilter(new FileNameExtensionFilter("*.psd",
+	 * "psd")); homechooser.addChoosableFileFilter(new
+	 * FileNameExtensionFilter("*.jpeg", "jpeg"));
+	 * homechooser.setAcceptAllFileFilterUsed(false);
+	 * 
+	 * homechooser.showOpenDialog(null); File file = homechooser.getSelectedFile();
+	 * String name = file.getName(); String
+	 * 
+	 * }
+	 */
 
 	void chooseFolder() {
 		FileSystemView vuesysteme = FileSystemView.getFileSystemView();
@@ -108,40 +119,48 @@ public class Control implements WindowListener, MouseListener {
 		homechooser.showOpenDialog(null);
 
 		File folder = homechooser.getSelectedFile();
-		// TODO: gérer le cas où le folder n'existe pas (bien qu'improbable il faut le gérer)
-		//this.model.folderPath = folder;
-		
-		//this.model.refresh();
+		// TODO: gérer le cas où le folder n'existe pas (bien qu'improbable il faut le
+		// gérer)
+		// this.model.folderPath = folder;
+
+		// this.model.refresh();
 	}
 
 	@Override
 	public void mouseClicked(MouseEvent arg0) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void mouseEntered(MouseEvent arg0) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void mouseExited(MouseEvent arg0) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void mousePressed(MouseEvent arg0) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent arg0) {
 		// TODO Auto-generated method stub
-		
+
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if(e.getActionCommand() == "Appliquer") {
+			System.out.println("Appliquer appuyé");
+		}
 	}
 
 }

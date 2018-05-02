@@ -22,8 +22,10 @@ import javax.swing.JLabel;
 public class Pane extends javax.swing.JPanel {
 
 	ArrayList<Case> cases;
+	Control ctr;
 
-	public Pane() {
+	public Pane(Control ctr) {
+		this.ctr = ctr;
 		initComponents();
 	}
 
@@ -76,7 +78,7 @@ public class Pane extends javax.swing.JPanel {
 		Croisant_dec = new javax.swing.JComboBox<>();
 		Filtrage = new javax.swing.JScrollPane();
 		jPanel1 = new javax.swing.JPanel();
-		Aplliquer = new javax.swing.JButton();
+		Appliquer = new javax.swing.JButton();
 		Remove_choice = new javax.swing.JButton();
 		jScrollPane1 = new javax.swing.JScrollPane();
 		PanelGeneral = new javax.swing.JPanel();
@@ -87,7 +89,7 @@ public class Pane extends javax.swing.JPanel {
 		Add_file.setBackground(new Color(215, 213, 212));
 		nom.setBackground(new Color(215, 213, 212));
 		tag.setBackground(new Color(215, 213, 212));
-		Aplliquer.setBackground(new Color(215, 213, 212));
+		Appliquer.setBackground(new Color(215, 213, 212));
 		Remove_choice.setBackground(new Color(215, 213, 212));
 		Add_Tag.setBackground(new Color(215, 213, 212));
 		All_deselect.setBackground(new Color(215, 213, 212));
@@ -207,7 +209,10 @@ public class Pane extends javax.swing.JPanel {
 
 		Filtre_tri.addTab("Filtrage", Filtrage);
 
-		Aplliquer.setText("Appliquer");
+		Appliquer.setText("Appliquer");
+		Appliquer.addActionListener(this.ctr);
+		Appliquer.setActionCommand("Appliquer");
+		
 
 		Remove_choice.setText("Annuler");
 
@@ -225,7 +230,7 @@ public class Pane extends javax.swing.JPanel {
 										javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 								.addComponent(recherche, javax.swing.GroupLayout.Alignment.TRAILING)
 								.addGroup(PanelLateralLayout.createSequentialGroup().addGap(0, 0, Short.MAX_VALUE)
-										.addComponent(Remove_choice).addGap(11, 11, 11).addComponent(Aplliquer)))
+										.addComponent(Remove_choice).addGap(11, 11, 11).addComponent(Appliquer)))
 						.addContainerGap()));
 		PanelLateralLayout
 				.setVerticalGroup(PanelLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -240,7 +245,7 @@ public class Pane extends javax.swing.JPanel {
 								.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
 								.addGroup(PanelLateralLayout
 										.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-										.addComponent(Aplliquer).addComponent(Remove_choice))
+										.addComponent(Appliquer).addComponent(Remove_choice))
 								.addContainerGap()));
 
 		SplitCentral.setLeftComponent(PanelLateral);
@@ -262,7 +267,7 @@ public class Pane extends javax.swing.JPanel {
 	public javax.swing.JButton Add_folder;
 	public javax.swing.JButton Add_file;
 	public javax.swing.JButton All_select;
-	public javax.swing.JButton Aplliquer;
+	public javax.swing.JButton Appliquer;
 	public javax.swing.JComboBox<String> Croisant_dec;
 	public javax.swing.JScrollPane Filtrage;
 	public javax.swing.JTabbedPane Filtre_tri;
