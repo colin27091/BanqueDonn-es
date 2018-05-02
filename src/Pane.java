@@ -174,7 +174,7 @@ public class Pane extends javax.swing.JPanel {
 		TriPar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Date", "Nom" }));
 
 		Croisant_dec.setModel(
-				new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+				new javax.swing.DefaultComboBoxModel<>(new String[] { "Croissant", "Decroissant" }));
 
 		javax.swing.GroupLayout TriLayout = new javax.swing.GroupLayout(Tri);
 		Tri.setLayout(TriLayout);
