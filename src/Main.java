@@ -16,7 +16,7 @@ public class Main {
 
 
 	public static void main(String[] args) throws IOException {            
-		Vue app = new Vue();
+		Vue vue = new Vue();
 
 		/*Vue app = new Vue();
 		Model m = new Model();

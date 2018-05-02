@@ -128,12 +128,12 @@ public class Pic {
 				if (bits.length >= 2) {
 					String extension = bits[bits.length - 1];
 					if (extension.matches(Pic.formats)) {
-						ArrayList<String> tag = new ArrayList<String>();
+						/*ArrayList<String> tag = new ArrayList<String>();
 						if (new File(folder + "/.pictag").exists()) {
-							tag = Tools.searchTags(folder, file.getName());
+							//tag = Tools.searchTags(folder, file.getName());
 						} else {
 							Tools.createPictag(folder);
-						}
+						}*/
 						data.add(new Pic(name, file, extension, image));
 
 					}

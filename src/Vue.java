@@ -14,6 +14,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 import javax.imageio.ImageIO;
@@ -38,7 +39,8 @@ public class Vue extends JFrame{
 
 	File[] images;
 	File repertoire;
-	JPanel panelCentral, panel1, panel2, panel3;
+	ArrayList<Pic> pics;
+	Pane pane;
 
 	public Vue() {
 		this.setTitle("Banque de données");
@@ -48,11 +50,15 @@ public class Vue extends JFrame{
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLayout(new BorderLayout());
 
-
-		this.add(new PanelHaut(), BorderLayout.NORTH);
-		// this.add(new PanelLateral(), BorderLayout.WEST);
-		// this.add(new PanelCentral());
-		this.add(new JSplitPane(1, new PanelLateralBis(), new PanelCentral()));
+		this.pane = new Pane();
+		
+		this.pics = Pic.fromFiles(new File("images/"));
+		
+		
+		
+		this.pane.setPics(Case.fromPics(pics));
+		
+		this.add(pane);
 
 		this.pack();
 

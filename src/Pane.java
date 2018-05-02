@@ -1,7 +1,14 @@
 
+import java.awt.Color;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
+
+import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 
 /*
@@ -14,16 +21,26 @@ import javax.swing.JLabel;
  *
  * @author colin
  */
-public class Panel extends javax.swing.JPanel {
+public class Pane extends javax.swing.JPanel {
 
    
      
-    public Panel() {
+    public Pane() {
         initComponents(); 
     }
 
-    public void setPics(ArrayList<Pic> pics){
-        this.PanelGeneral.add(new JLabel("bonjour"));
+    public void setPics(ArrayList<Case> cases){
+    	
+		for (int i = 0; i < cases.size(); i++) {
+
+			GridBagConstraints c = new GridBagConstraints();
+			c.gridx = i % 5;
+			c.gridy = i / 5;
+			c.insets = new Insets(10, 10, 10, 10);
+
+			this.PanelGeneral.add(cases.get(i), c);
+
+		}
     }
     
     
@@ -77,18 +94,10 @@ public class Panel extends javax.swing.JPanel {
         PanelCentral.setLayout(new java.awt.BorderLayout());
 
         Add_Tag.setText("Ajouter un Tag");
-        Add_Tag.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Add_TagActionPerformed(evt);
-            }
-        });
+        
 
         Supp.setText("Supprimer");
-        Supp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SuppActionPerformed(evt);
-            }
-        });
+        
 
         All_select.setText("Tout selectionner");
 
@@ -188,11 +197,6 @@ public class Panel extends javax.swing.JPanel {
         Aplliquer.setText("Appliquer");
 
         Remove_choice.setText("Annuler");
-        Remove_choice.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Remove_choiceActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout PanelLateralLayout = new javax.swing.GroupLayout(PanelLateral);
         PanelLateral.setLayout(PanelLateralLayout);
@@ -234,24 +238,7 @@ public class Panel extends javax.swing.JPanel {
 
         PanelGeneral.setBackground(new java.awt.Color(226, 134, 90));
 
-        jTextField1.setText("jTextField1");
-
-        javax.swing.GroupLayout PanelGeneralLayout = new javax.swing.GroupLayout(PanelGeneral);
-        PanelGeneral.setLayout(PanelGeneralLayout);
-        PanelGeneralLayout.setHorizontalGroup(
-            PanelGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelGeneralLayout.createSequentialGroup()
-                .addContainerGap(585, Short.MAX_VALUE)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(526, 526, 526))
-        );
-        PanelGeneralLayout.setVerticalGroup(
-            PanelGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelGeneralLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(579, Short.MAX_VALUE))
-        );
+        PanelGeneral.setLayout(new GridBagLayout());
 
         SplitCentral.setRightComponent(PanelGeneral);
 
@@ -259,18 +246,6 @@ public class Panel extends javax.swing.JPanel {
 
         add(PanelCentral, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void Add_TagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Add_TagActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Add_TagActionPerformed
-
-    private void SuppActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SuppActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SuppActionPerformed
-
-    private void Remove_choiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Remove_choiceActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Remove_choiceActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

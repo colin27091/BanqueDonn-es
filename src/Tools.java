@@ -23,7 +23,9 @@ public class Tools {
 	
 	
 	
-	static Hashtable<String, ArrayList<String>> extractTags(File folder)
+	static Hashtable<String, ArrayList<String>> extractTags(File folder){
+		return null;
+	}
 	
 
 	static ArrayList<String> searchTags(File folder, String nom) {
