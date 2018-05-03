@@ -176,8 +176,8 @@ public class Control implements WindowListener, MouseListener, ActionListener {
 			 */
 			
 			
-		}
-
-	}
-
+		}	
+			
+	}	
+			
 }

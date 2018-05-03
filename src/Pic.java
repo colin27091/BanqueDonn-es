@@ -1,5 +1,8 @@
 import java.awt.Dimension;
-
+import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.RenderingHints;
+import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 
@@ -11,7 +14,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Hashtable;
 
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
 /*
  * Classe qui représente une image que le programme peut
@@ -113,6 +118,36 @@ public class Pic {
 		}
 		return null;
 	}
+	
+	public Image scaleImage(Image source, int width, int height) {
+	    BufferedImage img = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
+	    Graphics2D g = (Graphics2D) img.getGraphics();
+	    g.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+	    g.drawImage(source, 0, 0, width, height, null);
+	    g.dispose();
+	    return img;
+	}
+	
+	public Image scaleImage(final Image source, final double factor) {
+	    int width = (int) (source.getWidth(null) * factor);
+	    int height = (int) (source.getHeight(null) * factor);
+	    return scaleImage(source, width, height);
+	}
+	
+	
+	/*ImageIcon icon = new ImageIcon(getClass().getResource("logo.png"));
+	Image zoom = scaleImage(icon.getImage(), 0.5d);
+	Icon iconScaled = new ImageIcon(zoom);
+	final JLabel j = new JLabel(iconScaled);*/
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	// récupère une liste d'Image à partir d'une liste de File[]
 	static ArrayList<Pic> fromFiles(File folder) {

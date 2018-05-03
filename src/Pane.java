@@ -320,15 +320,7 @@ public class Pane extends javax.swing.JPanel implements ActionListener {
 			}
 			repaint();
 		}
-		/*if(e.getActionCommand()== "Supp") {
-			for (int i = 0; i < cases.size(); i++) {
-				this.PanelGeneral.remove(cases.get(i));
-				cases.get(i).selection.setSelected(true);
-				this.PanelGeneral.remove(cases.get(i));
-				
-				
-			}*/
-		
+	
 
 	}
 
