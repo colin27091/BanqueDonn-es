@@ -136,7 +136,7 @@ public class Pane extends javax.swing.JPanel implements ActionListener {
 
 		add(PanelHaut, java.awt.BorderLayout.NORTH);
 
-		PanelCentral.setBackground(new java.awt.Color(207, 208, 84));
+		PanelCentral.setBackground(new java.awt.Color(25, 25, 25));
 		PanelCentral.setLayout(new java.awt.BorderLayout());
 
 		Add_Tag.setText("Ajouter un Tag");

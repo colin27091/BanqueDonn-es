@@ -1,15 +1,38 @@
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
-
-import application.tag;
 
 public class Tag {
 	
+	
+	ArrayList<Pic> pics = Pic.fromFiles(new File("images/"));
+	
 	public static void LectureTag() {
+		
+		Tag t = new Tag();
+		
+		
+		
+		
 		try {
+			
 			File f = new File("C:\\Users\\Quentin\\Documents\\projetjava\\.pictag.txt");
+			FileWriter nomimg = new FileWriter(f, false);
+			BufferedWriter bf = new BufferedWriter(nomimg);
+			PrintWriter pw = new PrintWriter(bf, false);
+			for(int i=0; i<t.pics.size() ;i++) {
+				String name = t.pics.get(i).name;
+				pw.println( name + ":");
+				
+				}
+			pw.close();
+			
 			FileReader pictag = new FileReader(f);
 			BufferedReader r = new BufferedReader(pictag);
 			String line = r.readLine();
@@ -22,9 +45,9 @@ public class Tag {
 				String Alltag = imageTag[1];
 				System.out.println(img);
 				String[] tags = Alltag.split(",");
-				for(int i=0; i<tags.length; i++) {
-					String tag = tags[i];
-					System.out.println(tags[i]);
+				for(int i2=0; i2<tags.length; i2++) {
+					String tag = tags[i2];
+					System.out.println(tags[i2]);
 
 				}
 
