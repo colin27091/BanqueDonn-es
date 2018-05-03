@@ -5,6 +5,7 @@ import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Hashtable;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -24,6 +25,7 @@ public class Pane extends javax.swing.JPanel implements ActionListener {
 	ArrayList<String> filtrage;
 	ArrayList<String> tri;
 	Control ctr;
+	Hashtable<Case, Boolean> check;
 
 	JButton Add_Tag;
 	JButton Add_folder;
@@ -320,15 +322,17 @@ public class Pane extends javax.swing.JPanel implements ActionListener {
 			}
 			repaint();
 		}
-		/*if(e.getActionCommand()== "Supp") {
-			for (int i = 0; i < cases.size(); i++) {
-				this.PanelGeneral.remove(cases.get(i));
-				cases.get(i).selection.setSelected(true);
-				this.PanelGeneral.remove(cases.get(i));
-				
-				
-			}*/
+
 		
+		if(e.getActionCommand() == "Supp") {
+			for(int i = 0; i< cases.size(); i++) {
+				if(cases.get(i).selection.isSelected()) {
+					System.out.println(cases.get(i).pic.name + " est coché");
+				}
+			}
+			
+		}
+
 
 	}
 

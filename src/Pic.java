@@ -22,30 +22,18 @@ public class Pic {
 	File file;
 	String extension;
 	ImageIcon image;
-
-	Dimension dimension;
-	/*poids du pic octet*/
-	
 	Date date;
-	Hashtable<String/*Type de tag*/, ArrayList<String>/*tag preci*/> tags;
+	ArrayList<String> tags;
+	
 
 	Pic(String name, File file, String extension, ImageIcon image, Hashtable<String,ArrayList<String>> tags ) {
 		this.name = name;
 		this.file = file;
 		this.extension = extension;
 		this.image = image;
-		this.dimension = new Dimension(image.getIconHeight(), image.getIconWidth());
+		//this.dimension = new Dimension(image.getIconHeight(), image.getIconWidth());
 		this.date = new Date(file.lastModified());
-		Hashtable<String, ArrayList<String>> htag = new Hashtable<String,ArrayList<String>>();
-		htag.put("Animaux", new ArrayList<String>());
-		htag.put("Objet", new ArrayList<String>());
-		htag.put("Personnes", new ArrayList<String>());
-		htag.put("Autres", new ArrayList<String>());
-		htag.put("Lieu", new ArrayList<String>());
 		
-
-
-
 	}
 
 
@@ -54,7 +42,7 @@ public class Pic {
 		this.file = file;
 		this.extension = extension;
 		this.image = image;
-		this.dimension = new Dimension(image.getIconHeight(), image.getIconWidth());
+		//this.dimension = new Dimension(image.getIconHeight(), image.getIconWidth());
 		this.date = new Date(file.lastModified());
 
 	}

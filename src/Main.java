@@ -25,6 +25,7 @@ public class Main {
 
 		Vue vue = new Vue(ctr);
 		
+		
 		mdl.addObserver(vue);
 
 
