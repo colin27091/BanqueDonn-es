@@ -11,6 +11,7 @@ import java.util.Observer;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -46,7 +47,7 @@ public class Pane extends javax.swing.JPanel implements ActionListener {
 	JPanel Tri;
 	JComboBox<String> TriPar;
 	JButton All_deselect;
-	JPanel jPanel1;
+	JPanel All_filtrage;
 	JScrollPane jScrollPane1;
 	JButton nom;
 	JTextField recherche;
@@ -104,7 +105,7 @@ public class Pane extends javax.swing.JPanel implements ActionListener {
 		TriPar = new javax.swing.JComboBox<>();
 		Croisant_dec = new javax.swing.JComboBox<>();
 		Filtrage = new javax.swing.JScrollPane();
-		jPanel1 = new javax.swing.JPanel();
+		All_filtrage = new javax.swing.JPanel();
 		Appliquer = new javax.swing.JButton();
 		Remove_choice = new javax.swing.JButton();
 		jScrollPane1 = new javax.swing.JScrollPane();
@@ -206,6 +207,8 @@ public class Pane extends javax.swing.JPanel implements ActionListener {
 		recherche.setText("Recherche");
 
 		nom.setText("Par Nom");
+		nom.addActionListener(this);
+		nom.setActionCommand("nom");
 
 		tag.setText("Par Tag");
 
@@ -236,16 +239,9 @@ public class Pane extends javax.swing.JPanel implements ActionListener {
 
 		Filtrage.setBackground(new java.awt.Color(213, 204, 188));
 
-		jPanel1.setPreferredSize(new java.awt.Dimension(100, 411));
+		All_filtrage.setPreferredSize(new java.awt.Dimension(100, 411));
 
-		javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-		jPanel1.setLayout(jPanel1Layout);
-		jPanel1Layout.setHorizontalGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGap(0, 147, Short.MAX_VALUE));
-		jPanel1Layout.setVerticalGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGap(0, 411, Short.MAX_VALUE));
-
-		Filtrage.setViewportView(jPanel1);
+		Filtrage.setViewportView(All_filtrage);
 
 		Filtre_tri.addTab("Filtrage", Filtrage);
 
@@ -352,6 +348,10 @@ public class Pane extends javax.swing.JPanel implements ActionListener {
 			tri.add((String) this.TriPar.getSelectedItem());
 			tri.add((String) this.Croisant_dec.getSelectedItem());
 			this.ctr.setParam(tri, filtre);
+		}
+		
+		if(e.getActionCommand() == "nom") {
+			this.All_filtrage.add(new JCheckBox("filtre 1"));
 		}
 
 
