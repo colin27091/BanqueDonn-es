@@ -17,6 +17,7 @@ import javax.swing.filechooser.FileSystemView;
 public class Control implements WindowListener, MouseListener, ActionListener {
 
 	Model model;
+	ArrayList<Case> cases;
 	
 
 	Control(Model mdl) {
@@ -71,30 +72,18 @@ public class Control implements WindowListener, MouseListener, ActionListener {
 		// TODO Auto-generated method stub
 
 	}
-
-	/*
-	 * static ArrayList<Pic> addFile(ArrayList<Pic> pics /*Celle presente dans le
-	 * modele) { FileSystemView vuesysteme = FileSystemView.getFileSystemView();
-	 * File home = vuesysteme.getHomeDirectory(); JFileChooser homechooser = new
-	 * JFileChooser(home); homechooser.setDialogTitle("Choisissez un dossier  :");
-	 * homechooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
-	 * 
-	 * homechooser.addChoosableFileFilter(new FileNameExtensionFilter("*.pdf",
-	 * "pdf")); homechooser.addChoosableFileFilter(new
-	 * FileNameExtensionFilter("*.png", "png"));
-	 * homechooser.addChoosableFileFilter(new FileNameExtensionFilter("*.jpg",
-	 * "jpg")); homechooser.addChoosableFileFilter(new
-	 * FileNameExtensionFilter("*.bmp", "bmp"));
-	 * homechooser.addChoosableFileFilter(new FileNameExtensionFilter("*.psd",
-	 * "psd")); homechooser.addChoosableFileFilter(new
-	 * FileNameExtensionFilter("*.jpeg", "jpeg"));
-	 * homechooser.setAcceptAllFileFilterUsed(false);
-	 * 
-	 * homechooser.showOpenDialog(null); File file = homechooser.getSelectedFile();
-	 * String name = file.getName(); String
-	 * 
-	 * }
-	 */
+	
+	void removePic(ArrayList<Pic> pics) {
+		for(Pic pic : pics) {
+			for(int i = 0; i < this.model.data.size(); i++) {
+				if(this.model.data.get(i) == pic) {
+					this.model.data.remove(i);
+				}
+			}
+			pic.file.delete();
+		}
+		this.model.setData(this.model.data);
+	}
 
 	void chooseFolder() {
 		FileSystemView vuesysteme = FileSystemView.getFileSystemView();
@@ -154,7 +143,7 @@ public class Control implements WindowListener, MouseListener, ActionListener {
 			// System.out.println(choix.getSelectedFile());
 			if (choix.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
 				this.model.setData(Pic.fromFiles(new File(choix.getSelectedFile().getAbsolutePath().toString())));
-				System.out.println(choix.getSelectedFile().getAbsolutePath().toString());
+				
 			} else {
 				System.out.println("fail");
 			}
@@ -174,10 +163,9 @@ public class Control implements WindowListener, MouseListener, ActionListener {
 			 * this.model.setData(Pic.fromFiles(new
 			 * File(choix.getSelectedFile().getAbsolutePath().toString())));
 			 */
-			
-			
-		}	
-			
-	}	
-			
+
+		}
+
+	}
+
 }

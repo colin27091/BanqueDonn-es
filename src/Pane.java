@@ -25,7 +25,6 @@ public class Pane extends javax.swing.JPanel implements ActionListener {
 	ArrayList<String> filtrage;
 	ArrayList<String> tri;
 	Control ctr;
-	Hashtable<Case, Boolean> check;
 
 	JButton Add_Tag;
 	JButton Add_folder;
@@ -324,11 +323,13 @@ public class Pane extends javax.swing.JPanel implements ActionListener {
 		}
 		
 		if(e.getActionCommand() == "Supp") {
+			ArrayList<Pic> pics = new ArrayList<Pic>();
 			for(int i = 0; i< cases.size(); i++) {
 				if(cases.get(i).selection.isSelected()) {
-					System.out.println(cases.get(i).pic.name + " est coché");
+					pics.add(cases.get(i).pic);
 				}
 			}
+			this.ctr.removePic(pics);
 			
 		}
 
