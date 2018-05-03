@@ -113,3 +113,8 @@ J'ai créé une nouvelle branche "nath" pour simplifier le travail collaboratif.
 Je suis extrêmement en retard pour le projet d'algorithmique, et dans mes révisions pour les autres matières, en particulier pour les contrôles de math (ceux que je prends en formation ouverte). Je ne vais donc pas pouvoir continuer plus que ça sur ce projet java, quitte à miser sur la session 2. J'ai tout de même avancé un peu sur le système de session, si vous voulez aller voir il se trouve sur la branche "nath" (je n'ai pas voulu fusionner, mais si vous voulez vous pouvez, il faudra gérer les conflits évidemment).
 Bonne chance pour la suite !
 PS: très classe le bandeau que tu as fait Quentin !
+
+== Nath
+
+Peut-être pourrait-on se donner rendez-vous à la biblio demain vers 10h, pour préparer le diaporama et la présentation ?
+(Pour une fois j'apprécierais que vous répondiez à ce message. Pour une discussion, ce fichier ressemble plus à un monologue.)
