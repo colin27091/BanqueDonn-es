@@ -16,34 +16,30 @@ import javax.swing.SwingConstants;
 
 public class Case extends JPanel {
 
-        Pic pic;
-        JCheckBox selection;
-        JLabel image;
-        JLabel nom;
-    
+	Pic pic;
+	JCheckBox selection;
+	JLabel image;
+	JLabel nom;
+
 	private static final long serialVersionUID = 1L;
 
 	Case(Pic pic) {
 		super();
-                this.pic = pic;
-                this.setLayout(new BorderLayout());
+		this.pic = pic;
+		this.setLayout(new BorderLayout());
 		this.setBorder(BorderFactory.createLineBorder(new Color(255, 166, 77)));
 		this.setBackground(Color.white);
-               
-                image = new JLabel(pic.image, SwingConstants.CENTER);
-                
-                
-                
-                nom = new JLabel(pic.name);
-                
-                
-                selection = new JCheckBox();
-                selection.setBackground(null);
-                
-                this.add(selection, BorderLayout.NORTH);
+
+		image = new JLabel(pic.image, SwingConstants.CENTER);
+
+		nom = new JLabel(pic.name);
+
+		selection = new JCheckBox();
+		selection.setBackground(null);
+
+		this.add(selection, BorderLayout.NORTH);
 		this.add(image);
 		this.add(nom, BorderLayout.SOUTH);
-
 
 	}
 
@@ -51,13 +47,13 @@ public class Case extends JPanel {
 		super.paintComponent(g);
 
 	}
-        
-        static ArrayList<Case> fromPics(ArrayList<Pic> pics){
-            ArrayList<Case> cases = new ArrayList<Case>();
-            for(Pic pic : pics){
-                cases.add(new Case(pic));
-            }
-            return cases;
-        }
+
+	static ArrayList<Case> fromPics(ArrayList<Pic> pics) {
+		ArrayList<Case> cases = new ArrayList<Case>();
+		for (Pic pic : pics) {
+			cases.add(new Case(pic));
+		}
+		return cases;
+	}
 
 }
