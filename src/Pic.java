@@ -53,8 +53,9 @@ public class Pic {
 	}
 
 	public String toString() {
-		return String.format("{name: '%s', path: '%s', extension: '%s'}", this.name, this.file.getAbsolutePath(),
-				this.extension);
+		///return String.format("{name: '%s', path: '%s', extension: '%s'}", this.name, this.file.getAbsolutePath(),
+				//this.extension);
+		return this.name;
 	}
 
 	public boolean delete() {

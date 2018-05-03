@@ -46,7 +46,7 @@ public class Tri {
 		while(oldfilter.size() != 1) {
 			int max = 0; /*index du max */
 			for(int i = 1; i<oldfilter.size(); i++) {
-				if(oldfilter.get(i).name.compareTo(oldfilter.get(max).name) == 1) {
+				if(oldfilter.get(i).name.compareTo(oldfilter.get(max).name) < 0) {
 					max = i;
 				}
 			}
@@ -64,7 +64,7 @@ public class Tri {
 		while(oldfilter.size() != 1) {
 			int min = 0; /*index du min */
 			for(int i = 1; i<oldfilter.size(); i++) {
-				if(oldfilter.get(i).name.compareTo(oldfilter.get(min).name) == -1) {
+				if(oldfilter.get(i).name.compareTo(oldfilter.get(min).name) > 0) {
 					min = i;
 				}
 			}

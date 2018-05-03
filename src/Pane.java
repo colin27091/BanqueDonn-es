@@ -28,6 +28,7 @@ public class Pane extends javax.swing.JPanel implements ActionListener {
 
 	JButton Add_Tag;
 	JButton Add_folder;
+	JButton Add_folder2;
 	JButton Add_file;
 	JButton All_select;
 	JButton Appliquer;
@@ -63,7 +64,7 @@ public class Pane extends javax.swing.JPanel implements ActionListener {
 		this.PanelGeneral.removeAll();
 
 		if (cases.isEmpty()) {
-			this.PanelGeneral.add(Add_folder);
+			this.PanelGeneral.add(Add_folder2);
 		} else {
 			for (int i = 0; i < cases.size(); i++) {
 				GridBagConstraints c = new GridBagConstraints();
@@ -76,6 +77,9 @@ public class Pane extends javax.swing.JPanel implements ActionListener {
 			}
 		}
 		this.PanelGeneral.repaint();
+		this.PanelGeneral.revalidate();
+		super.revalidate();
+		super.repaint();
 	}
 
 	private void initComponents() {
@@ -88,6 +92,7 @@ public class Pane extends javax.swing.JPanel implements ActionListener {
 		All_select = new javax.swing.JButton();
 		All_deselect = new javax.swing.JButton();
 		Add_folder = new javax.swing.JButton();
+		Add_folder2 = new javax.swing.JButton();
 		Add_file = new javax.swing.JButton();
 		SplitCentral = new javax.swing.JSplitPane();
 		PanelLateral = new javax.swing.JPanel();
@@ -154,6 +159,12 @@ public class Pane extends javax.swing.JPanel implements ActionListener {
 		All_deselect.setActionCommand("All_deselect");
 
 		Add_folder.setText("Ajouter Dossier");
+		Add_folder.addActionListener(this.ctr);
+		Add_folder.setActionCommand("Add_folder");
+		
+		Add_folder2.setText("Ajouter Dossier");
+		Add_folder2.addActionListener(this.ctr);
+		Add_folder2.setActionCommand("Add_folder");
 
 		Add_file.setText("Ajouter Image");
 		Add_file.addActionListener(this.ctr);
@@ -239,12 +250,14 @@ public class Pane extends javax.swing.JPanel implements ActionListener {
 		Filtre_tri.addTab("Filtrage", Filtrage);
 
 		Appliquer.setText("Appliquer");
-		Appliquer.addActionListener(this.ctr);
+		Appliquer.addActionListener(this);
 		Appliquer.setActionCommand("Appliquer");
 
-		Add_folder.addActionListener(this.ctr);
-		Add_folder.setActionCommand("Add_folder");
+		
 		Remove_choice.setText("Annuler");
+		Remove_choice.addActionListener(this.ctr);
+		Remove_choice.setActionCommand("Annuler");
+		
 
 		javax.swing.GroupLayout PanelLateralLayout = new javax.swing.GroupLayout(PanelLateral);
 		PanelLateral.setLayout(PanelLateralLayout);
@@ -331,6 +344,14 @@ public class Pane extends javax.swing.JPanel implements ActionListener {
 			}
 			this.ctr.removePic(pics);
 			
+		}
+		
+		if(e.getActionCommand() == "Appliquer") {
+			ArrayList<String> tri = new ArrayList<String>();
+			ArrayList<String> filtre = new ArrayList<String>();
+			tri.add((String) this.TriPar.getSelectedItem());
+			tri.add((String) this.Croisant_dec.getSelectedItem());
+			this.ctr.setParam(tri, filtre);
 		}
 
 

@@ -11,6 +11,8 @@ public class Model extends Observable{
 	
 	
 	Model() {
+		data = new ArrayList<Pic>();
+		
 	}
 
 	void setData(ArrayList<Pic> newfilter) {

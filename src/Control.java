@@ -18,7 +18,8 @@ public class Control implements WindowListener, MouseListener, ActionListener {
 
 	Model model;
 	ArrayList<Case> cases;
-	
+	ArrayList<String> tri;
+	ArrayList<String> filtre;
 
 	Control(Model mdl) {
 		this.model = mdl;
@@ -72,17 +73,40 @@ public class Control implements WindowListener, MouseListener, ActionListener {
 		// TODO Auto-generated method stub
 
 	}
-	
-	void removePic(ArrayList<Pic> pics) {
-		for(Pic pic : pics) {
-			for(int i = 0; i < this.model.data.size(); i++) {
-				if(this.model.data.get(i) == pic) {
-					this.model.data.remove(i);
-				}
-			}
-			pic.file.delete();
+
+	void setParam(ArrayList<String> tri, ArrayList<String> filtre) {
+		ArrayList<Pic> data = new ArrayList<Pic>();
+		if (!filtre.isEmpty()) {
+
 		}
-		this.model.setData(this.model.data);
+		if (tri.get(0) == "Date") {
+			if (tri.get(1) == "Croissant") {
+				data = Tri.dateC(this.model.data);
+			} else {
+				data = Tri.dateD(this.model.data);
+			}
+		} else {
+			if (tri.get(1) == "Croissant") {
+				data = Tri.nomC(this.model.data);
+			} else {
+				data = Tri.nomD(this.model.data);
+			}
+		}
+
+		this.model.setData(data);
+
+	}
+
+	void removePic(ArrayList<Pic> pics) {
+		ArrayList<Pic> data = new ArrayList<Pic>();
+		for (int i = 0; i < this.model.data.size(); i++) {
+			if(! pics.contains(this.model.data.get(i))) {
+				data.add(this.model.data.get(i));
+			}
+		}
+		// pic.file.delete();
+
+		this.model.setData(data);
 	}
 
 	void chooseFolder() {
@@ -132,7 +156,7 @@ public class Control implements WindowListener, MouseListener, ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if (e.getActionCommand() == "Appliquer") {
+		if (e.getActionCommand() == "Annuler") {
 			this.model.setData(Pic.fromFiles(new File("/home/colin/Documents/Licence Info/S4/projetjava/images")));
 		}
 
@@ -143,27 +167,16 @@ public class Control implements WindowListener, MouseListener, ActionListener {
 			// System.out.println(choix.getSelectedFile());
 			if (choix.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
 				this.model.setData(Pic.fromFiles(new File(choix.getSelectedFile().getAbsolutePath().toString())));
-				
+
 			} else {
 				System.out.println("fail");
 			}
-			//this.model.setData(Pic.fromFiles(new File(
-			/*if (choix.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
-				System.out.println(choix.getSelectedFile().getAbsolutePath());
-			}*/
 		}
 
 		if (e.getActionCommand() == "Add_file") {
 			JFileChooser choix = new JFileChooser();
 			choix.setApproveButtonText("Ajouter images");
 			choix.setFileSelectionMode(JFileChooser.FILES_ONLY);
-			
-			/*
-			 * if ( choix.showOpenDialog(null) == JFileChooser.APPROVE_OPTION)
-			 * this.model.setData(Pic.fromFiles(new
-			 * File(choix.getSelectedFile().getAbsolutePath().toString())));
-			 */
-
 		}
 
 	}
