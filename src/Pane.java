@@ -102,6 +102,8 @@ public class Pane extends javax.swing.JPanel implements ActionListener {
 		Appliquer = new javax.swing.JButton();
 		Remove_choice = new javax.swing.JButton();
 		jScrollPane1 = new javax.swing.JScrollPane();
+		jScrollPane1.getVerticalScrollBar().setUnitIncrement(15);
+
 		PanelGeneral = new javax.swing.JPanel();
 
 		Supp.setBackground(new Color(215, 213, 212));
@@ -139,6 +141,8 @@ public class Pane extends javax.swing.JPanel implements ActionListener {
 		Add_Tag.setText("Ajouter un Tag");
 
 		Supp.setText("Supprimer");
+		Supp.addActionListener(this);
+		Supp.setActionCommand("Supp");
 
 		All_select.setText("Tout selectionner");
 		All_select.addActionListener(this);
@@ -316,6 +320,15 @@ public class Pane extends javax.swing.JPanel implements ActionListener {
 			}
 			repaint();
 		}
+		/*if(e.getActionCommand()== "Supp") {
+			for (int i = 0; i < cases.size(); i++) {
+				this.PanelGeneral.remove(cases.get(i));
+				cases.get(i).selection.setSelected(true);
+				this.PanelGeneral.remove(cases.get(i));
+				
+				
+			}*/
+		
 
 	}
 

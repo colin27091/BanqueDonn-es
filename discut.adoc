@@ -1,4 +1,4 @@
-= Discussion du Projet
+﻿= Discussion du Projet
 
 == Colin
 Etat actuel de la frame:
@@ -118,3 +118,6 @@ PS: très classe le bandeau que tu as fait Quentin !
 
 Peut-être pourrait-on se donner rendez-vous à la biblio demain vers 10h, pour préparer le diaporama et la présentation ?
 (Pour une fois j'apprécierais que vous répondiez à ce message. Pour une discussion, ce fichier ressemble plus à un monologue.)
+
+--Quentin
+Sachant que tu nous à laché y a une semaine, je voit pas comment tu pourrait préparer un diaporama sur un projet que tu n'a presque pas réalisé. On a passé toute une semaine a essayer de rendre un truc présentable sans que tu nous aide.

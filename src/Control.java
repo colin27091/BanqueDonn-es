@@ -154,7 +154,6 @@ public class Control implements WindowListener, MouseListener, ActionListener {
 			// System.out.println(choix.getSelectedFile());
 			if (choix.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
 				this.model.setData(Pic.fromFiles(new File(choix.getSelectedFile().getAbsolutePath().toString())));
-
 				System.out.println(choix.getSelectedFile().getAbsolutePath().toString());
 			} else {
 				System.out.println("fail");
@@ -175,9 +174,10 @@ public class Control implements WindowListener, MouseListener, ActionListener {
 			 * this.model.setData(Pic.fromFiles(new
 			 * File(choix.getSelectedFile().getAbsolutePath().toString())));
 			 */
+			
+			
 		}
 
-		
 	}
 
 }
