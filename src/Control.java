@@ -104,7 +104,10 @@ public class Control implements WindowListener, MouseListener, ActionListener {
 				data.add(this.model.data.get(i));
 			}
 		}
-		// pic.file.delete();
+		for(Pic pic : pics) {
+			pic.file.delete();
+		}
+		
 
 		this.model.setData(data);
 	}
@@ -156,10 +159,6 @@ public class Control implements WindowListener, MouseListener, ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if (e.getActionCommand() == "Annuler") {
-			this.model.setTag(Pic.fromFiles(new File("/home/colin/Documents/Licence Info/S4/projetjava/images")));
-			this.model.setData(Pic.fromFiles(new File("/home/colin/Documents/Licence Info/S4/projetjava/images")));
-		}
 
 		if (e.getActionCommand() == "Add_folder") {
 			JFileChooser choix = new JFileChooser();

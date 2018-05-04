@@ -80,7 +80,7 @@ public class Pane extends javax.swing.JPanel implements ActionListener {
 		}
 		this.filtres = new ArrayList<JCheckBox>();
 		
-		for(Pic pic : pics) {
+		/*for(Pic pic : pics) {
 			if(! pic.tags.isEmpty()) {
 				for(String tag : pic.tags) {
 					if(!this.filtres.contains(tag)) {
@@ -88,7 +88,7 @@ public class Pane extends javax.swing.JPanel implements ActionListener {
 					}
 				}
 			}
-		}
+		}*/
 		
 		for(JCheckBox jcb : this.filtres) {
 			this.All_filtrage.add(jcb);
