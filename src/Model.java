@@ -3,6 +3,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Hashtable;
@@ -18,35 +19,55 @@ public class Model extends Observable {
 
 	}
 
-	void setTag() {
-		try {
-			
-			File f = new File(System.getProperty("user.home")+"/.pictag");
-			FileReader pictag = new FileReader(f);
-			BufferedReader r = new BufferedReader(pictag);
-			String line = r.readLine();
-			Scanner scan = new Scanner(r);
+	void setTag(ArrayList<Pic> pics) {
+		File pictag = new File(System.getProperty("user.home") + "/.pictag");
+		if (!pictag.exists()) {
+			try {
+				pictag.createNewFile();
+				try {
 
-			while (line != null) {
-				System.out.println(scan);
-				String[] imageTag = line.split(":");
-				String img = imageTag[0];
-				String Alltag = imageTag[1];
-				System.out.println(img);
-				String[] tags = Alltag.split(",");
-				for (int i2 = 0; i2 < tags.length; i2++) {
-					String tag = tags[i2];
-					System.out.println(tags[i2]);
+					FileReader fr = new FileReader(pictag);
+					BufferedReader r = new BufferedReader(fr);
+					String line = r.readLine();
+
+				} catch (Exception e) {
 
 				}
-
-				line = r.readLine();
+			} catch (IOException e1) {
+				e1.printStackTrace();
 			}
-			r.close();
-		} catch (Exception e) {
-			System.out.println("Erreur");
-			throw new Error(e);
+
+		} else {
+
+			try {
+
+				FileReader picta = new FileReader(pictag);
+				BufferedReader r = new BufferedReader(picta);
+				String line = r.readLine();
+
+				for (Pic pic : pics) {
+					pic.tags = new ArrayList<String>();
+					while (line != null) {
+						if (line.split(":")[0] == pic.name) {
+							String All_tag = line.split(":")[1];
+							String[] tags = All_tag.split(",");
+							for (String tag : tags) {
+								pic.tags.add(tag);
+							}
+						}
+
+						line = r.readLine();
+					}
+					r.close();
+				}
+			} catch (Exception e) {
+				System.out.println("Erreur");
+				throw new Error(e);
+			}
+
 		}
+		this.setData(pics);
+
 	}
 
 	void setData(ArrayList<Pic> newfilter) {

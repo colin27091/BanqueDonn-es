@@ -25,6 +25,7 @@ public class Pane extends javax.swing.JPanel implements ActionListener {
 	ArrayList<Case> cases;
 	ArrayList<String> filtrage;
 	ArrayList<String> tri;
+	ArrayList<JCheckBox> filtres;
 	Control ctr;
 
 	JButton Add_Tag;
@@ -77,6 +78,23 @@ public class Pane extends javax.swing.JPanel implements ActionListener {
 
 			}
 		}
+		this.filtres = new ArrayList<JCheckBox>();
+		
+		for(Pic pic : pics) {
+			if(! pic.tags.isEmpty()) {
+				for(String tag : pic.tags) {
+					if(!this.filtres.contains(tag)) {
+						this.filtres.add(new JCheckBox(tag));
+					}
+				}
+			}
+		}
+		
+		for(JCheckBox jcb : this.filtres) {
+			this.All_filtrage.add(jcb);
+		}
+		
+		
 		this.PanelGeneral.repaint();
 		this.PanelGeneral.revalidate();
 		super.revalidate();

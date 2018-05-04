@@ -157,6 +157,7 @@ public class Control implements WindowListener, MouseListener, ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getActionCommand() == "Annuler") {
+			this.model.setTag(Pic.fromFiles(new File("/home/colin/Documents/Licence Info/S4/projetjava/images")));
 			this.model.setData(Pic.fromFiles(new File("/home/colin/Documents/Licence Info/S4/projetjava/images")));
 		}
 
