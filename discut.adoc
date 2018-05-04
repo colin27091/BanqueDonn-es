@@ -121,3 +121,11 @@ Peut-être pourrait-on se donner rendez-vous à la biblio demain vers 10h, pour 
 
 == Quentin
 Sachant que tu nous à laché y a une semaine, je voit pas comment tu pourrait préparer un diaporama sur un projet que tu n'a presque pas réalisé. On a passé toute une semaine a essayer de rendre un truc présentable sans que tu nous aide.
+
+== Nath
+Je trouve ironique le fait que pour les 3 ou 4 premières semaines du projet c'était moi qui essayait réellement de le faire, et qui essayait de vous pousser à définir qu'est-ce qu'on allait faire, sans quoi j'étais bloqué et je ne pouvais virtuellement rien coder, puisqu'on avait pour ainsi dire rien décidé du tout sur rien.
+
+Finalement vous avez décidé de tout faire à la dernière minute, (sans apparemment rien utiliser de ce que j'avais codé au tout début, du peu qu'on s'était mis d'accord pour la "V1"). Cela, au milieu de la rentrée et des contrôles, au moment où je n'étais plus disponible... C'est symmétrique au moins.
+
+== Nath
+Puisque vous ne le voulez pas, je ne participerai pas à votre présentation cet après-midi. Je vous souhaite bonne chance.
