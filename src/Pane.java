@@ -147,16 +147,7 @@ public class Pane extends javax.swing.JPanel implements ActionListener {
 		PanelHaut.setBackground(new java.awt.Color(219, 109, 45));
 
 		PanelHaut.add(new JLabel(new ImageIcon("logobis.png")));
-		/*
-		 * javax.swing.GroupLayout PanelHautLayout = new
-		 * javax.swing.GroupLayout(PanelHaut); PanelHaut.setLayout(PanelHautLayout);
-		 * PanelHautLayout.setHorizontalGroup(
-		 * PanelHautLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.
-		 * LEADING) .addGap(0, 1598, Short.MAX_VALUE) );
-		 * PanelHautLayout.setVerticalGroup(
-		 * PanelHautLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.
-		 * LEADING) .addGap(0, 43, Short.MAX_VALUE) );
-		 */
+		
 
 		add(PanelHaut, java.awt.BorderLayout.NORTH);
 
@@ -164,6 +155,8 @@ public class Pane extends javax.swing.JPanel implements ActionListener {
 		PanelCentral.setLayout(new java.awt.BorderLayout());
 
 		Add_Tag.setText("Ajouter un Tag");
+		Add_Tag.addActionListener(this);
+		Add_Tag.setActionCommand("Add_Tag");
 
 		Supp.setText("Supprimer");
 		Supp.addActionListener(this);
@@ -372,6 +365,20 @@ public class Pane extends javax.swing.JPanel implements ActionListener {
 			this.All_filtrage.add(new JCheckBox("filtre 1"));
 		}
 
+		if(e.getActionCommand() == "Add_Tag") {
+			ArrayList<Pic> pics = new ArrayList<Pic>();
+			for(int i = 0; i< cases.size(); i++) {
+				if(cases.get(i).selection.isSelected()) {
+					pics.add(cases.get(i).pic);
+				}
+			}
+			if(!pics.isEmpty()) {
+				//new AjoutTag(pics);
+			}else {
+				System.out.println("pas de selection");
+			}
+			
+		}
 
 	}
 
