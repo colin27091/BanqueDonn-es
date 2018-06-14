@@ -10,6 +10,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Hashtable;
@@ -21,7 +22,7 @@ import javax.swing.JLabel;
  * Classe qui représente une image que le programme peut
  * afficher, modifier, etc.
  */
-public class Pic {
+public class Pic implements Serializable {
 	String name;
 	File file;
 	String extension;
@@ -52,9 +53,7 @@ public class Pic {
 	}
 
 	public String toString() {
-		///return String.format("{name: '%s', path: '%s', extension: '%s'}", this.name, this.file.getAbsolutePath(),
-				//this.extension);
-		return this.name;
+		return String.format("{name: '%s', path: '%s', extension: '%s'}", this.name, this.file.getAbsolutePath(), this.extension);
 	}
 
 	public boolean delete() {
@@ -65,16 +64,42 @@ public class Pic {
 	static String formats = "png|jpeg|jpg|bmp|gif|tiff";
 	// ^ formats que le programme reconnaît
 	// liste temporaire
+	
+	public File getFile() {
+		return this.file;
+	}
+	
+	public ImageIcon getImage() {
+		return this.image;
+	}
 
-	String getName() {
+	
+	public String getName() {
 		return this.name;
 	}
 
-	String getExtension() {
+	public String getExtension() {
 		return this.extension;
 	}
 	
 	
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	public void setExtention(String ext) {
+		this.extension =ext;
+	}
+	
+	public void setFile(File file) {
+		this.file = file;
+	}
+	
+	public void setImage(ImageIcon img) {
+		this.image =img;
+	}
+	
+
 	//recupere un boolean disant si oui ou non le file peut devenir un Pic
 	static boolean canBePic(File file) {
 		if (!file.isDirectory()) {

@@ -9,6 +9,7 @@ import javax.swing.BorderFactory;
 import javax.swing.GroupLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -17,8 +18,9 @@ import javax.swing.SwingConstants;
 public class Case extends JPanel {
 
 	Pic pic;
+	JComboBox liste_tags;
 	JCheckBox selection;
-	JLabel image;
+	static JLabel image;
 	JLabel nom;
 
 	private static final long serialVersionUID = 1L;
@@ -31,12 +33,16 @@ public class Case extends JPanel {
 		this.setBackground(Color.white);
 
 		image = new JLabel(pic.image, SwingConstants.CENTER);
-
+		
+		liste_tags= new JComboBox();
+		liste_tags.setSize(100,20);
+		liste_tags.setBounds(5, 25, 50, 20);
 		nom = new JLabel(pic.name);
 
+		
 		selection = new JCheckBox();
 		selection.setBackground(null);
-
+		this.add(liste_tags, BorderLayout.NORTH);
 		this.add(selection, BorderLayout.NORTH);
 		this.add(image);
 		this.add(nom, BorderLayout.SOUTH);

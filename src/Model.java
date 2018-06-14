@@ -13,6 +13,7 @@ import java.util.Scanner;
 public class Model extends Observable {
 
 	ArrayList<Pic> data;
+	File fichier = new File("images.xml");
 
 	Model() {
 		data = new ArrayList<Pic>();
@@ -78,5 +79,16 @@ public class Model extends Observable {
 			this.notifyObservers(newfilter);
 		}
 	}
+	
+
+	public void chargement(String dir) {
+		
+		File repImages = new File(dir);
+		File[] imagesListe = repImages.listFiles();
+		this.data = new ArrayList<>();
+		this.data = Pic.fromFiles(repImages);
+	}
+	
+	
 
 }
