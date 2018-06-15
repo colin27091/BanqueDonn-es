@@ -23,6 +23,15 @@ public class Model extends Observable {
 
 	}
 
+	
+	void addTag(String tag, ArrayList<Pic> pics) {
+	
+		System.out.println(pics.toString());
+		ArrayList<Pic> pictag = this.tags.get(tag);
+		pictag.addAll(pics);
+		this.tags.replace(tag, pics);
+	}
+	
 	void setTag(ArrayList<Pic> pics) {
 		this.tags = Tag.extractTag(this.data);
 	}

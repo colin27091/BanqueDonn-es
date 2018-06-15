@@ -222,6 +222,8 @@ public class Pane extends javax.swing.JPanel implements ActionListener {
 		nom.setActionCommand("nom");
 
 		tag.setText("Par Tag");
+		tag.addActionListener(this);
+		tag.setActionCommand("nom");
 
 		Filtre_tri.setPreferredSize(new java.awt.Dimension(100, 450));
 
@@ -362,7 +364,19 @@ public class Pane extends javax.swing.JPanel implements ActionListener {
 		}
 		
 		if(e.getActionCommand() == "nom") {
-			this.All_filtrage.add(new JCheckBox("filtre 1"));
+			ArrayList<Pic> pics = new ArrayList<>;
+			for(Pic pic : this.ctr.model.data) {
+				if(pic.name == this.recherche.getText()) {
+					pics.add(pic);
+				}
+			}
+			this.ctr.model.setData(pics);
+		}
+		
+		if(e.getActionCommand() == "tag") {
+			ArrayList<Pic> pics = this.ctr.model.tags.get(this.recherche.getText());
+			this.ctr.model.setData(pics);
+			
 		}
 
 		if(e.getActionCommand() == "Add_Tag") {
@@ -373,9 +387,9 @@ public class Pane extends javax.swing.JPanel implements ActionListener {
 				}
 			}
 			if(!pics.isEmpty()) {
-				//new AjoutTag(pics);
+				new AjoutTagbis(pics, this.ctr);
 			}else {
-				System.out.println("pas de selection");
+				System.out.println("Pas de selection");
 			}
 			
 		}
