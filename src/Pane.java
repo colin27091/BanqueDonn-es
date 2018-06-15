@@ -147,16 +147,7 @@ public class Pane extends javax.swing.JPanel implements ActionListener {
 		PanelHaut.setBackground(new java.awt.Color(219, 109, 45));
 
 		PanelHaut.add(new JLabel(new ImageIcon("logobis.png")));
-		/*
-		 * javax.swing.GroupLayout PanelHautLayout = new
-		 * javax.swing.GroupLayout(PanelHaut); PanelHaut.setLayout(PanelHautLayout);
-		 * PanelHautLayout.setHorizontalGroup(
-		 * PanelHautLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.
-		 * LEADING) .addGap(0, 1598, Short.MAX_VALUE) );
-		 * PanelHautLayout.setVerticalGroup(
-		 * PanelHautLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.
-		 * LEADING) .addGap(0, 43, Short.MAX_VALUE) );
-		 */
+		
 
 		add(PanelHaut, java.awt.BorderLayout.NORTH);
 
@@ -164,6 +155,8 @@ public class Pane extends javax.swing.JPanel implements ActionListener {
 		PanelCentral.setLayout(new java.awt.BorderLayout());
 
 		Add_Tag.setText("Ajouter un Tag");
+		Add_Tag.addActionListener(this);
+		Add_Tag.setActionCommand("Add_Tag");
 
 		Supp.setText("Supprimer");
 		Supp.addActionListener(this);
@@ -229,6 +222,8 @@ public class Pane extends javax.swing.JPanel implements ActionListener {
 		nom.setActionCommand("nom");
 
 		tag.setText("Par Tag");
+		tag.addActionListener(this);
+		tag.setActionCommand("nom");
 
 		Filtre_tri.setPreferredSize(new java.awt.Dimension(100, 450));
 
@@ -369,9 +364,35 @@ public class Pane extends javax.swing.JPanel implements ActionListener {
 		}
 		
 		if(e.getActionCommand() == "nom") {
-			this.All_filtrage.add(new JCheckBox("filtre 1"));
+			ArrayList<Pic> pics = new ArrayList<>;
+			for(Pic pic : this.ctr.model.data) {
+				if(pic.name == this.recherche.getText()) {
+					pics.add(pic);
+				}
+			}
+			this.ctr.model.setData(pics);
+		}
+		
+		if(e.getActionCommand() == "tag") {
+			ArrayList<Pic> pics = this.ctr.model.tags.get(this.recherche.getText());
+			this.ctr.model.setData(pics);
+			
 		}
 
+		if(e.getActionCommand() == "Add_Tag") {
+			ArrayList<Pic> pics = new ArrayList<Pic>();
+			for(int i = 0; i< cases.size(); i++) {
+				if(cases.get(i).selection.isSelected()) {
+					pics.add(cases.get(i).pic);
+				}
+			}
+			if(!pics.isEmpty()) {
+				new AjoutTagbis(pics, this.ctr);
+			}else {
+				System.out.println("Pas de selection");
+			}
+			
+		}
 
 	}
 
