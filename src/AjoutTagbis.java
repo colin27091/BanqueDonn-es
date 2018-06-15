@@ -44,16 +44,17 @@ public class AjoutTagbis extends JFrame implements ActionListener {
 			GridBagConstraints c = new GridBagConstraints();
 			c.gridx = i % 4;
 			c.insets = new Insets(10, 10, 10, 10);
-			
 			JLabel scroll = new JLabel();
-			scroll.setBackground(Color.green);
-
-			scroll.add(new JLabel(this.pics.get(i).image), c);
+			scroll.add(new JLabel(this.pics.get(i).image));
 			
 			this.jScrollPane2.add(scroll);
+			this.jScrollPane2.getViewport().setBackground(new java.awt.Color(219, 109, 45));
+			
+			
+			repaint();
 
 		}
-
+        
         apply_button.setText("Appliquer");
         apply_button.setActionCommand("apply_button");
         apply_button.addActionListener(this /*controleur*/);

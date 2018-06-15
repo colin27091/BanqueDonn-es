@@ -15,8 +15,9 @@ public class Tag {
 
 	static Hashtable<String, ArrayList<Pic>> extractTag(ArrayList<Pic> data) {
 		Hashtable<String, ArrayList<Pic>> tags = new Hashtable<String, ArrayList<Pic>>();
+		return tags;
 
-		for (Pic pic : data) {
+		/*for (Pic pic : data) {
 			for (String tag : pic.tags) {
 				if (!tags.containsKey(tag)) {
 					tags.put(tag, new ArrayList<Pic>());
@@ -28,7 +29,7 @@ public class Tag {
 
 		}
 
-		return tags;
+		return tags;*/
 
 	}
 

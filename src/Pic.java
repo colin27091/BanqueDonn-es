@@ -25,6 +25,10 @@ import javax.swing.JLabel;
  * afficher, modifier, etc.
  */
 public class Pic implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	String name;
 	File file;
 	String extension;

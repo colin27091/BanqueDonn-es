@@ -218,11 +218,11 @@ public class Pane extends javax.swing.JPanel implements ActionListener {
 		recherche.setText("Recherche");
 
 		nom.setText("Par Nom");
-		nom.addActionListener(this);
+		nom.addActionListener(this.ctr);
 		nom.setActionCommand("nom");
 
 		tag.setText("Par Tag");
-		tag.addActionListener(this);
+		tag.addActionListener(this.ctr);
 		tag.setActionCommand("nom");
 
 		Filtre_tri.setPreferredSize(new java.awt.Dimension(100, 450));
@@ -364,7 +364,7 @@ public class Pane extends javax.swing.JPanel implements ActionListener {
 		}
 		
 		if(e.getActionCommand() == "nom") {
-			ArrayList<Pic> pics = new ArrayList<>;
+			ArrayList<Pic> pics = new ArrayList<>();
 			for(Pic pic : this.ctr.model.data) {
 				if(pic.name == this.recherche.getText()) {
 					pics.add(pic);

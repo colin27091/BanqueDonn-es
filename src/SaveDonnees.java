@@ -38,10 +38,9 @@ public void chargement() {
 			this.mdl.data = (ArrayList<Pic>) ois.readObject();
 			ois.close();
 		} catch (FileNotFoundException e) {
-			//Fallback
 			
 		} catch (IOException | ClassNotFoundException e2) {
-			throw new RuntimeException("Lecture des donn√©es impossible ou donn√©es corrompues");
+			throw new RuntimeException("Lecture des donnÈes impossible ou donnÈes corrompues");
 		}	
 	}
 
@@ -54,7 +53,7 @@ public void chargement() {
 			oos.close();
 			fos.close();
 		} catch (IOException e1) {
-			throw new RuntimeException("Impossible d'√©crire les donn√©es");
+			throw new RuntimeException("Impossible d'Ècrire les donn√©es");
 		}
 	}
 	
