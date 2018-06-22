@@ -15,10 +15,10 @@ import javax.swing.ImageIcon;
 public class Main {
 
 	public static void main(String[] args) {
-
 		// Création du contrôleur
 		Model mdl = new Model();
-
+		mdl.chargement("images/");
+		
 		Control ctr = new Control(mdl);
 
 		// Création de notre fenêtre avec le contrôleur en paramètre

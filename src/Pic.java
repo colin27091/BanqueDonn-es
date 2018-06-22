@@ -14,6 +14,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Hashtable;
+import java.util.Set;
+
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -23,6 +25,10 @@ import javax.swing.JLabel;
  * afficher, modifier, etc.
  */
 public class Pic implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	String name;
 	File file;
 	String extension;
@@ -31,7 +37,11 @@ public class Pic implements Serializable {
 	ArrayList<String> tags;
 	
 
-	Pic(String name, File file, String extension, ImageIcon image, Hashtable<String,ArrayList<String>> tags ) {
+	public Pic(String name){
+		this.name = name;
+	}
+
+	public Pic(String name, File file, String extension, ImageIcon image, Hashtable<String,Set<String>> tags ) {
 		this.name = name;
 		this.file = file;
 		this.extension = extension;
@@ -42,13 +52,13 @@ public class Pic implements Serializable {
 	}
 
 
-	Pic(String name, File file, String extension, ImageIcon image) {
+	public Pic(String name, File file, String extension, ImageIcon image) {
 		this.name = name;
 		this.file = file;
 		this.extension = extension;
 		this.image = image;
 		//this.dimension = new Dimension(image.getIconHeight(), image.getIconWidth());
-		this.date = new Date(file.lastModified());
+
 
 	}
 

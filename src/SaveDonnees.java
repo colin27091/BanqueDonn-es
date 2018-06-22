@@ -17,40 +17,43 @@ import java.util.ArrayList;
 import java.util.Observable;
 
 
-public class SaveDonnees extends Model { 
+public class SaveDonnees{ 
+	
+	Model mdl;
 
 	
-	public SaveDonnees() {}
+	public SaveDonnees(Model mdl) {
+		this.mdl = mdl;
+	}
+	
 	
 	@SuppressWarnings("unchecked")
-	public void chargement(String dir) {
+	
+	
+public void chargement() {
 		
-		XMLDecoder decoder = null;
+		ObjectInputStream ois;
 		try {
-			decoder = new XMLDecoder(new BufferedInputStream(new FileInputStream("images.xml")));
-			this.data = (ArrayList<Pic>) decoder.readObject();
+			ois = new ObjectInputStream(new FileInputStream("images.dat"));
+			this.mdl.data = (ArrayList<Pic>) ois.readObject();
+			ois.close();
 		} catch (FileNotFoundException e) {
-			super.chargement(dir);
-		} finally {
-			if (decoder != null) {
-				decoder.close();
-			}
-		}
+			
+		} catch (IOException | ClassNotFoundException e2) {
+			throw new RuntimeException("Lecture des données impossible ou données corrompues");
+		}	
 	}
 
 	public void enregistrement() {
-
-		XMLEncoder encoder = null;
+		
 		try {
-			encoder = new XMLEncoder(new BufferedOutputStream(new FileOutputStream("images.xml")));
-			encoder.writeObject(this.data);
-			encoder.flush();
-		} catch (final java.io.IOException err) {
-			err.printStackTrace();
-		} finally {
-			if (encoder != null) {
-				encoder.close();
-			}
+			FileOutputStream fos = new FileOutputStream("images.dat");
+			ObjectOutputStream oos =  new ObjectOutputStream(fos);
+			oos.writeObject(this.mdl.data);
+			oos.close();
+			fos.close();
+		} catch (IOException e1) {
+			throw new RuntimeException("Impossible d'écrire les donnÃ©es");
 		}
 	}
 	

@@ -51,8 +51,18 @@ public class Vue extends JFrame implements Observer{
 		this.setLocationRelativeTo(null);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLayout(new BorderLayout());
+		
 
 		this.ctr = ctr;
+		
+		this.addWindowListener(new java.awt.event.WindowAdapter() {
+		    @Override
+		    public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+		    	SaveDonnees sd = new SaveDonnees(ctr.model);
+		        sd.enregistrement();
+		    }
+		});
+		
 		this.pane = new Pane(ctr);
 		
 		this.pics = new ArrayList<Pic>();
